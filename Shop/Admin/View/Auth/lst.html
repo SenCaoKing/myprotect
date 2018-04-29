@@ -1,0 +1,717 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<!--标题-->
+	
+	<title>管理中心 - 权限列表 </title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link href="/Public/Admin/Styles/general.css" rel="stylesheet" type="text/css">
+	<link href="/Public/Admin/Styles/main.css" rel="stylesheet" type="text/css">
+	<link href="/Public/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="/Public/bootstrap/js/jquery.min.js">
+	</script>
+	<script type="text/javascript" src="/Public/bootstrap/js/bootstrap.min.js">
+	</script>
+	<!--其它样式-->
+	
+    <style type="text/css">
+    td{text-align: center;}
+    a.num,span.current{margin: 5px;border: 1px solid #ccc;padding:0 5px;color: white;
+        width: 20px !important;height: 20px !important;text-decoration: none !important;}
+    span.current{background: #9cf;border: 1px solid #9cf;}
+    a.prev,a.next{text-decoration: none !important;color:#9cf !important}
+    </style>
+
+</head>
+<body>
+<h1 style="font-size:14px">
+    <span><a href="/Admin/Index/main.html" style="color:#9cf">管理中心</a></span>
+
+    <!--具体操作-->
+    
+		<span class="action-span"><a href="/Admin/Auth/add.html">添加权限</a></span>
+		<span id="search_id"> - 权限列表 </span>
+
+
+    <div style="clear:both"></div>
+</h1>
+
+<!--内容主题-->
+
+	<div class="list-div" id="listDiv">
+		<table cellpadding="3" cellspacing="1">
+	    	<tbody><tr>
+	            <th>权限名称</th>
+	            <th>模块名称</th>
+	            <th>控制器名称</th>
+	            <th>方法名称</th>
+	            <th>上级权限的ID(0代表顶级权限)</th>
+	            <th>权限等级</th>
+				<th width="120">操作</th>
+	        </tr>
+			            
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					商品管理</td>
+					<td>null</td>
+					<td>null</td>
+					<td>null</td>
+					<td>0</td>
+					<td>0</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/1.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/1.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					--------商品列表</td>
+					<td>Admin</td>
+					<td>Goods</td>
+					<td>lst</td>
+					<td>1</td>
+					<td>1</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/2.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/2.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------删除商品</td>
+					<td>Admin</td>
+					<td>Goods</td>
+					<td>delete</td>
+					<td>2</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/3.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/3.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------编辑商品</td>
+					<td>Admin</td>
+					<td>Goods</td>
+					<td>edit</td>
+					<td>2</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/4.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/4.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------添加商品</td>
+					<td>Admin</td>
+					<td>Goods</td>
+					<td>add</td>
+					<td>2</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/5.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/5.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------ajax获取商品属性</td>
+					<td>Admin</td>
+					<td>Goods</td>
+					<td>ajaxGetAttr</td>
+					<td>2</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/33.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/33.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------ajax删除商品图片</td>
+					<td>Admin</td>
+					<td>Goods</td>
+					<td>ajaxDeletePic</td>
+					<td>2</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/43.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/43.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------ajax删除商品属性</td>
+					<td>Admin</td>
+					<td>Goods</td>
+					<td>ajaxDeleteAttr</td>
+					<td>2</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/44.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/44.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------商品放入回收站</td>
+					<td>Admin</td>
+					<td>Goods</td>
+					<td>recycle</td>
+					<td>2</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/45.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/45.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------库存量</td>
+					<td>Admin</td>
+					<td>Goods</td>
+					<td>number</td>
+					<td>2</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/48.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/48.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					--------商品分类列表</td>
+					<td>Admin</td>
+					<td>Category</td>
+					<td>lst</td>
+					<td>1</td>
+					<td>1</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/6.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/6.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------添加分类</td>
+					<td>Admin</td>
+					<td>Category</td>
+					<td>add</td>
+					<td>6</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/7.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/7.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------修改分类</td>
+					<td>Admin</td>
+					<td>Category</td>
+					<td>edit</td>
+					<td>6</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/8.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/8.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------删除分类</td>
+					<td>Admin</td>
+					<td>Category</td>
+					<td>delete</td>
+					<td>6</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/9.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/9.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					--------类型列表</td>
+					<td>Admin</td>
+					<td>Type</td>
+					<td>lst</td>
+					<td>1</td>
+					<td>1</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/24.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/24.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------添加类型</td>
+					<td>Admin</td>
+					<td>Type</td>
+					<td>add</td>
+					<td>24</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/25.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/25.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------修改类型</td>
+					<td>Admin</td>
+					<td>Type</td>
+					<td>edit</td>
+					<td>24</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/26.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/26.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------删除类型</td>
+					<td>Admin</td>
+					<td>Type</td>
+					<td>delete</td>
+					<td>24</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/27.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/27.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------属性列表</td>
+					<td>Admin</td>
+					<td>Attr</td>
+					<td>lst</td>
+					<td>24</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/28.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/28.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					------------------------添加属性</td>
+					<td>Admin</td>
+					<td>Attr</td>
+					<td>add</td>
+					<td>28</td>
+					<td>3</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/29.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/29.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					------------------------修改属性</td>
+					<td>Admin</td>
+					<td>Attr</td>
+					<td>edit</td>
+					<td>28</td>
+					<td>3</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/30.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/30.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					------------------------删除属性</td>
+					<td>Admin</td>
+					<td>Attr</td>
+					<td>delete</td>
+					<td>28</td>
+					<td>3</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/31.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/31.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					--------品牌列表·</td>
+					<td>Admin</td>
+					<td>Brand</td>
+					<td>lst</td>
+					<td>1</td>
+					<td>1</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/34.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/34.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------添加品牌</td>
+					<td>Admin</td>
+					<td>Brand</td>
+					<td>add</td>
+					<td>34</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/35.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/35.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------修改品牌</td>
+					<td>Admin</td>
+					<td>Brand</td>
+					<td>edit</td>
+					<td>34</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/36.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/36.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------删除品牌</td>
+					<td>Admin</td>
+					<td>Auth</td>
+					<td>delete</td>
+					<td>34</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/37.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/37.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					--------商品回收站</td>
+					<td>Admin</td>
+					<td>Goods</td>
+					<td>recyclelst</td>
+					<td>1</td>
+					<td>1</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/46.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/46.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------还原商品</td>
+					<td>Admin</td>
+					<td>Goods</td>
+					<td>restore</td>
+					<td>46</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/47.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/47.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					权限管理</td>
+					<td>null</td>
+					<td>null</td>
+					<td>null</td>
+					<td>0</td>
+					<td>0</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/10.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/10.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					--------权限列表</td>
+					<td>Admin</td>
+					<td>Auth</td>
+					<td>lst</td>
+					<td>10</td>
+					<td>1</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/11.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/11.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------添加权限</td>
+					<td>Admin</td>
+					<td>Auth</td>
+					<td>add</td>
+					<td>11</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/12.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/12.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------编辑权限</td>
+					<td>Admin</td>
+					<td>Auth</td>
+					<td>edit</td>
+					<td>11</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/13.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/13.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------删除权限</td>
+					<td>Admin</td>
+					<td>Auth</td>
+					<td>delete</td>
+					<td>11</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/14.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/14.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					--------角色列表</td>
+					<td>Admin</td>
+					<td>Role</td>
+					<td>lst</td>
+					<td>10</td>
+					<td>1</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/15.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/15.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------添加角色</td>
+					<td>Admin</td>
+					<td>Role</td>
+					<td>add</td>
+					<td>15</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/16.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/16.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------编辑角色</td>
+					<td>Admin</td>
+					<td>Role</td>
+					<td>edit</td>
+					<td>15</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/17.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/17.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------删除角色</td>
+					<td>Admin</td>
+					<td>Role</td>
+					<td>delete</td>
+					<td>15</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/18.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/18.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					--------管理员列表</td>
+					<td>Admin</td>
+					<td>Admin</td>
+					<td>lst</td>
+					<td>10</td>
+					<td>1</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/19.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/19.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------添加管理员</td>
+					<td>Admin</td>
+					<td>Admin</td>
+					<td>add</td>
+					<td>19</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/20.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/20.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------编辑管理员</td>
+					<td>Admin</td>
+					<td>Admin</td>
+					<td>edit</td>
+					<td>19</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/21.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/21.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------删除管理员</td>
+					<td>Admin</td>
+					<td>Admin</td>
+					<td>delete</td>
+					<td>19</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/22.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/22.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------禁用管理员</td>
+					<td>Admin</td>
+					<td>Admin</td>
+					<td>setUnuse</td>
+					<td>19</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/23.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/23.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					会员管理</td>
+					<td>null</td>
+					<td>null</td>
+					<td>null</td>
+					<td>0</td>
+					<td>0</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/38.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/38.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					--------会员等级列表</td>
+					<td>Admin</td>
+					<td>MemberLevel</td>
+					<td>lst</td>
+					<td>38</td>
+					<td>1</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/39.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/39.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------添加会员等级</td>
+					<td>Admin</td>
+					<td>MemberLevel</td>
+					<td>add</td>
+					<td>39</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/40.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/40.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------修改会员等级</td>
+					<td>Admin</td>
+					<td>MemberLevel</td>
+					<td>edit</td>
+					<td>39</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/41.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/41.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	                    
+				<tr class="tron">
+					<td style="text-align:left;text-indent:4px">
+					----------------删除会员等级</td>
+					<td>Admin</td>
+					<td>MemberLevel</td>
+					<td>delete</td>
+					<td>39</td>
+					<td>2</td>
+			        <td align="center">
+			        	<a href="/Admin/Auth/edit/id/42.html" title="编辑" style="color:#9cf">编辑</a> |
+		                <a href="/Admin/Auth/delete/id/42.html" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf">移除</a> 
+			        </td>
+		        </tr>
+	         
+	        <tr><td colspan="9"></td></tr>
+		</tbody></table>
+	</div>
+
+
+<div id="footer">版权所有,侵权必究@2016</div>
+
+</body></html>

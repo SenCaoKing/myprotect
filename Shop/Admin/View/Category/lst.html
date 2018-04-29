@@ -1,0 +1,394 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<!--标题-->
+	
+	<title>管理中心 - 商品分类列表 </title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link href="/Public/Admin/Styles/general.css" rel="stylesheet" type="text/css">
+	<link href="/Public/Admin/Styles/main.css" rel="stylesheet" type="text/css">
+	<link href="/Public/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="/Public/bootstrap/js/jquery.min.js">
+	</script>
+	<script type="text/javascript" src="/Public/bootstrap/js/bootstrap.min.js">
+	</script>
+	<!--其它样式-->
+	
+    <style type="text/css">
+      td{text-align: center;}
+      td.cat{text-align: left;}
+      a{color:#9cf !important}
+    </style>
+
+</head>
+<body>
+<h1 style="font-size:14px">
+    <span><a href="/Admin/Index/main.html" style="color:#9cf">管理中心</a></span>
+
+    <!--具体操作-->
+    
+		<span class="action-span"><a href="/Admin/Category/add.html">添加商品分类</a></span>
+		<span id="search_id"> - 商品分类列表 </span>
+
+
+    <div style="clear:both"></div>
+</h1>
+
+<!--内容主题-->
+
+<!-- 列表 -->
+<div class="list-div" id="listDiv">
+	<table cellpadding="3" cellspacing="1">
+    	<tbody><tr>
+    	    <th>ID</th>
+            <th>分类名称</th>
+            <th>上级分类的ID，0：代表顶级</th>
+			<th width="100">操作</th>
+        </tr>
+		            
+			<tr class="tron">
+			    <td>1</td>
+				<td class="cat">图像、音像、数字商品</td>
+				<td>0</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/1.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/1.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>2</td>
+				<td class="cat">--------电子书</td>
+				<td>1</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/2.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/2.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>5</td>
+				<td class="cat">----------------免费</td>
+				<td>2</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/5.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/5.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>6</td>
+				<td class="cat">----------------小说</td>
+				<td>2</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/6.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/6.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>7</td>
+				<td class="cat">----------------励志与成功</td>
+				<td>2</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/7.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/7.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>8</td>
+				<td class="cat">----------------两性/婚恋</td>
+				<td>2</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/8.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/8.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>3</td>
+				<td class="cat">--------数字音乐</td>
+				<td>1</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/3.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/3.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>9</td>
+				<td class="cat">----------------古典音乐</td>
+				<td>3</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/9.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/9.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>10</td>
+				<td class="cat">----------------流行音乐</td>
+				<td>3</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/10.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/10.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>11</td>
+				<td class="cat">----------------摇滚音乐</td>
+				<td>3</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/11.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/11.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>4</td>
+				<td class="cat">--------音像</td>
+				<td>1</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/4.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/4.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>12</td>
+				<td class="cat">----------------音乐</td>
+				<td>4</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/12.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/12.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>13</td>
+				<td class="cat">----------------影视</td>
+				<td>4</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/13.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/13.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>14</td>
+				<td class="cat">----------------游戏</td>
+				<td>4</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/14.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/14.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>15</td>
+				<td class="cat">手机、数码</td>
+				<td>0</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/15.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/15.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>16</td>
+				<td class="cat">--------智能手机</td>
+				<td>15</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/16.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/16.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>17</td>
+				<td class="cat">----------------小米</td>
+				<td>16</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/17.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/17.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>18</td>
+				<td class="cat">----------------三星</td>
+				<td>16</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/18.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/18.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>19</td>
+				<td class="cat">----------------苹果</td>
+				<td>16</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/19.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/19.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>20</td>
+				<td class="cat">----------------华为</td>
+				<td>16</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/20.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/20.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>21</td>
+				<td class="cat">--------数码</td>
+				<td>15</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/21.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/21.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>22</td>
+				<td class="cat">----------------数码相机</td>
+				<td>21</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/22.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/22.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>23</td>
+				<td class="cat">----------------数码电视</td>
+				<td>21</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/23.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/23.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>24</td>
+				<td class="cat">家用电器</td>
+				<td>0</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/24.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/24.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>25</td>
+				<td class="cat">--------大家电</td>
+				<td>24</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/25.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/25.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>26</td>
+				<td class="cat">----------------冰箱</td>
+				<td>25</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/26.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/26.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>27</td>
+				<td class="cat">----------------洗衣机</td>
+				<td>25</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/27.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/27.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>28</td>
+				<td class="cat">----------------空调</td>
+				<td>25</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/28.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/28.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>29</td>
+				<td class="cat">----------------饮水机</td>
+				<td>25</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/29.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/29.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>30</td>
+				<td class="cat">--------厨房电器</td>
+				<td>24</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/30.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/30.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>31</td>
+				<td class="cat">----------------电饭煲</td>
+				<td>30</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/31.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/31.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>32</td>
+				<td class="cat">----------------豆浆机</td>
+				<td>30</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/32.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/32.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>33</td>
+				<td class="cat">----------------面包机</td>
+				<td>30</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/33.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/33.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+			    <td>34</td>
+				<td class="cat">----------------微波炉</td>
+				<td>30</td>
+		        <td align="center">
+		        	<a href="/Admin/Category/edit/id/34.html" title="编辑">编辑</a> |
+	                <a href="/Admin/Category/delete/id/34.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+         
+	</tbody></table>
+</div>
+
+
+<div id="footer">版权所有,侵权必究@2016</div>
+
+</body></html>

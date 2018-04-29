@@ -1,0 +1,116 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<!--标题-->
+	
+	<title>管理中心 - 商品回收站列表 </title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link href="/Public/Admin/Styles/general.css" rel="stylesheet" type="text/css">
+	<link href="/Public/Admin/Styles/main.css" rel="stylesheet" type="text/css">
+	<link href="/Public/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="/Public/bootstrap/js/jquery.min.js">
+	</script>
+	<script type="text/javascript" src="/Public/bootstrap/js/bootstrap.min.js">
+	</script>
+	<!--其它样式-->
+	
+    <style type="text/css">
+      td{text-align: center;}
+      a{color:#9cf !important}
+    </style>
+
+</head>
+<body>
+<h1 style="font-size:14px">
+    <span><a href="/Admin/Index/main.html" style="color:#9cf">管理中心</a></span>
+
+    <!--具体操作-->
+    
+		<span class="action-span"><a href="/Admin/Goods/add.html">添加商品</a></span>
+		<span id="search_id"> - 商品回收站列表 </span>
+
+
+    <div style="clear:both"></div>
+</h1>
+
+<!--内容主题-->
+
+<!-- 搜索 -->
+<div class="form-div search_form_div">
+    <form method="GET" name="search_form">
+		<p>
+			商品名称：
+	   		<input type="text" name="goods_name" size="30" value="">
+		</p>
+		<p>
+			主分类的id：
+	   		<input type="text" name="cat_id" size="30" value="">
+		</p>
+		<p>
+			品牌的id：
+	   		<input type="text" name="brand_id" size="30" value="">
+		</p>
+		<p>
+			本店价：
+	   		从 <input id="shop_pricefrom" type="text" name="shop_pricefrom" size="15" value=""> 
+		    到 <input id="shop_priceto" type="text" name="shop_priceto" size="15" value="">
+		</p>
+		<p>
+			是否热卖：
+			<input type="radio" value="-1" name="is_hot" checked="checked"> 全部 
+			<input type="radio" value="1" name="is_hot"> 是 
+			<input type="radio" value="0" name="is_hot"> 否 
+		</p>
+		<p>
+			是否新品：
+			<input type="radio" value="-1" name="is_new" checked="checked"> 全部 
+			<input type="radio" value="1" name="is_new"> 是 
+			<input type="radio" value="0" name="is_new"> 否 
+		</p>
+		<p>
+			是否精品：
+			<input type="radio" value="-1" name="is_best" checked="checked"> 全部 
+			<input type="radio" value="1" name="is_best"> 是 
+			<input type="radio" value="0" name="is_best"> 否 
+		</p>
+		<p>
+			是否上架：1：上架，0：下架：
+			<input type="radio" value="-1" name="is_on_sale" checked="checked"> 全部 
+			<input type="radio" value="1" name="is_on_sale"> 上架 
+			<input type="radio" value="0" name="is_on_sale"> 下架 
+		</p>
+		<p>
+			商品类型id：
+	   		<input type="text" name="type_id" size="30" value="">
+		</p>
+		<p>
+			添加时间：
+	   		从 <input id="startTime" type="text" name="startTime" size="15" value=""> 
+		    到 <input id="endTime" type="text" name="endTime" size="15" value="">
+		</p>
+		<p><input type="submit" value=" 搜索 " class="button"></p>
+    </form>
+</div>
+<!-- 列表 -->
+<div class="list-div" id="listDiv">
+	<table cellpadding="3" cellspacing="1">
+    	<tbody><tr>
+            <th>商品名称</th>
+            <th>市场价</th>
+            <th>本店价</th>
+            <th>logo原图</th>
+            <th>是否热卖</th>
+            <th>是否新品</th>
+            <th>是否精品</th>
+            <th>是否上架</th>
+            <th>商品描述</th>
+			<th width="150">操作</th>
+        </tr>
+		 
+		 
+	</tbody></table>
+</div>
+
+
+<div id="footer">版权所有,侵权必究@2016</div>
+
+</body></html>

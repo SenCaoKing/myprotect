@@ -1,0 +1,110 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<!--标题-->
+	
+	<title>管理中心 - 会员级别列表 </title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link href="/Public/Admin/Styles/general.css" rel="stylesheet" type="text/css">
+	<link href="/Public/Admin/Styles/main.css" rel="stylesheet" type="text/css">
+	<link href="/Public/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="/Public/bootstrap/js/jquery.min.js">
+	</script>
+	<script type="text/javascript" src="/Public/bootstrap/js/bootstrap.min.js">
+	</script>
+	<!--其它样式-->
+	
+    <style type="text/css">
+      td{text-align: center;}
+      a{color:#9cf !important}
+    </style>
+
+</head>
+<body>
+<h1 style="font-size:14px">
+    <span><a href="/Admin/Index/main.html" style="color:#9cf">管理中心</a></span>
+
+    <!--具体操作-->
+    
+		<span class="action-span"><a href="/Admin/MemberLevel/add.html">添加会员级别		</a></span>
+		<span id="search_id"> - 会员级别列表 </span>
+
+
+    <div style="clear:both"></div>
+</h1>
+
+<!--内容主题-->
+
+<!-- 列表 -->
+<div class="list-div" id="listDiv">
+	<table cellpadding="3" cellspacing="1">
+    	<tbody><tr>
+            <th>级别名称</th>
+            <th>积分下限</th>
+            <th>积分上限</th>
+            <th>折扣率，90为9折</th>
+			<th width="60">操作</th>
+        </tr>
+		            
+			<tr class="tron">
+				<td>注册会员</td>
+				<td>0</td>
+				<td>2000</td>
+				<td>100</td>
+		        <td align="center">
+		        	<a href="/Admin/MemberLevel/edit/id/1.html" title="编辑">编辑</a> |
+	                <a href="/Admin/MemberLevel/delete/id/1.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+				<td>中级会员</td>
+				<td>2001</td>
+				<td>8000</td>
+				<td>98</td>
+		        <td align="center">
+		        	<a href="/Admin/MemberLevel/edit/id/2.html" title="编辑">编辑</a> |
+	                <a href="/Admin/MemberLevel/delete/id/2.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+				<td>高级会员</td>
+				<td>8001</td>
+				<td>20000</td>
+				<td>95</td>
+		        <td align="center">
+		        	<a href="/Admin/MemberLevel/edit/id/3.html" title="编辑">编辑</a> |
+	                <a href="/Admin/MemberLevel/delete/id/3.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+				<td>白金会员</td>
+				<td>20001</td>
+				<td>50000</td>
+				<td>92</td>
+		        <td align="center">
+		        	<a href="/Admin/MemberLevel/edit/id/4.html" title="编辑">编辑</a> |
+	                <a href="/Admin/MemberLevel/delete/id/4.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+                    
+			<tr class="tron">
+				<td>黄金会员</td>
+				<td>50001</td>
+				<td>100000</td>
+				<td>90</td>
+		        <td align="center">
+		        	<a href="/Admin/MemberLevel/edit/id/5.html" title="编辑">编辑</a> |
+	                <a href="/Admin/MemberLevel/delete/id/5.html" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+		        </td>
+	        </tr>
+         
+		 
+	</tbody></table>
+</div>
+
+
+<div id="footer">版权所有,侵权必究@2016</div>
+
+</body></html>
