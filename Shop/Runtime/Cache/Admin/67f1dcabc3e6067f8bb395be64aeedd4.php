@@ -33,8 +33,8 @@ src="/Public/datepicker/jquery-ui-1.9.2.custom.min.js"></script>
   	<form>
 	    <input type="hidden" name="p" value="1" />
 	     商品名称：<input type="text" name="goods_name" value="<?php echo I('get.goods_name');?>"/><br/>
-	     价　　格：<input type="text" name="start_price" value=""/>~
-	     <input type="text" name="end_price" value="<?php echo I('get.goods_price');?>" /><br/>
+	     价　　格：<input type="text" name="start_price" value="<?php echo I('get.start_price');?>"/>~
+	     <input type="text" name="end_price" value="<?php echo I('get.end_price');?>" /><br/>
 	     是否上架：<input type="radio" name="is_on_sale" value="-1" <?php if(I('get.is_on_sale', -1) == -1) echo 'checked="checked"'; ?> />全部
         <input type="radio" name="is_on_sale" value="1" <?php if(I('get.is_on_sale', -1) == 1) echo 'checked="checked"'; ?> />是
         <input type="radio" name="is_on_sale" value="0" <?php if(I('get.is_on_sale', -1) == 0) echo 'checked="checked"'; ?> />否<br />     
@@ -47,8 +47,8 @@ src="/Public/datepicker/jquery-ui-1.9.2.custom.min.js"></script>
      排序方式：
         <input onclick="parentNode.submit();" type="radio" name="odby" value="id_asc" <?php if(I('get.odby', 'id_asc') == 'id_asc') echo 'checked="checked"'; ?> />根据添加时间升序
         <input onclick="parentNode.submit();" type="radio" name="odby" value="id_desc" <?php if(I('get.odby') == 'id_desc') echo 'checked="checked"'; ?> />根据添加时间降序
-        <input onclick="parentNode.submit();" type="radio" name="odby" value="price_asc" <?php if(I('get.odby') == 'price_asc') echo 'checked="checked"'; ?> />根据价格升序
-        <input onclick="parentNode.submit();" type="radio" name="odby" value="price_desc" <?php if(I('get.odby') == 'price_desc') echo 'checked="checked"'; ?> />根据价格降序<br />
+        <input onclick="parentNode.submit();" type="radio" name="odby" value="price_asc" <?php if(I('get.odby') == 'shop\_price_asc') echo 'checked="checked"'; ?> />根据价格升序
+        <input onclick="parentNode.submit();" type="radio" name="odby" value="price_desc" <?php if(I('get.odby') == 'shop\_price_desc') echo 'checked="checked"'; ?> />根据价格降序<br />
   	</form>
 </div>
 
@@ -76,12 +76,12 @@ src="/Public/datepicker/jquery-ui-1.9.2.custom.min.js"></script>
 	                <td><?php if($v["is_on_sale"] == 1): ?>上架<?php else: ?>下架<?php endif; ?></td>
 	                <td><?php if($v["is_delete"] == 1): ?>是<?php else: ?>否<?php endif; ?></td>
 	                <td>
-	                <a href="<?php echo U('edit',array('id'=>$v['id']));?>">修改</a>
-	                <a onclick="return confirm('确定要删除吗?')" href="">删除</a>
+	                <a href="<?php echo U('edit',array('id'=>$v['id'],'p'=>I('get.p',1)));?>">修改</a>
+	                <a onclick="return confirm('确定要删除吗?')" href="<?php echo U('delete',array('id'=>$v['id'],'p'=>I('get.p',1)));?>">删除</a>
 	                </td>
 	            </tr><?php endforeach; endif; ?>
             
-            <tr><td colspan="9"></td></tr>
+            <tr><td colspan="9"><?php echo ($page); ?></td></tr>
         </table>
 </div>
 

@@ -35,6 +35,16 @@ class GoodsController extends Controller{
 		$this->display();
 	}
 
+	/**
+	 * 删除商品
+	 */
+	public function delete(){
+		$model=D('Goods');
+		if($model->delete(I('get.id'))){
+			$this->success('删除成功');
+		}
+	}
+
 
 
 	

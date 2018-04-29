@@ -15,10 +15,9 @@ return array(
 	// URL模式
 	'URL_MODEL' => 2,  //url重写模式
 	/* 图片相关的配置 */
-	// 'IMG_maxSize' => '3M',
-	// 'IMG_exts' => array('jpg', 'pjpeg', 'bmp', 'gif', 'png', 'jpeg'),
-	// 'IMG_ rootPath' => './Public/Uploads/',
-	// 'IMG_URL' => __ROOT__.'/Public/Uploads/',
+	'IMG_maxSize' => '3M',
+	'IMG_exts' => array('jpg', 'pjpeg', 'bmp', 'gif', 'png', 'jpeg'),
+	'UPLOAD_PATH' => './Public/Uploads/',
 	/* 修改I函数底层过滤时使用的函数 */
 	'DEFAULT_FILTER' => 'trim,removeXSS',
 );

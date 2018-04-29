@@ -5,14 +5,14 @@ use Think\Model;
 class GoodsModel extends Model{
 
 	// 在添加时调用create方法时允许接收的字段
-	protected $insertFields = array('goods_name','price','goods_desc','is_on_sale'); //未完
+	protected $insertFields = array('goods_name','shop_price','goods_desc','is_on_sale'); //未完
 	// 在修改时调用create方法时允许接收的字段
-	protected $updateFields = array('id','goods_name','price','goods_desc','is_on_sale'); //未完
+	protected $updateFields = array('id','goods_name','shop_price','goods_desc','is_on_sale'); //未完
 	// 自动验证
 	protected $_validate = array( //未完
 		array('goods_name', 'require', '商品名称不能为空！', 1),
 		array('goods_name', '1,45', '商品名称必须是1-45个字符！', 1, 'length'),
-		array('price','currency','价格必须是货币格式', 1),
+		array('shop_price','currency','价格必须是货币格式', 1),
 		array('is_on_sale','0,1','是否上架只能是0,1两个值',1,'in'),
 	);
 
@@ -38,6 +38,7 @@ class GoodsModel extends Model{
                 $this->error=$arr['message'];
                 return false;
             }
+
         }
     }
 
@@ -51,7 +52,6 @@ class GoodsModel extends Model{
         $Upload->maxSize = (int)C('IMG_maxSize')*1024*1024; // 配置上传图片的最大值
         $Upload->exts = C('IMG_exts'); // 配置上传图片的后缀名
         $info = $Upload->upload(); // 得到上传图片的信息
-        dump($info);
         if($info){
             $savePath = $info['logo']['savepath']; // 得到图片的保存路径
             $saveName = $info['logo']['savename']; // 得到图片的保存名称
@@ -82,11 +82,11 @@ class GoodsModel extends Model{
     	$startPrice = I('get.start_price');
     	$endPrice = I('get.end_price');
     	if($startPrice && $endPrice)
-    		$where['price'] = array('between', array($startPrice, $endPrice));
+    		$where['shop_price'] = array('between', array($startPrice, $endPrice));
     	elseif ($startPrice)
-    		$where['price'] = array('egt', $startPrice);
+    		$where['shop_price'] = array('egt', $startPrice);
     	elseif ($endPrice)
-    		$where['price'] = array('elt', $endPrice);
+    		$where['shop_price'] = array('elt', $endPrice);
     	// 上架的搜索
     	$isOnSale = I('get.is_on_sale', -1);
     	if($isOnSale != -1)
@@ -119,13 +119,23 @@ class GoodsModel extends Model{
     	$pageString = $page->show();
     	// 取出当前页的数据
     	$data = $this->where($where)->limit($page->firstRow.','.$page->listRows)->order($order)->select();
-        
+
     	return array(
     		'page' => $pageString,
     		'data' => $data,
     	);
+    }
 
-
+    /**
+     * 钩子函数，删除记录前删除图片
+     * @param  [type] $option [description]
+     * @return [type]         [description]
+     */
+    protected function _before_delete($option){
+        // 先根据商品的id取出图片的路径
+        $logo=$this->field('logo,sm_logo')->where($option['where']['id'])->find();
+        unlink($logo['logo']);
+        unlink($logo['sm_logo']);
     }
 
 
