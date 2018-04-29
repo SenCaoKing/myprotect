@@ -45,7 +45,36 @@ class GoodsController extends Controller{
 		}
 	}
 
+	/**
+	 * 修改商品
+	 * @return [type] [description]
+	 */
+	public function edit(){
+		if(IS_POST){
+			$model=D('Goods');
+			if($model->update(I('post.'))){
+				$this->success('修改成功',U('lst',array('p'=>I('get.p'))));
+			}else{
+				$this->error('修改失败');
+			}
+			return;
+		}
+		// 显示修改界面
+		$model=M('Goods');
+		$data=$model->find(I('get.id'));
+		$this->assign('data',$data);
+		$this->display();
+	}
+
 
 
 	
 }
+
+
+
+
+
+
+
+

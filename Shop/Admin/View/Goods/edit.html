@@ -28,18 +28,18 @@ a{color:#9cf !important}
         </p>
     </div>
     <div id="tabbody-div">
-        <form method="POST" action="__SELF__" enctype="multipart/form-data">
-         <input type="hidden" name="id" value="{$data['id']}">
-        商品名称:<input type="text" name="goods_name" value="{$data.goods_name}"/><br />
-        商品价格:<input type="text" name="price" value="{$data.price}" /><br />
-        <img src="UPLOAD_PATH{$data.sm_logo|substr=###,16}" />
-        商品logo:<input type="file" name="logo"  /><br />
-        商品描述:<textarea name="goods_desc" id="goods_desc">{$data.goods_desc}</textarea><br />
-        是否上架:
-        <input type="radio" name="is_on_sale" value="1"上架
-        <input type="radio" name="is_on_sale" value="0" 下架
-        <br />
-        <input type="submit" value="提交" />
+            <form method="POST" action="__SELF__" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="{$data['id']}">
+            商品名称:<input type="text" name="goods_name" value="{$data.goods_name}"/><br />
+            商品价格:<input type="text" name="shop_price" value="{$data.shop_price}" /><br />
+            <img src="UPLOAD_PATH<?php echo substr($data['sm_logo'],16); ?>" />
+            商品logo:<input type="file" name="logo"  /><br />
+            商品描述:<textarea name="goods_desc" id="goods_desc">{$data.goods_desc}</textarea><br />
+            是否上架:
+            <input type="radio" name="is_on_sale" value="1" <?php if($data['is_on_sale']==1) echo 'checked="checked"' ?> />上架
+            <input type="radio" name="is_on_sale" value="0" <?php if($data['is_on_sale']==0) echo 'checked="checked"' ?> />下架
+            <br />
+            <input type="submit" value="提交" />
         </form>
     </div>
 </div>

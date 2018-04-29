@@ -47,8 +47,8 @@ src="/Public/datepicker/jquery-ui-1.9.2.custom.min.js"></script>
      排序方式：
         <input onclick="parentNode.submit();" type="radio" name="odby" value="id_asc" <?php if(I('get.odby', 'id_asc') == 'id_asc') echo 'checked="checked"'; ?> />根据添加时间升序
         <input onclick="parentNode.submit();" type="radio" name="odby" value="id_desc" <?php if(I('get.odby') == 'id_desc') echo 'checked="checked"'; ?> />根据添加时间降序
-        <input onclick="parentNode.submit();" type="radio" name="odby" value="price_asc" <?php if(I('get.odby') == 'shop\_price_asc') echo 'checked="checked"'; ?> />根据价格升序
-        <input onclick="parentNode.submit();" type="radio" name="odby" value="price_desc" <?php if(I('get.odby') == 'shop\_price_desc') echo 'checked="checked"'; ?> />根据价格降序<br />
+        <input onclick="parentNode.submit();" type="radio" name="odby" value="price_asc" <?php if(I('get.odby') == 'price_asc') echo 'checked="checked"'; ?> />根据价格升序
+        <input onclick="parentNode.submit();" type="radio" name="odby" value="price_desc" <?php if(I('get.odby') == 'price_desc') echo 'checked="checked"'; ?> />根据价格降序<br />
   	</form>
 </div>
 

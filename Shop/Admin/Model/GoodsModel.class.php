@@ -133,13 +133,59 @@ class GoodsModel extends Model{
      */
     protected function _before_delete($option){
         // 先根据商品的id取出图片的路径
+        // dump($option);die;
         $logo=$this->field('logo,sm_logo')->where($option['where']['id'])->find();
         unlink($logo['logo']);
         unlink($logo['sm_logo']);
     }
 
+    /**
+     * 修改商品信息
+     * @param  [type] $data [description]
+     * @return [type]       [description]
+     */
+    public function update($data){
+        if($this->create($data,2)){
+            return ($this->save($data)!==false)?1:0;
+        }
+    }
+
+    /**
+     * 钩子函数，在修改信息前删除以前的图片以及上传新的图片(&$data 是“引用”传递，函数内部改变之，外边也可以访问到)
+     * @param  [type] &$data  [description]
+     * @param  [type] $option [description]
+     * @return [type]         [description]
+     */
+    protected function _before_update(&$data,$option){
+        $Upload = new \Think\Upload();
+        $Upload->rootPath = C('UPLOAD_PATH'); // 配置上传图片的根目录
+        $Upload->maxSize = (int)C('IMG_exts')*1024*1024; // 配置上传图片的最大值
+        $Upload->exts = C('IMG_exts'); // 配置上传图片的后缀名
+        $info = $Upload->upload(); // 得到上传图片的信息
+        if($info){
+            $savePath = $info['logo']['savepath']; // 得到图片的保存路径
+            $saveName = $info['logo']['savename']; // 得到图片的保存名称
+            $imgPath = C('UPLOAD_PATH').$savePath.$saveName; // 得到图片的地址
+            // 生成缩略图
+            $image = new \Think\Image();
+            $image->open($imgPath);
+            $thumbPath = C('UPLOAD_PATH').$savePath.'thumb_'.$saveName; // 缩略图地址
+            $image->thumb(150,150)->save($thumbPath);
+            $data['logo']=$imgPath;
+            $data['sm_logo']=$thumbPath;
+            // 删除原来的图片
+            // 先根据商品的id取出图片的路径
+            $logo=$this->field('logo,sm_logo')->where($option['where']['id'])->find();
+            unlink($logo['logo']);
+            unlink($logo['sm_logo']);
+        }
+    }
 
 
 }
+
+
+
+
 
 
