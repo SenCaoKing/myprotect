@@ -12,8 +12,8 @@ class GoodsModel extends Model{
 	protected $_validate = array( //未完
 		array('goods_name', 'require', '商品名称不能为空！', 1),
 		array('goods_name', '1,45', '商品名称必须是1-45个字符！', 1, 'length'),
-		array('shop_price','currency','价格必须是货币格式', 1),
-		array('is_on_sale','0,1','是否上架只能是0,1两个值',1,'in'),
+		array('shop_price', 'currency', '价格必须是货币格式', 1),
+		array('is_on_sale', '0,1', '是否上架只能是0,1两个值', 1, 'in'),
 	);
 
 	//自动完成,下面的情况会失效

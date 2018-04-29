@@ -55,3 +55,18 @@ CREATE TABLE IF NOT EXISTS ecshop_goods (
 ) engine=Myisam default charset=utf8 comment='商品表';
 
 -- --------------------------------------------------------
+
+-- --------------------------------------------------------
+--
+-- 管理员表 `ecshop_admin`
+--
+CREATE TABLE IF NOT EXISTS ecshop_admin (
+  id smallint(5) unsigned not null auto_increment,
+  username varchar(30) not null comment '账号',
+  password char(32) not null comment '密码',
+  role_id varchar(30) not null comment '所属角色的id',
+  is_use tinyint(3) unsigned not null default '1' comment '是否启用 1：启用 0：禁用',
+  primary key (id)
+) engine=Myisam default charset=utf8 comment='管理员表';
+
+-- --------------------------------------------------------
