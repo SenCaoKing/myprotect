@@ -71,8 +71,7 @@ src="__PUBLIC__/datepicker/jquery-ui-1.9.2.custom.min.js"></script>
 	                <td>{$v.id}</td>
 	                <td>{$v.addtime|date="Y-m-d H:i:s",###}</td>
 	                <td>{$v.goods_name}</td>
-	                <!-- <td><img src="./Public/Uploads/{$v.sm_logo|substr=###,16}" /></td> -->
-                    <td><img src="./Public/Uploads{$v.sm_logo|substr=###,16}" /></td>
+                    <td><img src="UPLOAD_PATH<?php echo substr($v['sm_logo'],16); ?>" /></td>
 	                <td>{$v.shop_price}</td>
 	                <td>{$v.goods_desc}</td>
 	                <td><if condition="$v.is_on_sale eq 1">上架<else/>下架</if></td>
