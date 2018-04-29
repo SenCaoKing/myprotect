@@ -119,6 +119,7 @@ class GoodsModel extends Model{
     	$pageString = $page->show();
     	// 取出当前页的数据
     	$data = $this->where($where)->limit($page->firstRow.','.$page->listRows)->order($order)->select();
+        
     	return array(
     		'page' => $pageString,
     		'data' => $data,
