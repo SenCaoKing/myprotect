@@ -1,7 +1,9 @@
 <?php
 namespace Admin\Controller;
 use Think\Controller;
-
+/**
+ * 登录验证控制器
+ */
 class LoginController extends Controller {
 
     /**
