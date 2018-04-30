@@ -12,15 +12,18 @@
 <block name="main">
     <div class="main-div">
         <form name="main_form" method="POST" action="__SELF__" enctype="multipart/form-data">
+            <input type="hidden" value="{$data['id']}" name="id" />
             <p>上级权限：<select name="parent_id">
                     <?php if($data_p['id']){?>
-                        <option value="{$data_p['id']">{$data_p['auth_name']}</option>
+                        <option value="{$data_p['id']">
+                            {$data_p['auth_name']}
+                        </option>
                         <option value="0">顶级权限</option>
                     <?php }else{?>
                         <option value="0">顶级权限</option>
                     <?php }?>
                     <?php foreach($parenpata as $k => $v): ?>
-                        <option value="<?php echo $v['id']; ?>"><?php echo str_repeat('-', 8*$v['auth_level'].$v['auth_name'] ?></option>
+                        <option value="<?php echo $v['id']; ?>"><?php echo str_repeat('-', 8*$v['auth_level'].$v['auth_name']; ?></option>
                     <?php endforeach; ?>
                 </select>
             </p>
