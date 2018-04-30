@@ -3,6 +3,14 @@
 <block name="title">
     <title>管理中心 - 权限列表</title>
 </block>
+<!-- 其他样式 -->
+<block name="asset">
+    <style type="text/css">
+        td{text-align: center;}
+        a{color: #9cf !important;}
+    </style>
+</block>
+
 <!-- 具体操作 -->
 <block name="action">
     <span id="search_id"> - 权限列表</span>
@@ -12,6 +20,7 @@
     <div class="list-div" id="listDiv">
         <table cellspacing="1" cellpadding="3">
             <tr>
+                <th>ID</th>
                 <th>权限名称</th>
                 <th>模块名称</th>
                 <th>控制器名称</th>
@@ -21,7 +30,9 @@
             </tr>
             <?php foreach($data as $k => $v): ?>
                 <tr class="tron">
-                    <td><?php echo str_repeat('-', 8*$v['auth_level']); ?><?php echo $v['auth_name']; ?></td>
+                    <td>{$v['id']}</td>
+                    <td style="text-align: left;text-indent: 4px;">
+                        <?php echo str_repeat('-', 8*$v['auth_level']); ?><?php echo $v['auth_name']; ?></td>
                     <td><?php echo $v['module_name']; ?></td>
                     <td><?php echo $v['controller_name']; ?></td>
                     <td><?php echo $v['action_name']; ?></td>
