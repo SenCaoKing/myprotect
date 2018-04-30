@@ -5,6 +5,10 @@ namespace Admin\Controller;
  */
 class RoleController extends BaseController{
 
+    /**
+     * 角色列表
+     * @return [type] [description]
+     */
 	public function lst(){
         $model = M('Role');
         $data = $model->select();
@@ -14,6 +18,9 @@ class RoleController extends BaseController{
 		$this->display();
 	}
 
+    /**
+     * 添加角色
+     */
 	public function add(){
         if(IS_POST){
             $model = D('Role');
@@ -28,6 +35,9 @@ class RoleController extends BaseController{
 		$this->display();
 	}
 
+    /**
+     * 编辑角色
+     */
 	public function edit(){
         $id = I('get.id');
         if(IS_POST){
@@ -46,6 +56,10 @@ class RoleController extends BaseController{
 		$this->display();
 	}
 
+    /**
+     * 删除角色
+     * @return [type] [description]
+     */
     public function delete(){
         $model = D('Role');
         if($model->delete(I('get.id', 0)) !== FALSE){
