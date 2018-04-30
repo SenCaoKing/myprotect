@@ -39,6 +39,38 @@ class AuthModel extends Model
         }
         return $ret;
     }
+    public function getChildren($id)
+    {
+        $data = $this->select();
+        return $this->_children($data, $id);
+    }
+    private function _children($data, $parent_id=0, $isClear=TRUE)
+    {
+        static $ret = array();
+        if($isClear)
+            $ret = array();
+        foreach ($data as $k => $v)
+        {
+            if($v['pid'] == $parent_id)
+            {
+                $ret[] = $v['id'];
+                $this->_children($data, $v['id'], FALSE);
+            }
+        }
+        return $ret;
+    }
+    /************************************* 其他方法 *************************************/
+    public function _before_delete($option)
+    {
+        // 先找出所有的子分类
+        $children = $this->getChildren($option['where']['id']);
+        // 如果有子分类都删除掉
+        if($children)
+        {
+            $children = implode(',', $children);
+            $this->execute("DELETE FROM ecshop_auth WHERE id IN($children)");
+        }
+    }
 
 
 
