@@ -5,6 +5,7 @@
 </block>
 <!-- 具体操作 -->
 <block name="action">
+    <span class="action-span"><a href="{:U('lst')}">返回</a></span>
     <span id="search_id"> - 编辑权限</span>
 </block>
 <!-- 列表 -->
@@ -12,7 +13,12 @@
     <div class="main-div">
         <form name="main_form" method="POST" action="__SELF__" enctype="multipart/form-data">
             <p>上级权限：<select name="parent_id">
-                    <option value="0">顶级权限</option>
+                    <?php if($data_p['id']){?>
+                        <option value="{$data_p['id']">{$data_p['auth_name']}</option>
+                        <option value="0">顶级权限</option>
+                    <?php }else{?>
+                        <option value="0">顶级权限</option>
+                    <?php }?>
                     <?php foreach($parenpata as $k => $v): ?>
                         <option value="<?php echo $v['id']; ?>"><?php echo str_repeat('-', 8*$v['auth_level'].$v['auth_name'] ?></option>
                     <?php endforeach; ?>
@@ -21,8 +27,7 @@
             <p class="label">权限名称：<input type="text" name="auth_name" value="<?php echo $data['auth_name']; ?>" /></p>
             <p class="label">模块名称：<input type="text" name="module_name" value="<?php echo $data['module_name']; ?>" /></p>
             <p class="label">控制器名称：<input type="text" name="controller_name" value="<?php echo $data['controller_name']; ?>" /></p>
-            <p class="label">方法名称：<input type="text" name="action_name" value="<?php echo $data['action_name']; ?>" /></p>
-            <p class="label">上级权限的ID，0：代表顶级权限：<input type="text" name="pid" value="<?php echo $data['pid']; ?>" /></p>
+            <p class="label">方法名称：<input type="text" name="action_name" value="<?php echo $data['action_name']; ?>" placeholder="如无方法名则填null" /></p>
             <input type="submit" class="button" value="确定" />
         </form>
     </div>

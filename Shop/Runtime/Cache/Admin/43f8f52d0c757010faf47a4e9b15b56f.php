@@ -14,7 +14,6 @@
     
     <style type="text/css">
         td{text-align: center;}
-        a{color: #9cf !important;}
     </style>
 
 </head>
@@ -24,6 +23,7 @@
 
     <!--具体操作-->
     
+    <span class="action-span"><a href="<?php echo U('add');?>">添加权限</a></span>
     <span id="search_id"> - 权限列表</span>
 
 
@@ -53,8 +53,8 @@
                     <td><?php echo $v['action_name']; ?></td>
                     <td><?php echo $v['pid']; ?></td>
                     <td align="center">
-                        <a href="<?php echo U('edit?id='.$v['id'].'&p='.I('get.p')); ?>" title="编辑">编辑</a> |
-                        <a href="<?php echo U('delete?id='.$v['id'].'&p='.I('get.p')); ?>" onclick="return confirm('确定要删除吗？');" title="移除">移除</a>
+                        <a href="<?php echo U('edit?id='.$v['id'].'&p='.I('get.p')); ?>" title="编辑" style="color:#9cf;">编辑</a> |
+                        <a href="<?php echo U('delete?id='.$v['id'].'&p='.I('get.p')); ?>" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf;">移除</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

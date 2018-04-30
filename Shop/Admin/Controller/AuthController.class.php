@@ -45,10 +45,8 @@ class AuthController extends BaseController{
 		$id = I('get.id');
 		if(IS_POST){ // 修改权限
 			$model = D('Admin/Auth');
-			if($model->create(I('post.'), 2))
-			{
-				if($model->save() !== FALSE)
-				{
+			if($model->create(I('post.'), 2)){
+				if($model->save() !== FALSE){
 					$this->success('修改成功！', U('lst', array('p' => I('get.p', 1))));
 					return;
 				}
@@ -57,11 +55,14 @@ class AuthController extends BaseController{
 		}
 		$modle = M('Auth');
 		$data = $modle->find($id);
-		$this->assign('data',$data);
+		$this->assign('data',$data); // 当前权限的信息
+		$model_p = M('Auth');
+		$data_p = $model_p->field('auth_name,id')->find($data['pid']);
+		$this->assign('data_p',$data_p);
 		$parentModel = D('Auth');
 		$parentData = $parentModel->getTree();
 		$children = $parentModel->getChildren($id);
-		$this->assign(array(
+		$this->assign(array( // 当前权限的父权限和顶级权限
 			'parentData' => $parentData,
 			'children'   => $children,
 		));
