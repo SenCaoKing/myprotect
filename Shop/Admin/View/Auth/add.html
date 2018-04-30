@@ -14,6 +14,7 @@
             <p>上级权限：<select name="pid">
                     <option value="0">顶级权限</option>
                     <?php foreach($parenpata as $k => $v): ?>
+                        <option value="<?php echo $v['id']; ?>"<?php echo str_repeat('-', 8*$v['auth_level']).$v['auth_name']; ?>></option>
                     <?php endforeach; ?>
                 </select>
             </p>
