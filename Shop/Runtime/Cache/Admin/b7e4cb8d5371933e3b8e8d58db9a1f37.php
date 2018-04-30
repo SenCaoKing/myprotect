@@ -2,8 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Menu</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="/Public/Admin/Styles/general.css" rel="stylesheet" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link href="/Public/Admin/Styles/general.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 body {
   background: #80BDCB;
@@ -106,6 +107,7 @@ body {
   color:#000099;
 }
 </style>
+
 </head>
 <body>
 <div id="tabbar-div">
@@ -118,47 +120,44 @@ body {
         <span class="tab-front" id="menu-tab">菜单</span>
     </p>
 </div>
-
 <div id="main-div">
 	<div id="menu-list">
 	    <ul id="menu-ul">
-	        <li class="explode" key="02_cat_and_goods" name="menu">商品管理
-	        	<ul>
-                    <li class="menu-item">
-                     	<a href="/Admin/Goods/lst.html" target="main-frame">商品列表</a>
-                    </li>
-                    <li class="menu-item">
-                    	<a href="/Admin/Category/lst.html" target="main-frame">商品分类列表</a>
-                    </li>
-                    <li class="menu-item">
-                    	<a href="/Admin/Type/lst.html" target="main-frame">类型列表</a>
-                    </li>
-                    <li class="menu-item">
-                    	<a href="/Admin/Brand/lst.html" target="main-frame">品牌列表·</a>
-                    </li>
-                    <li class="menu-item">
-                    	<a href="/Admin/Goods/recyclelst.html" target="main-frame">商品回收站</a>
-                    </li>
-                </ul>
+	        <li class="explode" key="02_cat_and_goods" name="menu">
+          商品管理
+            <ul>
+              <li class="menu-item"><a href="<?php echo U('Goods/lst');?>" target="main-frame">商品列表</a></li>
+              <li class="menu-item"><a href="<?php echo U('Goods/add');?>" target="main-frame">添加商品</a></li>
+              <li class="menu-item"><a href="categoryList.html" target="main-frame">添加分类</a></li>
+              <li class="menu-item"><a href="brandList.html" target="main-frame">商品品牌</a></li>
+              <li class="menu-item"><a href="googsTrash.html" target="main-frame">商品回收站</a></li>
+            </ul>
 	        </li>
-            <li class="explode" key="02_cat_and_goods" name="menu">权限管理
-            	<ul>
-                    <li class="menu-item"><a href="/Admin/Auth/lst.html" target="main-frame">权限列表</a></li>
-                    <li class="menu-item"><a href="/Admin/Role/lst.html" target="main-frame">角色列表</a></li>
-                    <li class="menu-item"><a href="/Admin/Admin/lst.html" target="main-frame">管理员列表</a></li>
-                </ul>
+
+          <li class="explode" key="04_order" name="menu">
+          订单管理
+            <ul>
+              <li class="menu-item"><a href="orderList.html" target="main-frame">订单列表</a></li>
+              <li class="menu-item"><a href="orderQuery.html" target="main-frame">订单查询</a></li>
+              <li class="menu-item"><a href="orderAdd.html" target="main-frame">添加订单</a></li>
+              <li class="menu-item"><a href="delivery_list.html" target="main-frame">发货单列表</a></li>
+              <li class="menu-item"><a href="back_list.html" target="main-frame">退货单列表</a></li>
+            </ul>
+          </li>
+          <li class="explode" key="08_members" name="menu">
+          权限管理
+          	<ul>
+                  <li class="menu-item"><a href="<?php echo U('Auth/lst');?>" target="main-frame">权限列表</a></li>
+                  <li class="menu-item"><a href="<?php echo U('Auth/edit');?>" target="main-frame">修改权限</a></li>
+                  <li class="menu-item"><a href="<?php echo U('Auth/add');?>" target="main-frame">新增权限</a></li>
+              </ul>
 	        </li>
-           <li class="explode" key="02_cat_and_goods" name="menu">会员管理
-           		<ul>
-                	<li class="menu-item"><a href="/Admin/MemberLevel/lst.html" target="main-frame">会员等级列表</a></li>
-                </ul>
-			</li>
 	    </ul>
 	</div>
-    <div id="help-div" style="display:none">
-	    <h1 id="help-title"></h1>
-	    <div id="help-content"></div>
-    </div>
+  <div id="help-div" style="display:none">
+    <h1 id="help-title"></h1>
+	  <div id="help-content"></div>
+  </div>
 </div>
 <script type="text/javascript" src="/Public/Admin/Js/global.js"></script>
 <script type="text/javascript" src="/Public/Admin/Js/utils.js"></script>
