@@ -8,10 +8,10 @@ class BaseController extends Controller {
 
     public function __construct()
     {
-        if(!session(['id'])){
-            redirect("Admin/Login/login");
-            // $this->error('请先登录',U('Login/login'));
-        }
+        // if(!session(['id'])){
+        //     redirect("Admin/Login/login");
+        //     // $this->error('请先登录',U('Login/login'));
+        // }
         parent::__construct();
     }
 

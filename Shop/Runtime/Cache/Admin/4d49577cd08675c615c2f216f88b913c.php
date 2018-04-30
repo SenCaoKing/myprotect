@@ -117,7 +117,7 @@
             <ul>
                 <li class="fix-spacel">&nbsp;</li>
                 <li><a href="<?php echo U('main');?>" target="main-frame">起始页</a></li>
-                <li><a href="" target="main-frame">商品列表</a></li>
+                <li><a href="<?php echo U('Goods/lst');?>" target="main-frame">商品列表</a></li>
                 <li><a href="" target="main-frame">订单列表</a></li>
                 <li><a href="" target="main-frame">用户评论</a></li>
                 <li><a href="" target="main-frame">会员列表</a></li>

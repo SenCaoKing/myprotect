@@ -70,3 +70,21 @@ CREATE TABLE IF NOT EXISTS ecshop_admin (
 ) engine=Myisam default charset=utf8 comment='管理员表';
 
 -- --------------------------------------------------------
+
+-- --------------------------------------------------------
+--
+-- 权限表 `ecshop_auth`
+--
+CREATE TABLE IF NOT EXISTS ecshop_auth (
+  id smallint(6) unsigned not null auto_increment,
+  pid smallint(5) unsigned not null default '0' comment '父级权限的id，0表示顶级权限',
+  auth_name varchar(30) not null comment '权限名称',
+  module_name varchar(30) not null comment '模块名称',
+  controller_name varchar(30) not null comment '控制器名称',
+  action_name varchar(30) not null comment '方法名称',
+  auth_level tinyint(5) not null default '2' comment '权限等级',
+  primary key (id)
+) engine=InnoDB default charset=utf8 comment='管理员表';
+
+-- --------------------------------------------------------
+
