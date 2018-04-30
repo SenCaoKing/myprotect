@@ -31,7 +31,7 @@ class AdminController extends BaseController{
             $model = D('Admin/Admin');
             if($model->create(I('post.'), 2)){
                 if($id = $model->save() !== FALSE){
-                    $this->success('修改成功', U('lst'， array('p'=>I('get.p', 0))));
+                    $this->success('修改成功', U('lst', array('p'=>I('get.p', 0))));
                     exit;
                 }
             }
