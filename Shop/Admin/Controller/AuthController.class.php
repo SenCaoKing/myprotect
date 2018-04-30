@@ -19,10 +19,8 @@ class AuthController extends BaseController{
 	 * 新增权限
 	 * @return [type] [description]
 	 */
-	public function add()
-	{
-		if(IS_POST)
-		{
+	public function add(){
+		if(IS_POST){
 			$model = D('Auth');
 			if($model->create(I('post.'), 1)){
 				if($id = $model->add()){

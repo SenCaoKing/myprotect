@@ -88,3 +88,16 @@ CREATE TABLE IF NOT EXISTS ecshop_auth (
 
 -- --------------------------------------------------------
 
+-- --------------------------------------------------------
+--
+-- 角色表 `ecshop_role`
+--
+CREATE TABLE IF NOT EXISTS ecshop_role (
+  id smallint(5) unsigned not null auto_increment,
+  role_name varchar(20) not null comment '角色名称',
+  auth_id varchar(500) not null comment '拥有的权限id',
+  primary key (id)
+) engine=InnoDB default charset=utf8 comment='角色表';
+
+-- --------------------------------------------------------
+
