@@ -3,7 +3,7 @@
 <head>
     <!--标题-->
     
-    <title>管理中心 - 角色列表</title>
+    <title>管理中心 - 权限列表</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="/Public/Admin/Styles/general.css" rel="stylesheet" type="text/css" />
@@ -14,8 +14,6 @@
     
     <style type="text/css">
         td{text-align: center;}
-        a{color: #9cf !important;}
-        input{margin: 5px !important;}
     </style>
 
 </head>
@@ -25,8 +23,8 @@
 
     <!--具体操作-->
     
-    <span class="action-span"><a href="<?php echo U('add');?>">添加角色</a></span>
-    <span id="search_id"> - 角色列表</span>
+    <span class="action-span"><a href="<?php echo U('add');?>">添加权限</a></span>
+    <span id="search_id"> - 权限列表</span>
 
 
     <div style="clear:both;"></div>
@@ -38,20 +36,28 @@
         <table cellspacing="1" cellpadding="3">
             <tr>
                 <th>ID</th>
-                <th>角色名称</th>
+                <th>权限名称</th>
+                <th>模块名称</th>
+                <th>控制器名称</th>
+                <th>方法名称</th>
+                <th>上级权限的ID，0：代表顶级权限</th>
                 <th width="60">操作</th>
             </tr>
             <?php foreach($data as $k => $v): ?>
                 <tr class="tron">
-                    <td><?php echo $v['id']; ?></td>
-                    <td><?php echo $v['role_name']; ?></td>
+                    <td><?php echo ($v['id']); ?></td>
+                    <td style="text-align: left;text-indent: 4px;">
+                        <?php echo str_repeat('-', 8*$v['auth_level']); echo $v['auth_name']; ?></td>
+                    <td><?php echo $v['module_name']; ?></td>
+                    <td><?php echo $v['controller_name']; ?></td>
+                    <td><?php echo $v['action_name']; ?></td>
+                    <td><?php echo $v['pid']; ?></td>
                     <td align="center">
-                        <a href="<?php echo U('edit?id='.$v['id'].'&p='.I('get.p')); ?>" title="编辑">编辑</a> |
-                        <a href="<?php echo U('delete?id='.$v['id'].'&p='.I('get.p')); ?>" onclick="return confirm('确定要删除吗？');" title="移除">移除</a>
+                        <a href="<?php echo U('edit?id='.$v['id'].'&p='.I('get.p')); ?>" title="编辑" style="color:#9cf;">编辑</a> |
+                        <a href="<?php echo U('delete?id='.$v['id'].'&p='.I('get.p')); ?>" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf;">移除</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
-            <tr><td align="right" nowrap="true" colspan="99" height="30"><?php echo '分页'; ?></td></tr>
         </table>
     </div>
 
