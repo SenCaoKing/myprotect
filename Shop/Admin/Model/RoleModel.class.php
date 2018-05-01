@@ -10,6 +10,29 @@ class RoleModel extends Model{
 	);
 
     /**
+     * 查找角色及所拥有的权限
+     * @return [type] [description]
+     */
+    public function searchRole(){
+        $results=array();
+        if(empty($results)){
+            $roles=$this->select(); // 角色的信息
+            foreach($roles as $role){
+                $admin=M('Auth');
+                $map['id']=array('in',$role['auth_id']);
+                $auth_names_array=$admin->field('auth_name')->where($map)->select();
+                $auth_names='';
+                foreach($auth_names_array as $k){
+                    $auth_names.=','.$k['auth_name'];
+                }
+                $results[$role['id']]['role_name']=$role['role_name'];
+                $results[$role['id']]['auth_name']=substr($auth_names,1);
+            }
+            return $results;
+        }
+    }
+
+    /**
      * 添加角色
      * @return [type] [description]
      */
@@ -19,12 +42,12 @@ class RoleModel extends Model{
             return;
         }
         $auth_ids=implode(',', $data['auth_id']);
-        $Roledate=array(
+        $roledate=array(
             'role_name'=>$data['role_name'],
             'auth_id'=>$auth_ids
         );
-        if($this->create($Roledata,2)){
-            return $this->add($Roledata)?1:0;
+        if($this->create($roledata,2)){
+            return $this->add($roledata)?1:0;
         }else{
             return 0;
         }
@@ -42,17 +65,6 @@ class RoleModel extends Model{
             return FALSE;
         }
     }
-
-    /**
-     * 查找角色及所拥有的权限
-     * @return [type] [description]
-     */
-    public function search(){
-        $role_ids=$this->select();
-        return $role_ids;
-    }
-
-
 
 
 
