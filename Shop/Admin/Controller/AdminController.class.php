@@ -23,7 +23,7 @@ class AdminController extends BaseController{
             $model = D('Admin');
             if($model->create(I('post.'), 1)){
                 if($id = $model->add()){
-                    $this->success('添加成功', U('lst?p='.I('get.p')));
+                    $this->success('添加成功', U('Admin/Admin/lst?p='.I('get.p')));
                     exit;
                 }
             }
@@ -32,13 +32,16 @@ class AdminController extends BaseController{
 		$this->display();
 	}
 
+    /**
+     * 编辑管理员
+     */
 	public function edit(){
         $id = I('get.id');
         if(IS_POST){
             $model = D('Admin');
             if($model->create(I('post.'), 2)){
                 if($id = $model->save() !== FALSE){
-                    $this->success('修改成功', U('lst', array('p'=>I('get.p', 0))));
+                    $this->success('修改成功', U('Admin/Admin/lst', array('p'=>I('get.p', 1))));
                     exit;
                 }
             }
@@ -50,10 +53,13 @@ class AdminController extends BaseController{
 		$this->display();
 	}
 
+    /**
+     * 删除管理员
+     */
     public function delete(){
         $model = D('Admin');
         if($model->delete(I('get.id', 0)) !== FALSE){
-            $this->success('删除成功！', U('lst', array('p'=>I('get.p'))));
+            $this->success('删除成功！', U('Admin/Admin/lst', array('p'=>I('get.p', 1))));
             exit;
         } else {
             $this->error($model->getError());
