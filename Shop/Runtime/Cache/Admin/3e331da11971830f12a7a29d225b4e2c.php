@@ -29,9 +29,15 @@
 <!-- 内容主题 -->
 
     <div class="main-div">
-        <form method="POST" action="/Admin/Role/edit/id/1.html">
+        <form method="POST" style="margin:5px;" action="/Admin/Role/edit/id/2.html">
             <input type="hidden" value="<?php echo ($data['id']); ?>" name="id" />
-            角色名称：<input type="text" name="role_name" value="<?php echo ($data['role_name']); ?>" />
+            <p>角色名称：<input type="text" name="role_name" value="<?php echo ($data['role_name']); ?>" /></p>
+            <p>重新为该角色分配权限：
+                <div class="alert alert-info">
+                    <?php if(is_array($data1)): $i = 0; $__LIST__ = $data1;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$obj): $mod = ($i % 2 );++$i; echo str_repeat('-',$obj['auth_level']*8);?>
+                        <input type="checkbox" name="auth_id[]" style="margin:5px;" value="<?php echo ($obj["id"]); ?>" /><?php echo ($obj["auth_name"]); ?><br /><?php endforeach; endif; else: echo "" ;endif; ?>
+                </div>
+            </p>
             <input type="submit" class="btn btn-primarty" value="确定" />
         </form>
     </div>

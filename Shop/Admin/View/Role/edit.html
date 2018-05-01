@@ -11,9 +11,17 @@
 <!-- 列表 -->
 <block name="main">
     <div class="main-div">
-        <form method="POST" action="__SELF__">
+        <form method="POST" style="margin:5px;" action="__SELF__">
             <input type="hidden" value="{$data['id']}" name="id" />
-            角色名称：<input type="text" name="role_name" value="{$data['role_name']}" />
+            <p>角色名称：<input type="text" name="role_name" value="{$data['role_name']}" /></p>
+            <p>重新为该角色分配权限：
+                <div class="alert alert-info">
+                    <volist name="data1" id="obj">
+                        {:str_repeat('-',$obj['auth_level']*8)}
+                        <input type="checkbox" name="auth_id[]" style="margin:5px;" value="{$obj.id}" />{$obj.auth_name}<br />
+                    </volist>
+                </div>
+            </p>
             <input type="submit" class="btn btn-primarty" value="确定" />
         </form>
     </div>
