@@ -3,7 +3,7 @@
 <head>
     <!--标题-->
     
-    <title>管理中心 - 新增角色</title>
+    <title>管理中心 - 新增管理员</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="/Public/Admin/Styles/general.css" rel="stylesheet" type="text/css" />
@@ -19,8 +19,8 @@
 
     <!--具体操作-->
     
-    <span class="action-span"><a href="<?php echo U('lst');?>">返回</a></span>
-    <span id="search_id"> - 新增角色</span>
+    <span class="action-span"><a href="<?php echo U('Admin/Admin/lst');?>">返回</a></span>
+    <span id="search_id"> - 新增管理员</span>
 
 
     <div style="clear:both;"></div>
@@ -29,10 +29,11 @@
 <!-- 内容主题 -->
 
     <div class="main-div">
-        <form method="POST" action="/Admin/Role/add.html" enctype="multipart/form-data">
-            角色名称：
-            <input type="text" name="role_name" value="" />
-            <input type="submit" class="btn btn-primarty" value="确定" />
+        <form method="POST" action="/Admin/Admin/add.html">
+            <p>管理员名称：<input type="text" name="username" /></p>
+            <p>管理员密码：<input type="password" name="password" /></p>
+            <p>是否启用：<input type="text" name="is_use" placeholder="1为启用,0为禁用" /></p>
+            <input type="submit" class="btn btn-primary" value="确定" />
         </form>
     </div>
 

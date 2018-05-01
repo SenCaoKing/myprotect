@@ -14,6 +14,7 @@
     
     <style type="text/css">
         td{text-align: center;}
+        a{color: #9cf !important;}
     </style>
 
 </head>
@@ -23,7 +24,7 @@
 
     <!--具体操作-->
     
-    <span class="action-span"><a href="<?php echo U('add');?>">添加管理员</a></span>
+    <span class="action-span"><a href="<?php echo U('Admin/Admin/add');?>">添加管理员</a></span>
     <span id="search_id"> - 管理员列表</span>
 
 
@@ -35,15 +36,24 @@
     <div class="list-div" id="listDiv">
         <table cellspacing="1" cellpadding="3">
             <tr>
+                <th>id</th>
+                <th>管理员名称</th>
+                <th>管理员密码</th>
+                <th>是否启用(1为启用,0为禁用)</th>
                 <th width="60">操作</th>
             </tr>
-            <tr class="tron">
-                <td align="center">
-                    <a href="<?php echo U('edit'); ?>" title="编辑" style="color:#9cf;">编辑</a> |
-                    <a href="<?php echo U('delete'); ?>" onclick="return confirm('确定要删除吗？');" title="移除" style="color:#9cf;">移除</a>
-                </td>
-            </tr>
-            <tr><td align="right" nowrap="true" colspan="99" height="30"><?php echo '分页'; ?></td></tr>
+            <?php foreach($data as $k => $v): ?>
+                <tr class="tron">
+                    <td><?php echo $v['id']; ?></td>
+                    <td><?php echo $v['username']; ?></td>
+                    <td><?php echo $v['password']; ?></td>
+                    <td><?php echo $v['is_use']; ?></td>
+                    <td align="center">
+                        <a href="<?php echo U('Admin/Admin/edit?id='.$v['id'].'&p='.I('get.p')); ?>" title="编辑">编辑</a> |
+                        <a href="<?php echo U('Admin/Admin/delete?id='.$v['id'].'&p='.I('get.p')); ?>" onclick="return confirm('确定要删除吗？');" title="移除">移除</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
         </table>
     </div>
 
