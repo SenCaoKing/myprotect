@@ -3,7 +3,7 @@
 <head>
     <!--标题-->
     
-    <title>管理中心 - 新增管理员</title>
+    <title>管理中心 - 新增管理员 </title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="/Public/Admin/Styles/general.css" rel="stylesheet" type="text/css" />
@@ -29,11 +29,13 @@
 <!-- 内容主题 -->
 
     <div class="main-div">
-        <form method="POST" action="/Admin/Admin/add.html">
-            <p>管理员名称：<input type="text" name="username" /></p>
-            <p>管理员密码：<input type="password" name="password" /></p>
-            <p>是否启用：<input type="text" name="is_use" placeholder="1为启用,0为禁用" /></p>
-            <input type="submit" class="btn btn-primary" value="确定" />
+        <form method="POST" action="/Admin/Admin/add.html"  style="margin-left:5px;">
+            <p>账号：<input type="text" name="username" /></p>
+            <p>密码：<input type="password" size="25" name="password" /></p>
+            是否启用 1：启用 0：禁用
+            <input type="radio" name="is_use" value="1" checked="checked" />启用
+            <input type="radio" name="is_use" value="0" />禁用
+            <p><input type="submit" class="btn btn-primary" value="确定" /></p>
         </form>
     </div>
 

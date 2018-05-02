@@ -26,10 +26,10 @@
                 // 循环每一个前面的复选框判断是不是上级的
                 $(allprev).each(function(k,v){
                     // 判断是不是上级的权限
-                    if($(v).attr("auth_level") < tmplevel){
+                    if($(v).attr("auth_level") < cur_level){
                         $(v).get(0).checked=$(_this).get(0).checked;
                         tmplevel--; // 再向上提一级
-                    }else return false;
+                    }
                 });
                 // 所有子权限也选中
                 // 先取出这个复选框所有前面的复选框
@@ -40,9 +40,10 @@
                     if($(v).attr("auth_level") > cur_level){
                         $(v).get(0).checked=$(_this).get(0).checked;
                         tmplevel++;
-                    }
+                    }else{return false;}
                     // 遇到一个平级的权限就停止循环后面的不用再哦安短了
-                    else return false;
+
+
                     
                 });
             });
@@ -69,10 +70,12 @@
         <form method="POST" style="margin:5px;" action="/Admin/Role/edit/id/2.html">
             <input type="hidden" value="<?php echo ($data['id']); ?>" name="id" />
             <p>角色名称：<input type="text" name="role_name" value="<?php echo ($data['role_name']); ?>" /></p>
-            <p>重新为该角色分配权限：
+            <p>为该角色修改分配的权限：
                 <div class="alert alert-info">
                     <?php if(is_array($data1)): $i = 0; $__LIST__ = $data1;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$obj): $mod = ($i % 2 );++$i; echo str_repeat('-',$obj['auth_level']*8);?>
-                        <input type="checkbox" name="auth_id[]" style="margin:5px;" value="<?php echo ($obj["id"]); ?>" level="auth_level" /><?php echo ($obj["auth_name"]); ?><br /><?php endforeach; endif; else: echo "" ;endif; ?>
+                        <input type="checkbox" name="auth_id[]" style="margin:5px;" value="<?php echo ($obj["id"]); ?>" level="auth_level" 
+                        <?php if(strpos($data['auth_id'],$obj['id'])!==false) echo "checked"; ?>
+                         ><?php echo ($obj["auth_name"]); endforeach; endif; else: echo "" ;endif; ?>
                 </div>
             </p>
             <input type="submit" class="btn btn-primarty" value="确定" />

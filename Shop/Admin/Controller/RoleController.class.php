@@ -64,9 +64,8 @@ class RoleController extends BaseController{
      */
     public function delete(){
         $model = D('Role');
-        if($model->delete(I('get.id', 0)) !== FALSE){
-            $this->success('删除成功！', U('lst', array('p'=>I('get.p', 1))));
-            exit;
+        if($model->deleteRole(I('get.id'))){
+            $this->success('删除成功！', U('lst'));
         } else {
             $this->error($this->getError());
         }
