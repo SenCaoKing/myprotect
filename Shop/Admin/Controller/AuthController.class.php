@@ -31,7 +31,8 @@ class AuthController extends BaseController{
 			$this->error($model->getError());
 		}
 		$parentModel = D('Auth');
-		$prentData = $parentModel->getTree();
+		$parentData = $parentModel->getTree();
+		// dump($parentData);
 		$this->assign('parentData', $parentData);
 		$this->display();
 	}

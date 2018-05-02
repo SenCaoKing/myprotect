@@ -32,8 +32,8 @@
         <form name="main_form" method="POST" action="/Admin/Auth/add.html" enctype="multipart/form-data">
             <p>上级权限：<select name="pid">
                     <option value="0">顶级权限</option>
-                    <?php foreach($parenpata as $k => $v): ?>
-                        <option value="<?php echo $v['id']; ?>"<?php echo str_repeat('-', 8*$v['auth_level']).$v['auth_name']; ?>></option>
+                    <?php foreach($parentData as $k => $v): ?>
+                        <option value="<?php echo $v['id']; ?>"><?php echo str_repeat('-', 8*$v['auth_level']).$v['auth_name']; ?></option>
                     <?php endforeach; ?>
                 </select>
             </p>

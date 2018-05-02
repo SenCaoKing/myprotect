@@ -12,6 +12,43 @@
     <script type="text/javascript" src="/Public/bootstrap/js/jquery.min.js"></script>
     <!-- 其他样式 -->
     
+    <script type="text/javascript">
+        $(function(){
+            // JS智能选择
+            // 为所有的选择框绑定点击事件
+            $(":checkbox").click(function(){
+                var _this=this;
+                // 先取出当前权限的auth_level值是多少
+                var cur_level = $(this).attr("auth_level");
+                var tmplevel = cur_level; // 给一个临时的变量后面要进行减操作
+                // 先取出这个复选框所有前面的复选框
+                var allprev = $(this).prevAll(":checkbox");
+                // 循环每一个前面的复选框判断是不是上级的
+                $(allprev).each(function(k,v){
+                    // 判断是不是上级的权限
+                    if($(v).attr("auth_level") < tmplevel){
+                        $(v).get(0).checked=$(_this).get(0).checked;
+                        tmplevel--; // 再向上提一级
+                    }else return false;
+                });
+                // 所有子权限也选中
+                // 先取出这个复选框所有前面的复选框
+                var allnext = $(this).nextAll(":checkbox");
+                // 循环每一个前面的复选框判断是不是上级的
+                $(allnext).each(function(k,v){
+                    // 判断是不是上级的权限
+                    if($(v).attr("auth_level") > cur_level){
+                        $(v).get(0).checked=$(_this).get(0).checked;
+                        tmplevel++;
+                    }
+                    // 遇到一个平级的权限就停止循环后面的不用再哦安短了
+                    else return false;
+                    
+                });
+            });
+        });
+    </script>
+
 </head>
 <body>
 <h1 style="font-size: 14px;">
@@ -35,7 +72,7 @@
             <p>重新为该角色分配权限：
                 <div class="alert alert-info">
                     <?php if(is_array($data1)): $i = 0; $__LIST__ = $data1;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$obj): $mod = ($i % 2 );++$i; echo str_repeat('-',$obj['auth_level']*8);?>
-                        <input type="checkbox" name="auth_id[]" style="margin:5px;" value="<?php echo ($obj["id"]); ?>" /><?php echo ($obj["auth_name"]); ?><br /><?php endforeach; endif; else: echo "" ;endif; ?>
+                        <input type="checkbox" name="auth_id[]" style="margin:5px;" value="<?php echo ($obj["id"]); ?>" level="auth_level" /><?php echo ($obj["auth_name"]); ?><br /><?php endforeach; endif; else: echo "" ;endif; ?>
                 </div>
             </p>
             <input type="submit" class="btn btn-primarty" value="确定" />

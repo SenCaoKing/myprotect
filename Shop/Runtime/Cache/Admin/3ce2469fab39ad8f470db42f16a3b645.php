@@ -12,6 +12,8 @@
     <script type="text/javascript" src="/Public/bootstrap/js/jquery.min.js"></script>
     <!-- 其他样式 -->
     
+
+
 </head>
 <body>
 <h1 style="font-size: 14px;">
@@ -31,10 +33,10 @@
     <div class="main-div">
         <form method="POST" style="margin:5px;" action="/Admin/Role/add.html">
             <p>角色名称：<input type="text" name="role_name" /></p>
-            <p>选择该角色拥有的所有权限：
+            <p>为该角色分配权限：
                 <div class="alert alert-info">
                     <?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$obj): $mod = ($i % 2 );++$i; echo str_repeat('-',$obj['auth_level']*8);?>
-                        <input type="checkbox" name="auth_id[]" style="margin:5px;" value="<?php echo ($obj["id"]); ?>" /><?php echo ($obj["auth_name"]); ?><br /><?php endforeach; endif; else: echo "" ;endif; ?>
+                        <input type="checkbox" name="auth_id[]" style="margin:5px;" value="<?php echo ($obj["id"]); ?>" value="<?php echo ($obj["auth_level"]); ?>" /><?php echo ($obj["auth_name"]); ?><br /><?php endforeach; endif; else: echo "" ;endif; ?>
                 </div>
             </p>
             <p><input type="submit" class="btn btn-primarty" value="确定" /></p>
