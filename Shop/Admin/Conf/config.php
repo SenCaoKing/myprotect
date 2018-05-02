@@ -9,5 +9,6 @@ return array(
         '__IMG__'           => __ROOT__.'/PUBLIC/'.MODULE_NAME.'/img',
         'UPLOAD_PATH'       => __ROOT__.'/PUBLIC/Uploads',
     ),
-    
+    // 秘钥
+    'md5_key'               => 'Sen'
 );

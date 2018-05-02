@@ -29,9 +29,15 @@
 <!-- 内容主题 -->
 
     <div class="main-div">
-        <form method="POST" action="/Admin/Admin/add.html"  style="margin-left:5px;">
+        <form method="POST" action="/Admin/Admin/add.html"  style="margin:5px;">
             <p>账号：<input type="text" name="username" /></p>
             <p>密码：<input type="password" size="25" name="password" /></p>
+            <p>确认密码：<input type="password" size="25" name="cpassword" /></p>
+            <p>为该管理员分配角色：
+                <div class="alert alert-info">
+                    <?php if(is_array($roleData)): $i = 0; $__LIST__ = $roleData;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><input type="checkbox" name="role_id[]" style="margin:10px;" value="<?php echo ($v["id"]); ?>" /><?php echo ($v["role_name"]); ?><br/><?php endforeach; endif; else: echo "" ;endif; ?>
+                </div>
+            </p>
             是否启用 1：启用 0：禁用
             <input type="radio" name="is_use" value="1" checked="checked" />启用
             <input type="radio" name="is_use" value="0" />禁用
