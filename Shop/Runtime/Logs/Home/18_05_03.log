@@ -1,0 +1,34 @@
+[ 2018-05-03T19:17:42+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.029580s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.010196s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.010319s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001561s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001863s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.067651s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.067779s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.015155s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.015258s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.007417s ]
+INFO: [ app_end ] --END-- [ RunTime:0.007536s ]
+
+[ 2018-05-03T19:17:42+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000528s ]
+
+[ 2018-05-03T19:21:48+08:00 ] 127.0.0.1 /Public/Admin/Js/global.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000280s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000432s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000465s ]
+ERR: 无法加载控制器:Public
+

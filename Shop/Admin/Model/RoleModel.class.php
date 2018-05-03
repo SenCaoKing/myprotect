@@ -14,6 +14,22 @@ class RoleModel extends Model{
      * @return [type] [description]
      */
     public function searchRole(){
+        // 方法①
+        $data = $this->select(); // 角色的信息
+        $auth=M('Auth');
+        $authData=$auth->field('id,auth_name')->select(); // 查找所有权限的信息
+        foreach ($data as $k => $v) {
+            $auth_names='';
+            foreach ($authData as $key => $value) {
+                if(strpos(','.$v['auth_id'].',',','.$value['id'].',')!==false){
+                    $auth_names.=','.$value['auth_name'];
+                }
+            }
+            $data[$k]['auth_names']=substr($auth_names,1);
+        }
+        return $data;
+        /**
+         * 方法② : 效率更低(foreach里面有sql查询) 
         $results=array();
         if(empty($results)){
             $roles=$this->select(); // 角色的信息
@@ -30,6 +46,7 @@ class RoleModel extends Model{
             }
             return $results;
         }
+        */
     }
 
     /**
