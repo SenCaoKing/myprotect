@@ -1,50 +1,45 @@
-[ 2018-05-03T21:50:05+08:00 ] 127.0.0.1 /Public/Admin/Js/global.js
+[ 2018-05-03T23:04:08+08:00 ] 127.0.0.1 /Public/Admin/Js/global.js
 INFO: [ app_init ] --START--
-INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
-INFO: [ app_init ] --END-- [ RunTime:0.000434s ]
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000049s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000554s ]
 INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000361s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.000396s ]
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000530s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000632s ]
 ERR: 无法加载控制器:Public
 
-[ 2018-05-03T22:07:23+08:00 ] 127.0.0.1 /Public/Admin/Js/global.js
+[ 2018-05-03T23:04:14+08:00 ] 127.0.0.1 /Public/Admin/Js/global.js
 INFO: [ app_init ] --START--
-INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
-INFO: [ app_init ] --END-- [ RunTime:0.000324s ]
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000053s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000550s ]
 INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000381s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.000429s ]
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000449s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000505s ]
 ERR: 无法加载控制器:Public
 
-[ 2018-05-03T22:29:11+08:00 ] 127.0.0.1 /Public/Admin/Js/global.js
+[ 2018-05-03T23:08:19+08:00 ] 127.0.0.1 /Public/Admin/Js/global.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000477s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000917s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000992s ]
+ERR: 无法加载控制器:Public
+
+[ 2018-05-03T23:08:20+08:00 ] 127.0.0.1 /Public/Admin/Js/global.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000408s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000499s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000558s ]
+ERR: 无法加载控制器:Public
+
+[ 2018-05-03T23:33:15+08:00 ] 127.0.0.1 /Public/Admin/Js/global.js
 INFO: [ app_init ] --START--
 INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
-INFO: [ app_init ] --END-- [ RunTime:0.000272s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000506s ]
 INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000389s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.000450s ]
-ERR: 无法加载控制器:Public
-
-[ 2018-05-03T22:29:11+08:00 ] 127.0.0.1 /favicon.ico
-INFO: [ app_init ] --START--
-INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000065s ]
-INFO: [ app_init ] --END-- [ RunTime:0.001281s ]
-
-[ 2018-05-03T22:29:54+08:00 ] 127.0.0.1 /Public/Admin/Js/global.js
-INFO: [ app_init ] --START--
-INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
-INFO: [ app_init ] --END-- [ RunTime:0.000597s ]
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000362s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.000398s ]
-ERR: 无法加载控制器:Public
-
-[ 2018-05-03T22:39:50+08:00 ] 127.0.0.1 /Public/Admin/Js/global.js
-INFO: [ app_init ] --START--
-INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
-INFO: [ app_init ] --END-- [ RunTime:0.000465s ]
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000541s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.000609s ]
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000490s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000541s ]
 ERR: 无法加载控制器:Public
 

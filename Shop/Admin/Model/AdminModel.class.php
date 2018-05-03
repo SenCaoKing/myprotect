@@ -38,7 +38,7 @@ class AdminModel extends Model
             return 0;
         }else{
             $arr=array(
-                'uaername' => $data['username'],
+                'username' => $data['username'],
                 'password' => $data['password'],
                 'role_id'  => implode(',', $data['role_id']),
                 'is_use'   => $data['is_use']
