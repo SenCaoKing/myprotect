@@ -6,10 +6,6 @@ use Think\Model;
  */
 class AdminModel extends Model
 {
-    // 插入或更新时限制的字段
-    protected $insertFields = array('username', 'password', 'cpassword', 'is_use');
-    protected $updateFields = array('id', 'username', 'password', 'cpassword', 'is_use');
-
     // 自动验证
     protected $_validate = array(
         // 第四个参数是验证条件，1为必须验证，0为存在就验证，2为值不为空才验证
@@ -24,7 +20,8 @@ class AdminModel extends Model
     );
 
     // 登录验证
-    protected $rules = array(
+    // 登录验证，必须是public
+    public $rules = array(
         array('username', 'require', '账号不能为空！', 1),
         array('password', 'require', '密码不能为空！', 1),
         array('captcha', 'require', '验证码不能为空！', 1),
@@ -79,16 +76,28 @@ class AdminModel extends Model
         if(empty($data['role_id'])){
             $this->error='必须分配角色';
             return 0;
-        }else{
-            $arr=array(
-                'id'       => $data['id'],
-                'uaername' => $data['username'],
-                'password' => md5($data['password'].C('md5_key')),
-                'role_id'  => implode(',', $data['role_id']),
-                'is_use'   => $data['is_use']
-            );
-            return $this->save($arr);
         }
+        $arr=array(
+            'id'       => $data['id'],
+            'uaername' => $data['username'],
+            'password' => md5($data['password'].C('md5_key')),
+            'role_id'  => implode(',', $data['role_id']),
+            'is_use'   => $data['id']==1?1:$data['is_use']
+        );
+        return $this->save($arr);
+    }
+
+    /**
+     * 删除管理员
+     * @param  [type] $id [description]
+     * @return [type]     [description]
+     */
+    public function deleteAdmin($id){
+        if($id==1){
+            $this->error='超级管理员不能删！';
+            return 0;
+        }
+        return $this->delete($id);
     }
 
     /**
@@ -101,7 +110,9 @@ class AdminModel extends Model
         $username=$data['username'];
         $password=md5($data['password'].C('md5_key'));
         // 取记录
-        $map=array('username'=>$username);
+        $map=array(
+            'username'=>$username
+        );
         $user=$this->where($map)->find();
         if($user){ // 验证用户名是否存在
             if($user['password']==$password){ // 验证密码是否正确
