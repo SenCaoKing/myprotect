@@ -14,13 +14,14 @@
         <form method="POST" style="margin-left:5px;" action="__SELF__">
             <input type="hidden" name="id" value="{$data['id']}" />
             <p>账号：<input type="text" name="username" value="{$data['username']}" /></p>
-            <p>密码：<input type="password" name="password" value="{$data['password']}" /></p>
+            <p>密码：<input type="password" size="25" name="password" value="{$data['password']}" /></p>
             <p>确认密码：<input type="password" size="25" name="cpassword" value="{$data['password']}" /></p>
             <p>为该管理员分配角色：
                 <div class="alert alert-info">
                     <volist name="roleData" id="v">
                         <input type="checkbox" name="role_id[]" style="margin:10px;" 
-                        value="{$v.id}" <?php if(strpos($data['role_id'],$v['id'])!==false)
+                        value="{$v.id}" 
+                        <?php if(strpos($data['role_id'],$v['id'])!==false)
                         echo "checked" 
                         ?>
                          />{$v.role_name}<br/>   

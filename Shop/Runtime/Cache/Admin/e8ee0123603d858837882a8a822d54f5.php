@@ -29,15 +29,16 @@
 <!-- 内容主题 -->
 
     <div class="main-div">
-        <form method="POST" style="margin-left:5px;" action="/Admin/Admin/edit/id/2.html">
+        <form method="POST" style="margin-left:5px;" action="/Admin/Admin/edit/id/1.html">
             <input type="hidden" name="id" value="<?php echo ($data['id']); ?>" />
             <p>账号：<input type="text" name="username" value="<?php echo ($data['username']); ?>" /></p>
-            <p>密码：<input type="password" name="password" value="<?php echo ($data['password']); ?>" /></p>
+            <p>密码：<input type="password" size="25" name="password" value="<?php echo ($data['password']); ?>" /></p>
             <p>确认密码：<input type="password" size="25" name="cpassword" value="<?php echo ($data['password']); ?>" /></p>
             <p>为该管理员分配角色：
                 <div class="alert alert-info">
                     <?php if(is_array($roleData)): $i = 0; $__LIST__ = $roleData;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><input type="checkbox" name="role_id[]" style="margin:10px;" 
-                        value="<?php echo ($v["id"]); ?>" <?php if(strpos($data['role_id'],$v['id'])!==false) echo "checked" ?>
+                        value="<?php echo ($v["id"]); ?>" 
+                        <?php if(strpos($data['role_id'],$v['id'])!==false) echo "checked" ?>
                          /><?php echo ($v["role_name"]); ?><br/><?php endforeach; endif; else: echo "" ;endif; ?>
                 </div>
             </p>

@@ -16,6 +16,22 @@
         td{text-align: center;}
         a{color: #9cf !important;}
     </style>
+    <script type="text/javascript">
+        $(function(){
+            $('.is_use').click(function(){
+                var _this=this;
+                var adminID=$(_this).attr('adminID');
+                if(adminID==1){
+                    alert('root用户不能禁用');
+                    return;
+                }
+                $.get("<?php echo U('Admin/Admin/setUnuse/id/"+adminID+"');?>",function(res){
+                    if(res==0) $(_this).html('已禁用');
+                    else $(_this).html('已启用');
+                })
+            })
+        });
+    </script>
 
 </head>
 <body>
@@ -40,15 +56,15 @@
                 <th>账号</th>
                 <th>密码</th>
                 <th>所属角色</th>
-                <th>是否启用 1:启用 0:禁用</th>
+                <th>状态</th>
                 <th width="60">操作</th>
             </tr>
             <?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><tr class="tron">
                     <td><?php echo ($v['id']); ?></td>
                     <td><?php echo ($v['username']); ?></td>
                     <td><?php echo ($v['password']); ?></td>
-                    <td><?php echo ($v['role_name']); ?></td>
-                    <td><?php echo ($v['is_use']); ?></td>
+                    <td><?php echo ($v['role_names']); ?></td>
+                    <td adminID="<?php echo ($v['id']); ?>" class="is_use" style="color:#9cf;"><?php echo ($v['is_use']==1?'已启用':'已禁用'); ?></td>
                     <td align="center">
                         <a href="<?php echo U('Admin/Admin/edit?id='.$v['id'].'&p='.I('get.p')); ?>" title="编辑">编辑</a>
                         <?php if($v['id']>1) {?>|
