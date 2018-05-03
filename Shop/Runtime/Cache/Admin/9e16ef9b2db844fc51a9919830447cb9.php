@@ -37,7 +37,7 @@
                         </tr>
                         <tr>
                             <td colspan="2" align="right">
-                                <img src="<?php echo U('chkcode');?>" style="cursor:pointer" onclick="this.src='<?php echo U('chkcode')?>#'+Math.random()" />
+                                <img src="<?php echo U('chkcode');?>" style="cursor:pointer" onclick="this.src='<?php echo U('chkcode') ?>#'+Math.random()" />
                                 <a onclick="$(this).prev().trigger('click')" style="cursor:pointer;">看不清？换一张</a>
                             </td>
                         </tr>

@@ -1,0 +1,47 @@
+<extend name="Common:common"/>
+<!--标题-->
+<block name="title">
+        <title>管理中心 - 添加新商品 </title>
+</block>
+<!--具体操作-->
+<block name="action">
+        <span class="action-span"><a href="{:U('lst')}">返回</a></span>
+        <span id="search_id"> - 添加新商品 </span>
+</block>
+<!--其它样式-->
+<block name="asset">
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript">
+    UE.getEditor('goods_desc',{
+        'initialFrameWidth':'100%',
+        'initialFrameHeight':200,
+        'maximumWords':200
+    });
+</script>
+</block>
+
+<!--内容主题-->
+<block name="main">
+    <div class="tab-div">
+        <div id="tabbar-div">
+            <p>
+                <span class="tab-front" id="general-tab">通用信息</span>
+            </p>
+        </div>
+        <div id="tabbody-div">
+          <form method="POST" action="__SELF__" enctype="multipart/form-data">
+            商品名称:<input type="text" name="goods_name" /><br />
+            商品价格:<input type="text" name="price" /><br />
+            商品logo:<input type="file" name="logo" /><br />
+            商品描述:<textarea name="goods_desc" id="goods_desc"></textarea><br />
+            是否上架:
+            <input type="radio" name="is_on_sale" value="1" checked="checked" />上架
+            <input type="radio" name="is_on_sale" value="0" />下架
+            <br />
+            <input type="submit" class="btn btn-primary" value="提交" />
+          </form>
+        </div>
+    </div>
+</block>

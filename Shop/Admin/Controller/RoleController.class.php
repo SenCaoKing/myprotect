@@ -12,7 +12,6 @@ class RoleController extends BaseController{
 	public function lst(){
         $model = D('Role');
         $data = $model->searchRole(); // 查找所有角色名称
-        dump($data);
         $this->assign('data',$data);
 		$this->display();
 	}
