@@ -64,7 +64,7 @@
                     <td><?php echo ($v['username']); ?></td>
                     <td><?php echo ($v['password']); ?></td>
                     <td><?php echo ($v['role_names']); ?></td>
-                    <td adminID="<?php echo ($v['id']); ?>" class="is_use" style="color:#9cf;"><?php echo ($v['is_use']==1?'已启用':'已禁用'); ?></td>
+                    <td adminID="<?php echo ($v['id']); ?>" class="is_use" style="color:#9cf;cursor:pointer;"><?php echo ($v['is_use']==1?'已启用':'已禁用'); ?></td>
                     <td align="center">
                         <a href="<?php echo U('Admin/Admin/edit?id='.$v['id'].'&p='.I('get.p')); ?>" title="编辑">编辑</a>
                         <?php if($v['id']>1) {?>|
