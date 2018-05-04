@@ -3,9 +3,9 @@ namespace Admin\Model;
 use Think\Model;
 class AuthModel extends Model{
     // 插入时维护的字段
-	protected $insertFields = array('auth_name','module_name','controller_name','action_name','pid');
+	protected $insertFields=array('auth_name','module_name','controller_name','action_name','pid','auth_level');
     // 更新时维护的字段
-	protected $updateFields = array('id','auth_name','module_name','controller_name','action_name','pid');
+	protected $updateFields=array('id','auth_name','module_name','controller_name','action_name','pid','auth_level');
 
     // 自动验证
 	protected $_validate = array(
@@ -23,11 +23,21 @@ class AuthModel extends Model{
 
     /**
      * 获取权限
-     * @return array 权限数字
+     * @return array 权限数组
      */
-    public function getTree(){
-        $data = $this->select();
-        return $this->_reSort($data);
+    public function getAuth(){
+        // 获取总记录数
+        $count=$this->field('id')->count();
+        // 生成分页对象
+        $page = new \Think\Page($count,14);
+        // 获取分页字符串
+        $pageString = $page->show();
+        // 取出当前页的数据
+        $data=$this->limit($page->firstRow.','.$page->listRows)->select();
+        return array(
+            'page' => $pageString,
+            'data' => $data
+        );
     }
 
     /**

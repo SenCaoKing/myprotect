@@ -8,9 +8,10 @@ class AuthController extends BaseController{
 	 */
 	public function lst(){
 		$model = D('Admin/Auth');
-		$data = $model->getTree();
+		$data = $model->getAuth();
 		$this->assign(array(
-			'data' => $data,
+			'data' => $data['data'],
+			'page' => $data['page']
 		));
 		$this->display();
 	}
@@ -20,19 +21,15 @@ class AuthController extends BaseController{
 	 * @return [type] [description]
 	 */
 	public function add(){
-		if(IS_POST){
+		if(IS_AJAX){
 			$model = D('Auth');
 			if($model->create(I('post.'), 1)){
-				if($id = $model->add()){
-					$this->success('添加成功！', U('lst?p='.I('get.p')));
-					exit;
-				}
+				echo $model->add()?1:0;
+				return;
 			}
-			$this->error($model->getError());
 		}
-		$parentModel = D('Auth');
-		$parentData = $parentModel->getTree();
-		// dump($parentData);
+		$parentModel = M('Auth');
+		$parentData = $parentModel->field('id,auth_name,auth_level')->select();
 		$this->assign('parentData', $parentData);
 		$this->display();
 	}
@@ -43,29 +40,25 @@ class AuthController extends BaseController{
 	 */
 	public function edit(){
 		$id = I('get.id');
-		if(IS_POST){ // 修改权限
-			$model = D('Admin/Auth');
+		if(IS_AJAX){ // 修改权限
+			$model = D('Auth');
 			if($model->create(I('post.'), 2)){
-				if($model->save() !== FALSE){
-					$this->success('修改成功！', U('lst', array('p' => I('get.p', 1))));
-					return;
-				}
+				echo $model->save()?1:0;
+				return;
 			}
-			$this->error($model->getError());
 		}
-		$modle = M('Auth');
-		$data = $modle->find($id);
-		$this->assign('data',$data); // 当前权限的信息
-		$model_p = M('Auth');
-		$data_p = $model_p->field('auth_name,id')->find($data['pid']);
-		$this->assign('data_p',$data_p); // 父权限的信息
-		$parentModel = D('Auth');
-		$parentData = $parentModel->getTree();
-		$children = $parentModel->getChildren($id);
-		$this->assign(array( // 当前权限的父权限和顶级权限
+		$model = M('Auth');
+		// 查找当前权限的信息
+		$data = $model->find($id);
+		// 查找当前权限的父权限的信息
+		$data_p = $model->field('auth_name,auth_level,id')->find($data['pid']);
+		// 查找所有权限的信息
+		$parentData = $model->select();
+		$this->assign(array(
+			'data'       => $data,
+			'data_p'     => $data_p,
 			'parentData' => $parentData,
-			'children'   => $children,
-		));
+		));		
 		$this->display();
 	}
 
