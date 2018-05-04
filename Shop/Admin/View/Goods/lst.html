@@ -10,9 +10,9 @@
 </block>
 <!-- 其他样式 -->
 <block name="asset">
-<script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
-<script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.all.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/lang/zh-cn/zh-cn.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/datepicker/jquery-ui-1.9.2.custom.min.css" />
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/datepicker/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/datepicker/jquery-ui-1.9.2.custom.min.js"></script>
 <style type="text/css">
     input{margin: 5px !important}
     td{text-align: center;}
@@ -23,8 +23,10 @@
     a.prev,a.next{text-decoration: none !important;color:#9cf !important}
 </style>
 <script type="text/javascript">
-    $('#start_addtime').datepicker({dateFormat:"yy-mm-dd"});
-    $('#end_addtime').datepicker({dateFormat:"yy-mm-dd"});
+    $(function(){
+        $('#start_addtime').datepicker({dateFormat:"yy-mm-dd"});
+        $('#end_addtime').datepicker({dateFormat:"yy-mm-dd"});
+    });
 </script>
 </block>
 
@@ -78,8 +80,8 @@
                     <td><if condition="$v.is_on_sale eq 1">上架<else/>下架</if></td>
                     <td><if condition="$v.is_delete eq 1">是<else/>否</if></td>
                     <td>
-                    <a href="{:U('edit',array('id'=>$v['id'],'p'=>I('get.p',1)))}">修改</a>
-                    <a onclick="return confirm('确定要删除吗?')" href="{:U('delete',array('id'=>$v['id'],'p'=>I('get.p',1)))}">删除</a>
+                    <a href="{:U('edit',array('id'=>$v['id'],'p'=>I('get.p',1)))}" class="action">修改</a>
+                    <a onclick="return confirm('确定要删除吗?')" href="{:U('delete',array('id'=>$v['id'],'p'=>I('get.p',1)))}" class="action">删除</a>
                     </td>
                 </tr>
             </foreach>
