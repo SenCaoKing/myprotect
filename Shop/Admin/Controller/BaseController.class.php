@@ -6,17 +6,18 @@ use Think\Controller;
  */
 class BaseController extends Controller {
 
-    public function __construct()
-    {
+    public function __construct(){
         parent::__construct();
         // if(!session(['id'])){
         //     redirect("Admin/Login/login");
         // }
-        
+        /*
         // 权限认证
         if(!$this->checkAuth()){
             $this->error('您无权限访问！');
-        }        
+        }
+        */
+        $this->getChildren();
     }
 
     /**
@@ -54,6 +55,27 @@ class BaseController extends Controller {
             }
         }
         return array_unique($auth_ids);
+    }
+
+    /**
+     * 菜单左侧显示权限
+     */
+    protected function getChildren(){
+        $auth_ids_arr=$this->getAuthIdsByAdminId();
+        $auth_ids=implode(',', $auth_ids_arr);
+        $btn=array();
+        $auth=M('Auth')->where("id in($auth_ids)")->select();
+
+        foreach($auth as $k => $v){
+            if($v['pid']==0){
+                foreach($auth as $k1 => $v1){
+                    if($v1['pid']==$v['id'])
+                        $v['children'][]=$v1;
+                }
+                $btn[]=$v;
+            }
+        }
+        $this->assign('btn',$btn);
     }
 
 
