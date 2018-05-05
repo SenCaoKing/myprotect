@@ -1,0 +1,56 @@
+[ 2018-05-05T19:12:43+08:00 ] 127.0.0.1 /Admin/Auth/lst
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000483s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000618s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000655s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0160s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0096s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0068s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecshop_auth` LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT * FROM `ecshop_auth` LIMIT 0,14   [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000091s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000181s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010785s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010877s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000558s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000607s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000587s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000627s ]
+
+[ 2018-05-05T19:12:47+08:00 ] 127.0.0.1 /Admin/Auth/add.html?pid=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000293s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000293s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000326s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0088s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0033s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0035s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0002s ]
+SQL: SELECT `id`,`auth_name`,`auth_level` FROM `ecshop_auth`  [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000048s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000076s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004523s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004567s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000273s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000299s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000434s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000471s ]
+
