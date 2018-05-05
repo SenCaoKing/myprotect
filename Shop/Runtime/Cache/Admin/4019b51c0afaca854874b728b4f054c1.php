@@ -64,17 +64,21 @@
                 <th>属性的可选值，多个可选值用，隔开</th>
                 <th>操作</th>
             </tr>
-            <tr class="tron">
-                <td>id</td>
-                <td>属性名</td>
-                <td>属性类型</td>
-                <td>属性可选值</td>
-                <td align="center">
-                    <a href="" title="编辑">编辑</a>
-                    <a onclick="return confirm('确定要删除吗?')" href="" title="移除">移除</a>
-                </td>
-            </tr>
-            <tr><td align="right" nowrap="true" colspan="99" height="30">分页</td></tr>
+            <?php foreach ($data as $k => $v): ?>
+                <tr class="tron">
+                    <td><?php echo $v['type_id']; ?></td>
+                    <td><?php echo $v['attr_name']; ?></td>
+                    <td><?php echo $v['attr_type']; ?></td>
+                    <td><?php echo $v['attr_option_values']; ?></td>
+                    <td align="center">
+                        <a href="<?php echo U('edit?id='.$v['id'].'&p='.I('get.p')); ?>" title="编辑">编辑</a> | 
+                        <a onclick="return confirm('确定要删除吗?')" href="<?php echo U('delete?id='.$v['id'].'&p='.I('get.p')); ?>" title="移除">移除</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            <?php if(preg_match('/\d', $page)): ?>
+                <tr><td align="right" nowrap="true" colspan="99" height="30"><?php echo $page; ?></td></tr>
+            <?php endif; ?>
         </table>
     </div>
 

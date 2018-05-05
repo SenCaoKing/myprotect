@@ -3,7 +3,7 @@
 <head>
     <!--标题-->
     
-    <title>管理中心 - 新增类型</title>
+    <title>管理中心 - 编辑属性</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="/Public/Admin/Styles/general.css" rel="stylesheet" type="text/css" />
@@ -20,7 +20,7 @@
     <!--具体操作-->
     
     <span class="action-span"><a href="<?php echo U('lst');?>">返回</a></span>
-    <span id="search_id"> - 添加类型</span>
+    <span id="search_id"> - 编辑属性</span>
 
 
     <div style="clear:both;"></div>
@@ -29,8 +29,16 @@
 <!-- 内容主题 -->
 
     <div class="main-div">
-        <form method="POST" style="margin:5px;" action="/Admin/Type/add.html">
-            <p>商品类型:<input type="text" name="type_name" value="" /></p>
+        <form method="POST" style="margin-left: 5px;" action="/Admin/Attr/edit/id/2/p/1.html" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="" />
+            所在的类型的id：
+            <p><input type="text" name="type_id" value="<?php echo $data['type_id']; ?>" /></p>
+            属性名：
+            <p><input type="text" name="attr_name" value="<?php echo $data['attr_name']; ?>" /></p>
+            属性的类型0：唯一 1：可选：
+            <p><input type="text" name="attr_type" value="<?php echo $data['attr_type']; ?>" /></p>
+            属性的可选值，多个可选值用，隔开：
+            <p><input type="text" name="attr_option_values" value="<?php echo $data['attr_option_values']; ?>" /></p>
             <p><input type="submit" class="btn btn-primary" value="确定" /></p>
         </form>
     </div>
