@@ -101,3 +101,32 @@ CREATE TABLE IF NOT EXISTS ecshop_role (
 
 -- --------------------------------------------------------
 
+-- --------------------------------------------------------
+--
+-- 属性表 `ecshop_attr`
+--
+CREATE TABLE IF NOT EXISTS ecshop_attr (
+  id int(11) unsigned not null auto_increment,
+  type_id int(11) unsigned not null comment '所在的类型的id',
+  attr_name varchar(30) not null comment '属性名',
+  attr_type tinyint(4) unsigned not null comment '属性的类型0：唯一 1：可选',
+  attr_option_values varchar(150) not null comment '属性的可选值，多个可选值用，隔开',
+  primary key (id),
+  key type_id (type_id),
+  key type_id_2 (type_id)
+) engine=Myisam default charset=utf8 comment='属性表';
+
+-- --------------------------------------------------------
+
+-- --------------------------------------------------------
+--
+-- 类型表 `ecshop_type`
+--
+CREATE TABLE IF NOT EXISTS ecshop_type (
+  id smallint(5) unsigned not null auto_increment,
+  type_name varchar(30) not null comment '商品类型',
+  primary key (id)
+) engine=Myisam default charset=utf8 comment='类型表';
+
+-- --------------------------------------------------------
+

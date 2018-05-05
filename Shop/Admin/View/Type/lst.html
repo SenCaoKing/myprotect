@@ -1,0 +1,51 @@
+<extend name="Common:common" />
+<!-- 标题 -->
+<block name="title">
+    <title>管理中心 - 类型列表</title>
+</block>
+<!-- 其他样式 -->
+<block name="asset">
+<style type="text/css">
+    td{text-align: center;}
+    a{color:#9cf !important;}
+</style>
+</block>
+
+<!-- 具体操作 -->
+<block name="action">
+    <span class="action-span"><a href="{:U('add')}">添加类型</a></span>
+    <span id="search_id"> - 类型列表</span>
+</block>
+
+<!-- 列表 -->
+<block name="main">
+    <!-- 搜索 -->
+    <div class="form-div search_form_div">
+        <form method="GET" name="search_form">
+            <p>
+                商品类型：
+                <input type="text" name="type_name" size="30" value="<?php echo I('get.type_name'); ?>"/>
+            </p>
+            <p><input type="submit" value="搜索" class="button" /></p>
+        </form>
+    </div>
+    <!-- 列表 -->
+    <div class="list-div" id="listDiv">
+        <table cellpadding="3" cellspacing="1">
+            <tr>
+                <th>ID</th>
+                <th>商品类型</th>
+                <th>操作</th>
+            </tr>
+            <tr class="tron">
+                <td>id</td>
+                <td>类型</td>
+                <td align="center">
+                    <a href="" title="编辑">编辑</a>
+                    <a onclick="return confirm('确定要删除吗?')" href="" title="移除">移除</a>
+                </td>
+            </tr>
+            <tr><td align="right" nowrap="true" colspan="99" height="30">分页</td></tr>
+        </table>
+    </div>
+</block>
