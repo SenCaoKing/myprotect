@@ -3,7 +3,7 @@
 <head>
     <!--标题-->
     
-    <title>管理中心 - 新增类型</title>
+    <title>管理中心 - 编辑类型</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="/Public/Admin/Styles/general.css" rel="stylesheet" type="text/css" />
@@ -20,7 +20,7 @@
     <!--具体操作-->
     
     <span class="action-span"><a href="<?php echo U('lst');?>">返回</a></span>
-    <span id="search_id"> - 添加类型</span>
+    <span id="search_id"> - 编辑类型</span>
 
 
     <div style="clear:both;"></div>
@@ -29,8 +29,9 @@
 <!-- 内容主题 -->
 
     <div class="main-div">
-        <form method="POST" style="margin:5px;" action="/Admin/Type/add.html">
-            <p>商品类型:<input type="text" name="type_name" value="" /></p>
+        <form method="POST" style="margin:5px;" action="/Admin/Type/edit/id/1.html">
+            <input type="hidden" name="id" value="<?php echo ($data['id']); ?>" />
+            <p>商品类型:<input type="text" name="type_name" value="<?php echo ($data['type_name']); ?>" /></p>
             <p><input type="submit" class="btn btn-primary" value="确定" /></p>
         </form>
     </div>

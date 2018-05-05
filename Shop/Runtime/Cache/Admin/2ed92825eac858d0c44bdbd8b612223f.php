@@ -51,15 +51,19 @@
                 <th>商品类型</th>
                 <th>操作</th>
             </tr>
-            <tr>
-                <td class="tron">id</td>
-                <td>类型</td>
-                <td align="center">
-                    <a href="" title="编辑">编辑</a>
-                    <a onclick="return confirm('确定要删除吗?')" href="" title="移除">移除</a>
-                </td>
-            </tr>
-            <tr><td align="right" nowrap="true" colspan="99" height="30">分页</td></tr>
+            <?php foreach ($data as $k => $v): ?>
+                <tr class="tron">
+                    <td><?php echo $v['id']; ?></td>
+                    <td><?php echo $v['type_name']; ?></td>
+                    <td align="center">
+                        <a href="<?php echo U('edit?id='.$v['id'].'&p='.I('get.p')); ?>" title="编辑">编辑</a> | 
+                        <a onclick="return confirm('确定要删除吗?')" href="<?php echo U('delete?id='.$v['id'].'&p='.I('get.p')); ?>" title="移除">移除</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            <?php if(preg_match('/\d', $page)): ?>
+                <tr><td align="right" nowrap="true" colspan="99" height="30"><?php echo $page; ?></td></tr>
+            <?php endif; ?>
         </table>
     </div>
 

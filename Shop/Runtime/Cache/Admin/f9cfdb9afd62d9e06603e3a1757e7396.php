@@ -20,7 +20,7 @@
     <!--具体操作-->
     
     <span class="action-span"><a href="<?php echo U('lst');?>">返回</a></span>
-    <span id="search_id"> - 添加属性</span>
+    <span id="search_id"> - 新增属性</span>
 
 
     <div style="clear:both;"></div>

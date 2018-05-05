@@ -8,12 +8,23 @@ class AuthController extends BaseController{
 	 */
 	public function lst(){
 		$model = D('Admin/Auth');
+		$data = $model->getTree();
+		$this->assign(array(
+			'data' => $data,
+			// 'page' => $data['page']
+		));
+		$this->display();
+
+		/**
+		 * 这种方法在显示上有问题
+		$model = D('Admin/Auth');
 		$data = $model->getAuth();
 		$this->assign(array(
 			'data' => $data['data'],
 			'page' => $data['page']
 		));
 		$this->display();
+		**/
 	}
 
 	/**
