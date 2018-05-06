@@ -14,6 +14,7 @@
     
     <style type="text/css">
         td{text-align: center;}
+        a{color:#9cf !important;}
     </style>
 
 </head>

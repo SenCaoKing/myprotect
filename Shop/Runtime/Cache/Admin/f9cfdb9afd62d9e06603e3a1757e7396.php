@@ -29,7 +29,7 @@
 <!-- 内容主题 -->
 
     <div class="main-div">
-        <form method="POST" action="/Admin/Attr/add" enctype="multipart/form-data">
+        <form method="POST" action="/Admin/Attr/add.html" style="margin:5px;">
             <p>商品类型：
                 <select name="type_id">
                     <?php if(is_array($typeData)): $i = 0; $__LIST__ = $typeData;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><option value="<?php echo ($v['id']); ?>" <?php if($type_id==$v['id']) echo 'selected="selected"';?>>

@@ -29,7 +29,7 @@
 <!-- 内容主题 -->
 
     <div class="main-div">
-        <form method="POST" style="margin: 5px;" action="/Admin/Attr/edit/id/2.html">
+        <form method="POST" style="margin: 5px;" action="/Admin/Attr/edit/id/2/p/1.html">
             <input type="hidden" name="id" value="<?php echo $data['id']; ?>" />
             <p>商品类型：
                 <select name="type_id">
@@ -38,13 +38,14 @@
                         </option><?php endforeach; endif; else: echo "" ;endif; ?>
                 </select>
             </p>
-            属性名：
-            <p><input type="text" name="attr_name" value="<?php echo $data['attr_name']; ?>" /></p>
-            属性的类型0：唯一 1：可选：
-            <p><input type="radio" name="attr_type" value="0" <?php if($data['attr_type'] == '0') echo 'checked="checked"'; ?> />唯一</p>
-            <p><input type="radio" name="attr_type" value="1" <?php if($data['attr_type'] == '1') echo 'checked="checked"'; ?> />可选</p>
-            属性的可选值，多个可选值用，隔开：
-            <p><input type="text" name="attr_option_values" value="<?php echo $data['attr_option_values']; ?>" /></p>
+            <p>属性名：<input type="text" name="attr_name" value="<?php echo $data['attr_name']; ?>" /></p>
+            <p>属性的类型0：唯一 1：可选：
+                <input type="radio" name="attr_type" value="0" <?php if($data['attr_type'] == '0') echo 'checked="checked"'; ?> />唯一
+                <input type="radio" name="attr_type" value="1" <?php if($data['attr_type'] == '1') echo 'checked="checked"'; ?> />可选
+            </p>
+            <p>属性的可选值，多个可选值用，隔开：
+                <input type="text" name="attr_option_values" value="<?php echo $data['attr_option_values']; ?>" />
+            </p>
             <p><input type="submit" class="btn btn-primary" value="确定" /></p>
         </form>
     </div>
