@@ -468,3 +468,507 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000475s ]
 INFO: [ app_end ] --END-- [ RunTime:0.000502s ]
 
+[ 2018-05-06T09:39:10+08:00 ] 127.0.0.1 /Admin/Attr/lst/p/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011789s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.043079s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.043187s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0106s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0092s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0089s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `ecshop_attr` [ RunTime:0.0061s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ecshop_attr a LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM ecshop_attr a GROUP BY a.id LIMIT 0,10   [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.032279s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.032460s ]
+NOTIC: [2] preg_match(): No ending delimiter '/' found E:\WWW\myprotect\Shop\Runtime\Cache\Admin\4019b51c0afaca854874b728b4f054c1.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.419733s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.419817s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.013026s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.013111s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001810s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001894s ]
+
+[ 2018-05-06T09:39:11+08:00 ] 127.0.0.1 /Admin/Goods/lst
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000805s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000642s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0175s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0128s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0108s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ecshop_goods` [ RunTime:0.0091s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecshop_goods` LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT * FROM `ecshop_goods` ORDER BY id asc LIMIT 0,5   [ RunTime:0.0007s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000698s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000830s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031243s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031327s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000563s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000641s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000430s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000463s ]
+
+[ 2018-05-06T09:39:12+08:00 ] 127.0.0.1 /Admin/Auth/lst
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000602s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000913s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001008s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0058s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0045s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0071s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0058s ]
+SQL: SELECT * FROM `ecshop_auth`  [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000222s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000424s ]
+NOTIC: [8] Undefined variable: page E:\WWW\myprotect\Shop\Runtime\Cache\Admin\43f8f52d0c757010faf47a4e9b15b56f.php 第 67 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.095777s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.095863s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000558s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000615s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001087s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001170s ]
+
+[ 2018-05-06T09:39:17+08:00 ] 127.0.0.1 /Admin/Attr/lst.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000514s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000625s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000740s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0089s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0027s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0048s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ecshop_attr` [ RunTime:0.0036s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ecshop_attr a LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM ecshop_attr a GROUP BY a.id LIMIT 0,10   [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000046s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000079s ]
+NOTIC: [2] preg_match(): No ending delimiter '/' found E:\WWW\myprotect\Shop\Runtime\Cache\Admin\4019b51c0afaca854874b728b4f054c1.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004278s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004309s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000163s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000187s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000318s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000347s ]
+
+[ 2018-05-06T09:40:51+08:00 ] 127.0.0.1 /Admin/Admin/lst
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000326s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000394s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000453s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0184s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0102s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0037s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0047s ]
+SQL: SELECT * FROM `ecshop_admin`  [ RunTime:0.0002s ]
+SQL: SELECT `id`,`role_name` FROM `ecshop_role`  [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000043s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000078s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005673s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005710s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000371s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000395s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000400s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000427s ]
+
+[ 2018-05-06T09:41:30+08:00 ] 127.0.0.1 /Admin/Admin/lst
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000056s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001626s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000631s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000678s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0162s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0116s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0011s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0098s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0072s ]
+SQL: SELECT * FROM `ecshop_admin`  [ RunTime:0.0004s ]
+SQL: SELECT `id`,`role_name` FROM `ecshop_role`  [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000097s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000177s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012695s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012783s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000806s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000884s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001267s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001347s ]
+
+[ 2018-05-06T09:42:23+08:00 ] 127.0.0.1 /Admin/Auth/lst
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000033s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002053s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003120s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003205s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0175s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0023s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0095s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0094s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0105s ]
+SQL: SELECT * FROM `ecshop_auth`  [ RunTime:0.0007s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000065s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000106s ]
+NOTIC: [8] Undefined variable: page E:\WWW\myprotect\Shop\Runtime\Cache\Admin\43f8f52d0c757010faf47a4e9b15b56f.php 第 65 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012494s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012546s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000382s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000455s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000590s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000629s ]
+
+[ 2018-05-06T09:44:00+08:00 ] 127.0.0.1 /Admin/Attr/lst.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000458s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000882s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001359s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0137s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0104s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0111s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `ecshop_attr` [ RunTime:0.0092s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ecshop_attr a LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM ecshop_attr a GROUP BY a.id LIMIT 0,10   [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000109s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000212s ]
+NOTIC: [2] preg_match(): No ending delimiter '/' found E:\WWW\myprotect\Shop\Runtime\Cache\Admin\4019b51c0afaca854874b728b4f054c1.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010521s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010590s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000576s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000632s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000963s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001026s ]
+
+[ 2018-05-06T09:44:19+08:00 ] 127.0.0.1 /Admin/Type/lst
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000251s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000338s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000371s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0168s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0115s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0114s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `ecshop_type` [ RunTime:0.0161s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ecshop_type a LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT * FROM ecshop_type a GROUP BY a.id LIMIT 0,10   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000149s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000314s ]
+NOTIC: [2] preg_match(): No ending delimiter '/' found E:\WWW\myprotect\Shop\Runtime\Cache\Admin\2ed92825eac858d0c44bdbd8b612223f.php 第 64 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017288s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017440s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001056s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001203s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001066s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001131s ]
+
+[ 2018-05-06T09:44:42+08:00 ] 127.0.0.1 /Admin/Type/lst
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000044s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001053s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000558s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000625s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0058s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0051s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0065s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ecshop_type` [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ecshop_type a LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM ecshop_type a GROUP BY a.id LIMIT 0,10   [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000054s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000098s ]
+NOTIC: [2] preg_match(): No ending delimiter '/' found E:\WWW\myprotect\Shop\Runtime\Cache\Admin\2ed92825eac858d0c44bdbd8b612223f.php 第 64 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008624s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008684s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000316s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000349s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000456s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000488s ]
+
+[ 2018-05-06T09:45:33+08:00 ] 127.0.0.1 /Admin/Type/lst
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000269s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000496s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000534s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0174s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0100s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0103s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ecshop_type` [ RunTime:0.0073s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ecshop_type a LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM ecshop_type a GROUP BY a.id LIMIT 0,10   [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000113s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000227s ]
+NOTIC: [2] preg_match(): No ending delimiter '/' found E:\WWW\myprotect\Shop\Runtime\Cache\Admin\2ed92825eac858d0c44bdbd8b612223f.php 第 65 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011592s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011684s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000626s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000686s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000956s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001022s ]
+
+[ 2018-05-06T09:45:52+08:00 ] 127.0.0.1 /Admin/Type/lst
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000339s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000704s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000815s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0168s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0111s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0075s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ecshop_type` [ RunTime:0.0065s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ecshop_type a LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM ecshop_type a GROUP BY a.id LIMIT 0,10   [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000092s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000177s ]
+NOTIC: [2] preg_match(): No ending delimiter '/' found E:\WWW\myprotect\Shop\Runtime\Cache\Admin\2ed92825eac858d0c44bdbd8b612223f.php 第 65 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011302s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011382s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000601s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000661s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000881s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000950s ]
+
+[ 2018-05-06T09:46:38+08:00 ] 127.0.0.1 /Admin/Type/lst
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001168s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000473s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000511s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0131s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0066s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0073s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ecshop_type` [ RunTime:0.0071s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ecshop_type a LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM ecshop_type a GROUP BY a.id LIMIT 0,10   [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000116s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000261s ]
+NOTIC: [2] preg_match(): No ending delimiter '/' found E:\WWW\myprotect\Shop\Runtime\Cache\Admin\2ed92825eac858d0c44bdbd8b612223f.php 第 65 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011351s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011418s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000396s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000436s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000595s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000636s ]
+
+[ 2018-05-06T09:46:42+08:00 ] 127.0.0.1 /Admin/Attr/lst/type_id/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000247s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000293s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000328s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0142s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0086s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0097s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `ecshop_attr` [ RunTime:0.0091s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ecshop_attr a WHERE `type_id` LIKE '%1%' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM ecshop_attr a WHERE `type_id` LIKE '%1%' GROUP BY a.id LIMIT 0,10   [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000052s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000101s ]
+NOTIC: [2] preg_match(): No ending delimiter '/' found E:\WWW\myprotect\Shop\Runtime\Cache\Admin\4019b51c0afaca854874b728b4f054c1.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006835s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006887s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000246s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000286s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000384s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000431s ]
+
+[ 2018-05-06T09:46:51+08:00 ] 127.0.0.1 /Admin/Attr/lst/type_id/2.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000271s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000412s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000448s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0129s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0068s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0094s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `ecshop_attr` [ RunTime:0.0083s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ecshop_attr a WHERE `type_id` LIKE '%2%' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM ecshop_attr a WHERE `type_id` LIKE '%2%' GROUP BY a.id LIMIT 0,10   [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000047s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000085s ]
+NOTIC: [2] preg_match(): No ending delimiter '/' found E:\WWW\myprotect\Shop\Runtime\Cache\Admin\4019b51c0afaca854874b728b4f054c1.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006821s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006855s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000254s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000279s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000453s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000480s ]
+
+[ 2018-05-06T09:47:02+08:00 ] 127.0.0.1 /Admin/Attr/lst/type_id/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000249s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000309s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000345s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0157s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0032s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0036s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `ecshop_attr` [ RunTime:0.0034s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ecshop_attr a WHERE `type_id` LIKE '%1%' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM ecshop_attr a WHERE `type_id` LIKE '%1%' GROUP BY a.id LIMIT 0,10   [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000047s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000091s ]
+NOTIC: [2] preg_match(): No ending delimiter '/' found E:\WWW\myprotect\Shop\Runtime\Cache\Admin\4019b51c0afaca854874b728b4f054c1.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005995s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006053s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000409s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000435s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000309s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000336s ]
+
+[ 2018-05-06T09:48:38+08:00 ] 127.0.0.1 /Admin/Goods/lst
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000331s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000435s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000473s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0086s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0035s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ecshop_goods` [ RunTime:0.0039s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecshop_goods` LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `ecshop_goods` ORDER BY id asc LIMIT 0,5   [ RunTime:0.0008s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000067s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000118s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008352s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008414s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000220s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000244s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000333s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000359s ]
+
