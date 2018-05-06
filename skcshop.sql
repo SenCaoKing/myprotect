@@ -130,3 +130,15 @@ CREATE TABLE IF NOT EXISTS ecshop_type (
 
 -- --------------------------------------------------------
 
+-- --------------------------------------------------------
+--
+-- 商品分类表 `ecshop_category`
+--
+CREATE TABLE IF NOT EXISTS ecshop_category (
+  id mediumint(8) unsigned not null auto_increment,
+  cat_name varchar(30) not null comment '分类名称',
+  pid smallint(5) unsigned not null default '0' comment '上级分类的ID，0：代表顶级',
+  primary key (id)
+) engine=Myisam default charset=utf8 comment='商品分类表';
+
+-- --------------------------------------------------------
