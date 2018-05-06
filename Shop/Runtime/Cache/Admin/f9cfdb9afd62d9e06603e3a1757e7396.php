@@ -3,7 +3,7 @@
 <head>
     <!--标题-->
     
-    <title>管理中心 - 编辑属性</title>
+    <title>管理中心 - 新增属性</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="/Public/Admin/Styles/general.css" rel="stylesheet" type="text/css" />
@@ -20,7 +20,7 @@
     <!--具体操作-->
     
     <span class="action-span"><a href="<?php echo U('lst');?>">返回</a></span>
-    <span id="search_id"> - 编辑属性</span>
+    <span id="search_id"> - 新增属性</span>
 
 
     <div style="clear:both;"></div>
@@ -29,8 +29,7 @@
 <!-- 内容主题 -->
 
     <div class="main-div">
-        <form method="POST" style="margin: 5px;" action="/Admin/Attr/edit/id/2.html">
-            <input type="hidden" name="id" value="<?php echo $data['id']; ?>" />
+        <form method="POST" action="/Admin/Attr/add" enctype="multipart/form-data">
             <p>商品类型：
                 <select name="type_id">
                     <?php if(is_array($typeData)): $i = 0; $__LIST__ = $typeData;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><option value="<?php echo ($v['id']); ?>" <?php if($type_id==$v['id']) echo 'selected="selected"';?>>
@@ -38,13 +37,14 @@
                         </option><?php endforeach; endif; else: echo "" ;endif; ?>
                 </select>
             </p>
-            属性名：
-            <p><input type="text" name="attr_name" value="<?php echo $data['attr_name']; ?>" /></p>
-            属性的类型0：唯一 1：可选：
-            <p><input type="radio" name="attr_type" value="0" <?php if($data['attr_type'] == '0') echo 'checked="checked"'; ?> />唯一</p>
-            <p><input type="radio" name="attr_type" value="1" <?php if($data['attr_type'] == '1') echo 'checked="checked"'; ?> />可选</p>
-            属性的可选值，多个可选值用，隔开：
-            <p><input type="text" name="attr_option_values" value="<?php echo $data['attr_option_values']; ?>" /></p>
+            <p>属性名：<input type="text" name="attr_name" value="" /></p>
+            <p>属性的类型0：唯一 1：可选：
+                <input type="radio" name="attr_type" value="0" checked="checked" />唯一
+                <input type="radio" name="attr_type" value="1" />可选
+            </p>
+            <p>属性的可选值，多个可选值用，隔开：
+                <input type="text" name="attr_option_values" value="" />
+            </p>
             <p><input type="submit" class="btn btn-primary" value="确定" /></p>
         </form>
     </div>

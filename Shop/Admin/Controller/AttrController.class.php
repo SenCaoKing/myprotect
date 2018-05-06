@@ -1,9 +1,15 @@
 <?php
 namespace Admin\Controller;
+/**
+ * 属性控制器
+ */
 class AttrController extends BaseController{
+	/**
+	 * 添加属性
+	 */
 	public function add(){
 		if(IS_POST){
-			$model = D('Admin/Attr');
+			$model = D('Attr');
 			if($model->create(I('post.'), 1)){
 				if($id = $model->add()){
 					$this->success('添加成功！', U('lst?p='.I('get.p')));
@@ -12,21 +18,35 @@ class AttrController extends BaseController{
 			}
 			$this->error($model->getError());
 		}
+		// 取出所有类型
+		$type_id = I('get.type_id'); // 类型的id
+		$TypeModel=M('Type');
+		$typeData=$TypeModel->select();
+		$this->assign(array(
+			'typeData' => $typeData,
+			'type_id'  => $type_id
+		));
 		$this->display();
 	}
 	
 	public function lst(){
-		$model = D('Admin/Attr');
+		$model = D('Attr');
 		$data = $model->search();
+		// 取出所有类型
+		$type_id = I('get.type_id'); // 类型的id
+		$TypeModel=M('Type');
+		$typeData=$TypeModel->select();
 		$this->assign(array(
-			'data' => $data['data'],
-			'page' => $data['page'],
+			'data' 	   => $data['data'],
+			'page' 	   => $data['page'],
+			'typeData' => $typeData,
+			'type_id'  => $type_id
 		));
 		$this->display();
 	}
 
 	public function delete(){
-		$model = D('Admin/Attr');
+		$model = D('Attr');
 		if($model->delete(I('get.id', 0)) !== FALSE){
 			$this->success('删除成功！', U('lst', array('p' => I('get.p', 1))));
 			exit;
@@ -34,11 +54,13 @@ class AttrController extends BaseController{
 			$this->error($model->getError());
 		}
 	}
-
+	/**
+	 * 编辑属性
+	 */
 	public function edit(){
 		$id = I('get.id');
 		if(IS_POST){
-			$model = D('Admin/Attr');
+			$model = D('Attr');
 			if($model->create(I('post.'), 2)){
 				if($model->save() !== FALSE){
 					$this->success('修改成功！', U('lst', array('p' => I('get.p', 1))));
@@ -50,6 +72,14 @@ class AttrController extends BaseController{
 		$model = M('Attr');
 		$data = $model->find($id);
 		$this->assign('data', $data);
+		// 取出所有类型
+		$type_id = I('get.type_id'); // 类型的id
+		$TypeModel=M('Type');
+		$typeData=$TypeModel->select();
+		$this->assign(array(
+			'typeData' => $typeData,
+			'type_id'  => $type_id
+		));
 		$this->display();
 	}
 

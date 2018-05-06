@@ -12,9 +12,9 @@
     <script type="text/javascript" src="/Public/bootstrap/js/jquery.min.js"></script>
     <!-- 其他样式 -->
     
-<style type="text/css">
-    td{text-align: center;}
-</style>
+    <style type="text/css">
+        td{text-align: center;}
+    </style>
 
 </head>
 <body>
@@ -23,7 +23,7 @@
 
     <!--具体操作-->
     
-    <span class="action-span"><a href="<?php echo U('add');?>">属性类型</a></span>
+    <span class="action-span"><a href="<?php echo U('add',array('type_id'=>$type_id));?>">添加属性</a></span>
     <span id="search_id"> - 属性列表</span>
 
 
@@ -32,37 +32,19 @@
 
 <!-- 内容主题 -->
 
-    <!-- 搜索 -->
-    <div class="form-div search_form_div">
-        <form method="GET" name="search_form">
-            <p>
-                所在的类型id：
-                <input type="text" name="type_id" size="30" value="<?php echo I('get.type_id'); ?>"/>
-            </p>
-            <p>
-                属性名：
-                <input type="text" name="attr_name" size="30" value="<?php echo I('get.attr_name'); ?>"/>
-            </p>
-            <p>
-               属性的类型0：唯一 1：可选：
-                <input type="text" name="attr_type" size="30" value="<?php echo I('get.attr_type'); ?>"/>
-            </p>
-            <p>
-                属性的可选值，多个可选值用，隔开：
-                <input type="text" name="attr_option_values" size="30" value="<?php echo I('get.attr_option_values'); ?>"/>
-            </p>
-            <p><input type="submit" value="搜索" class="button" /></p>
-        </form>
-    </div>
-    <!-- 列表 -->
+    <select name="type_id">
+        <?php if(is_array($typeData)): $i = 0; $__LIST__ = $typeData;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><option value="<?php echo ($v['id']); ?>" <?php if($type_id==$v['id']) echo 'selected="selected"';?>>
+                <?php echo ($v['type_name']); ?>
+            </option><?php endforeach; endif; else: echo "" ;endif; ?>
+    </select>
     <div class="list-div" id="listDiv">
         <table cellpadding="3" cellspacing="1">
             <tr>
                 <th>所在的类型id</th>
                 <th>属性名</th>
-                <th>属性的类型0：唯一 1：可选</th>
+                <th>属性的类型(0唯一,1可选)</th>
                 <th>属性的可选值，多个可选值用，隔开</th>
-                <th>操作</th>
+                <th width="120">操作</th>
             </tr>
             <?php foreach ($data as $k => $v): ?>
                 <tr class="tron">
@@ -76,7 +58,7 @@
                     </td>
                 </tr>
             <?php endforeach; ?>
-            <?php if(preg_match('/\d', $page)): ?>
+            <?php if(preg_match('/\d/', $page)): ?>
                 <tr><td align="right" nowrap="true" colspan="99" height="30"><?php echo $page; ?></td></tr>
             <?php endif; ?>
         </table>

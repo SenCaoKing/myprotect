@@ -2,7 +2,6 @@
 namespace Admin\Model;
 use Think\Model;
 class AttrModel extends Model{
-
 	// 在添加时调用create方法时允许接收的字段
 	protected $insertFields = array('type_id','attr_name','attr_type','attr_option_values');
 	// 在修改时调用create方法时允许接收的字段
@@ -21,14 +20,14 @@ class AttrModel extends Model{
     public function search($pageSize = 10){
         /************ 搜索 ****************/
         $where = array();
-        if($type_id = I('get.type_id'))
-            $where['type_id'] = array('like', "%$type_id%");
-        if($attr_name = I('get.attr_name'))
-            $where['attr_name'] = array('like', "%$attr_name%");
-        if($attr_type = I('get.attr_type'))
-            $where['attr_type'] = array('like', "%$attr_type%");
-        if($attr_option_values = I('get.attr_option_values'))
-            $where['attr_option_values'] = array('like', "%$attr_option_values%");
+        // if($type_id = I('get.type_id'))
+        //     $where['type_id'] = array('like', "%$type_id%");
+        // if($attr_name = I('get.attr_name'))
+        //     $where['attr_name'] = array('like', "%$attr_name%");
+        // if($attr_type = I('get.attr_type'))
+        //     $where['attr_type'] = array('like', "%$attr_type%");
+        // if($attr_option_values = I('get.attr_option_values'))
+        //     $where['attr_option_values'] = array('like', "%$attr_option_values%");
         /************ 分页 ****************/
         $count = $this->alias('a')->where($where)->count();
         $page = new \Think\Page($count, $pageSize);
