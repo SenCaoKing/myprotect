@@ -29,11 +29,13 @@
 <!-- 内容主题 -->
 
     <div class="main-div">
-        <form method="POST" style="margin:5px;" action="/Admin/Category/add">
+        <form method="POST" style="margin:5px;" action="/Admin/Category/add.html">
             <p>上级分类：
                 <select name="pid">
                     <option value="0">顶级分类</option>
-                    <option value="">分类</option>
+                    <?php foreach($parentData as $k => $v): ?>
+                        <option value="<?php echo $v['id']; ?>"><?php echo str_repeat('-', 8*$v['level']).$v['cat_name']; ?></option>
+                    <?php endforeach; ?>
                 </select>
             </p>
             <p>分类名称:<input type="text" name="cat_name" value="" /></p>

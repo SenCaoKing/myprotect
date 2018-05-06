@@ -3,7 +3,7 @@
 <head>
     <!--标题-->
     
-    <title>管理中心 - 类型列表</title>
+    <title>管理中心 - 商品分类列表</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="/Public/Admin/Styles/general.css" rel="stylesheet" type="text/css" />
@@ -14,6 +14,7 @@
     
 <style type="text/css">
     td{text-align: center;}
+    td.cat{text-align: left;}
     a{color:#9cf !important;}
 </style>
 
@@ -24,8 +25,8 @@
 
     <!--具体操作-->
     
-    <span class="action-span"><a href="<?php echo U('add');?>">添加类型</a></span>
-    <span id="search_id"> - 类型列表</span>
+    <span class="action-span"><a href="<?php echo U('add');?>">添加商品分类</a></span>
+    <span id="search_id"> - 商品分类列表</span>
 
 
     <div style="clear:both;"></div>
@@ -33,38 +34,26 @@
 
 <!-- 内容主题 -->
 
-    <!-- 搜索 -->
-    <div class="form-div search_form_div">
-        <form method="GET" name="search_form">
-            <p>
-                商品类型：
-                <input type="text" name="type_name" size="30" value="<?php echo I('get.type_name'); ?>"/>
-            </p>
-            <p><input type="submit" value="搜索" class="btn btn-info" /></p>
-        </form>
-    </div>
     <!-- 列表 -->
     <div class="list-div" id="listDiv">
         <table cellpadding="3" cellspacing="1">
             <tr>
                 <th>ID</th>
-                <th>商品类型</th>
-                <th width="150">操作</th>
+                <th>分类名称</th>
+                <th>上级分类的ID，0：代表顶级</th>
+                <th width="100">操作</th>
             </tr>
-            <?php foreach ($data as $k => $v): ?>
+            <?php foreach($data as $k => $v): ?>
                 <tr class="tron">
                     <td><?php echo $v['id']; ?></td>
-                    <td><?php echo $v['type_name']; ?></td>
+                    <td class="cat"><?php echo str_repeat('-', 8*$v['level']); echo $v['cat_name']; ?></td>
+                    <td><?php echo $v['pid']; ?></td>
                     <td align="center">
-                        <a href="<?php echo U('Attr/lst?type_id='.$v['id'].'&p='.I('get.p')); ?>">属性列表</a> | 
                         <a href="<?php echo U('edit?id='.$v['id'].'&p='.I('get.p')); ?>" title="编辑">编辑</a> | 
                         <a onclick="return confirm('确定要删除吗?')" href="<?php echo U('delete?id='.$v['id'].'&p='.I('get.p')); ?>" title="移除">移除</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
-            <?php if(preg_match('/\d/', $page)): ?>
-                <tr><td align="right" nowrap="true" colspan="99" height="30"><?php echo $page; ?></td></tr>
-            <?php endif; ?>
         </table>
     </div>
 

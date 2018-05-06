@@ -14,7 +14,6 @@ class RoleModel extends Model{
      * @return [type] [description]
      */
     public function searchRole(){
-        // 方法①
         $data = $this->select(); // 角色的信息
         $auth=M('Auth');
         $authData=$auth->field('id,auth_name')->select(); // 查找所有权限的信息

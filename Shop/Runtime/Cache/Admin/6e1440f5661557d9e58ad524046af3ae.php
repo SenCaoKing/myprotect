@@ -29,14 +29,18 @@
 <!-- 内容主题 -->
 
     <div class="main-div">
-        <form method="POST" style="margin:5px;" action="/Admin/Category/edit">
+        <form method="POST" style="margin:5px;" action="/Admin/Category/edit/id/6.html">
+            <input type="hidden" name="id" value="<?php echo $data['id']; ?>" />
             <p>上级分类：
                 <select name="pid">
                     <option value="0">顶级分类</option>
-                    <option value="">分类</option>
+                    <?php foreach($parentData as $k => $v): ?>
+                        <?php if($v['id'] == $data['id'] || in_array($v['id'], $children)) continue ; ?>
+                            <option <?php if($v['id'] == $data['pid']): ?>selected="selected"<?php endif; ?> value="<?php echo $v['id']; ?>"><?php echo str_repeat('-', 8*$v['level']).$v['cat_name']; ?></option>
+                    <?php endforeach; ?>
                 </select>
             </p>
-            <p>分类名称:<input type="text" name="cat_name" value="" /></p>
+            <p>分类名称:<input type="text" name="cat_name" value="<?php echo ($data['cat_name']); ?>" /></p>
             <p><input type="submit" class="btn btn-primary" value="确定" /></p>
         </form>
     </div>
