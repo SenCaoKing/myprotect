@@ -1,20 +1,22 @@
-<extend name="Common:common" />
-<!-- 标题 -->
-<block name="title">
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!--标题-->
+    
     <title>管理中心 - 新增商品</title>
-</block>
-<!-- 具体操作 -->
-<block name="action">
-    <span class="action-span"><a href="{:U('lst')}">返回</a></span>
-    <span id="search_id"> - 新增商品</span>
-</block>
-<!-- 其他样式 -->
-<block name="asset">
-<script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
-<script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.all.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/lang/zh-cn/zh-cn.js"></script>
-<link rel="stylesheet" type="text/css" href="__PUBLIC__/datepicker/jquery-ui-1.9.2.custom.min.css" />
-<script type="text/javascript" charset="utf-8" src="__PUBLIC__/datepicker/jquery-ui-1.9.2.custom.min.js"></script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="/Public/Admin/Styles/general.css" rel="stylesheet" type="text/css" />
+    <link href="/Public/Admin/Styles/main.css" rel="stylesheet" type="text/css" />
+    <link href="/Public/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/Public/bootstrap/js/jquery.min.js"></script>
+    <!-- 其他样式 -->
+    
+<script type="text/javascript" charset="utf-8" src="/Public/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/Public/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/Public/ueditor/lang/zh-cn/zh-cn.js"></script>
+<link rel="stylesheet" type="text/css" href="/Public/datepicker/jquery-ui-1.9.2.custom.min.css" />
+<script type="text/javascript" charset="utf-8" src="/Public/datepicker/jquery-ui-1.9.2.custom.min.js"></script>
 <style type="text/css">
     .content{display:none;}
 </style>
@@ -40,7 +42,7 @@
         $('select[name=type_id]').change(function(){
             // 获取选中的类型的id
             var type_id=$(this).val();
-            $.get("{:U('ajaxGetAttr')}",{'type_id':type_id},function(res){
+            $.get("<?php echo U('ajaxGetAttr');?>",{'type_id':type_id},function(res){
                 var json=JSON.parse(res);
                 console.log(json);
                 if(json==null){
@@ -83,8 +85,23 @@
         }
     }
 </script>
-</block>
-<block name="main">
+
+</head>
+<body>
+<h1 style="font-size: 14px;">
+    <span><a href="<?php echo U('Index/main');?>" style="color:#9cf;">管理中心</a></span>
+
+    <!--具体操作-->
+    
+    <span class="action-span"><a href="<?php echo U('lst');?>">返回</a></span>
+    <span id="search_id"> - 新增商品</span>
+
+
+    <div style="clear:both;"></div>
+</h1>
+
+<!-- 内容主题 -->
+
     <div class="tab-div">
         <div id="tabbar-div">
             <p>
@@ -96,7 +113,7 @@
             </p>
         </div>
         <div id="tabbody-div">
-            <form method="POST" action="__SELF__" style="margin:5px;">
+            <form method="POST" action="/Admin/Goods/add.html" style="margin:5px;">
                 <div class="content" style="display:block;">
                     <p>商品名称:<input type="text" name="goods_name" value="" /></p>
                     <p>主分类的id：<input type="text" name="cat_id" value="" /></p>
@@ -146,9 +163,7 @@
                 <div class="content">
                     <p>商品类型：
                         <select name="type_id">
-                            <volist name="typeData" id="v">
-                                <option value="{$v['id']}" <?php if($type_id==$v['id']) echo 'selected="selected"';?>>{$v['type_name']}</option>
-                            </volist>
+                            <?php if(is_array($typeData)): $i = 0; $__LIST__ = $typeData;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><option value="<?php echo ($v['id']); ?>" <?php if($type_id==$v['id']) echo 'selected="selected"';?>><?php echo ($v['type_name']); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
                         </select>
                     </p>
                     <div id="attr_container"></div>
@@ -157,4 +172,8 @@
             </form>
         </div>
     </div>
-</block>
+
+
+<div id="footer">版权所有，侵权必究@2017</div>
+</body>
+</html>
