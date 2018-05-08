@@ -1,24 +1,38 @@
-<extend name="Common:common" />
-<!-- 标题 -->
-<block name="title">
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!--标题-->
+    
     <title>管理中心 - 品牌列表</title>
-</block>
-<!-- 其他样式 -->
-<block name="asset">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="/Public/Admin/Styles/general.css" rel="stylesheet" type="text/css" />
+    <link href="/Public/Admin/Styles/main.css" rel="stylesheet" type="text/css" />
+    <link href="/Public/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/Public/bootstrap/js/jquery.min.js"></script>
+    <!-- 其他样式 -->
+    
 <style type="text/css">
     td{text-align: center;}
     a{color:#9cf !important;}
 </style>
-</block>
 
-<!-- 具体操作 -->
-<block name="action">
-    <span class="action-span"><a href="{:U('add')}">添加品牌</a></span>
+</head>
+<body>
+<h1 style="font-size: 14px;">
+    <span><a href="<?php echo U('Index/main');?>" style="color:#9cf;">管理中心</a></span>
+
+    <!--具体操作-->
+    
+    <span class="action-span"><a href="<?php echo U('add');?>">添加品牌</a></span>
     <span id="search_id"> - 品牌列表</span>
-</block>
 
-<!-- 列表 -->
-<block name="main">
+
+    <div style="clear:both;"></div>
+</h1>
+
+<!-- 内容主题 -->
+
     <!-- 搜索 -->
     <div class="form-div search_form_div">
         <form method="GET" name="search_form">
@@ -54,4 +68,8 @@
             <?php endif; ?>
         </table>
     </div>
-</block>
+
+
+<div id="footer">版权所有，侵权必究@2017</div>
+</body>
+</html>

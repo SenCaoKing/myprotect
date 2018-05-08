@@ -3,7 +3,7 @@
 <head>
     <!--标题-->
     
-    <title>管理中心 - 新增品牌</title>
+    <title>管理中心 - 编辑品牌</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="/Public/Admin/Styles/general.css" rel="stylesheet" type="text/css" />
@@ -20,7 +20,7 @@
     <!--具体操作-->
     
     <span class="action-span"><a href="<?php echo U('lst');?>">返回</a></span>
-    <span id="search_id"> - 添加品牌</span>
+    <span id="search_id"> - 编辑品牌</span>
 
 
     <div style="clear:both;"></div>
@@ -29,9 +29,11 @@
 <!-- 内容主题 -->
 
     <div class="main-div">
-        <form method="POST" style="margin:5px;" action="/Admin/Brand/add.html" enctype="multipart/form-data">
-            <p>品牌名称:<input type="text" name="brand_name" /></p>
-            <p>品牌网站地址:<input type="text" name="site_url" /></p>
+        <form method="POST" style="margin:5px;" action="/Admin/Brand/edit/id/2/p/1.html" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<?php echo ($data['id']); ?>" />
+            <input type="hidden" name="old_logo" value="<?php echo ($data['logo']); ?>" />
+            <p>品牌名称:<input type="text" name="brand_name" value="<?php echo ($data['brand_name']); ?>" /></p>
+            <p>品牌网站地址:<input type="text" name="site_url" value="<?php echo ($data['site_url']); ?>" /></p>
             <p>品牌logo:<input type="file" name="logo" /></p>
             <p><input type="submit" class="btn btn-primary" value="确定" /></p>
         </form>

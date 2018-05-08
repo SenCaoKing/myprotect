@@ -12,10 +12,10 @@
 <block name="main">
     <div class="main-div">
         <form method="POST" style="margin:5px;" action="__SELF__" enctype="multipart/form-data">
-            <input type="hidden" name="id" value="" />
-            <input type="hidden" name="old_logo" value="" />
-            <p>品牌名称:<input type="text" name="brand_name" value="" /></p>
-            <p>品牌网站地址:<input type="text" name="site_url" value="" /></p>
+            <input type="hidden" name="id" value="{$data['id']}" />
+            <input type="hidden" name="old_logo" value="{$data['logo']}" />
+            <p>品牌名称:<input type="text" name="brand_name" value="{$data['brand_name']}" /></p>
+            <p>品牌网站地址:<input type="text" name="site_url" value="{$data['site_url']}" /></p>
             <p>品牌logo:<input type="file" name="logo" /></p>
             <p><input type="submit" class="btn btn-primary" value="确定" /></p>
         </form>
