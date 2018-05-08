@@ -34,32 +34,6 @@ class GoodsModel extends Model{
         array('is_delete', 'number', '是否放到回收站：1：是，0：否必须是一个整数！', 2, 'regex', 3),
 	);
 
-
-    // /**
-    //  * 上传商品的logo
-    //  * @return array
-    //  */
-    // private function uploadLogo(){
-    //     $Upload = new \Think\Upload();
-    //     $Upload->rootPath = C('UPLOAD_PATH'); // 配置上传图片的根目录
-    //     $Upload->maxSize = (int)C('IMG_maxSize')*1024*1024; // 配置上传图片的最大值
-    //     $Upload->exts = C('IMG_exts'); // 配置上传图片的后缀名
-    //     $info = $Upload->upload(); // 得到上传图片的信息
-    //     if($info){
-    //         $savePath = $info['logo']['savepath']; // 得到图片的保存路径
-    //         $saveName = $info['logo']['savename']; // 得到图片的保存名称
-    //         $imgPath = C('UPLOAD_PATH').$savePath.$saveName; // 得到图片的地址
-    //         // 生成缩略图
-    //         $image = new \Think\Image();
-    //         $image->open($imgPath);
-    //         $thumbPath = C('UPLOAD_PATH').$savePath.'thumb_'.$saveName; // 缩略图地址
-    //         $image->thumb(150,150)->save($thumbPath);
-    //         return array('status'=>200,'source'=>$imgPath, 'thumb'=>$thumbPath);
-    //     }else{
-    //         return array('status'=>400,'message'=>$Upload->getError());
-    //     }
-    // }
-
     /**
      * 搜索商品(取数据，翻页，排序，搜索)
      * @return [type] [description]
@@ -118,7 +92,7 @@ class GoodsModel extends Model{
     protected function _before_insert(&$data, $option){
         if(isset($_FILES['logo']) && $_FILES['logo']['error'] == 0){
             $ret = uploadOne('logo', 'Admin', array(
-                array(150, 150, 2),
+                array(150, 150, 2)
             ));
             if($ret['ok'] == 1){
                 $data['logo'] = $ret['images'][0];
@@ -137,6 +111,7 @@ class GoodsModel extends Model{
      * @return [type]         [description]
      */
     protected function _before_update(&$data,$option){
+        if(!I('post.is_promote')) $data['is_promote']=0;
         if(isset($_FILES['logo']) && $_FILES['logo']['error'] == 0){
             $ret = uploadOne('logo', 'Admin', array(
                 array(150, 150, 2),

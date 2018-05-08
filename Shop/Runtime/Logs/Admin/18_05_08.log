@@ -2162,3 +2162,67 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000698s ]
 INFO: [ app_end ] --END-- [ RunTime:0.000740s ]
 
+[ 2018-05-08T22:28:25+08:00 ] 127.0.0.1 /Admin/Goods/lst.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000444s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001079s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001258s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0208s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0019s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0164s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0056s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `ecshop_goods` [ RunTime:0.0049s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ecshop_goods a LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM ecshop_goods a GROUP BY a.id LIMIT 0,10   [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000072s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000114s ]
+NOTIC: [2] preg_match(): No ending delimiter '/' found E:\WWW\myprotect\Shop\Runtime\Cache\Admin\67f1dcabc3e6067f8bb395be64aeedd4.php 第 148 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009417s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009450s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000700s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000747s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000840s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000893s ]
+
+[ 2018-05-08T22:28:30+08:00 ] 127.0.0.1 /Admin/Goods/add.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000279s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000499s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000535s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0161s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0107s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `ecshop_type` [ RunTime:0.0105s ]
+SQL: SELECT * FROM `ecshop_type`  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ecshop_category` [ RunTime:0.0054s ]
+SQL: SELECT * FROM `ecshop_category`  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ecshop_brand` [ RunTime:0.0069s ]
+SQL: SELECT `id`,`brand_name` FROM `ecshop_brand`  [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000203s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000282s ]
+NOTIC: [8] Undefined variable: type_id E:\WWW\myprotect\Shop\Runtime\Cache\Admin\bcf61832b5520a5ca7370143cfc75300.php 第 194 行.
+NOTIC: [8] Undefined variable: type_id E:\WWW\myprotect\Shop\Runtime\Cache\Admin\bcf61832b5520a5ca7370143cfc75300.php 第 194 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016851s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016916s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000738s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000792s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000999s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001062s ]
+
