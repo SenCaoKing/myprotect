@@ -12,24 +12,10 @@
     <script type="text/javascript" src="/Public/bootstrap/js/jquery.min.js"></script>
     <!-- 其他样式 -->
     
-<link rel="stylesheet" type="text/css" href="/Public/datepicker/jquery-ui-1.9.2.custom.min.css" />
-<script type="text/javascript" charset="utf-8" src="/Public/datepicker/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="/Public/datepicker/jquery-ui-1.9.2.custom.min.js"></script>
 <style type="text/css">
-    input{margin: 5px !important}
     td{text-align: center;}
     a{color:#9cf !important}
-    a.num,span.current{margin: 5px;border: 1px solid #ccc;padding:0 5px;color: white;
-        width: 20px !important;height: 20px !important;text-decoration: none !important;}
-    span.current{background: #9cf;border: 1px solid #9cf;}
-    a.prev,a.next{text-decoration: none !important;color:#9cf !important}
 </style>
-<script type="text/javascript">
-    $(function(){
-        $('#start_addtime').datepicker({dateFormat:"yy-mm-dd"});
-        $('#end_addtime').datepicker({dateFormat:"yy-mm-dd"});
-    });
-</script>
 
 </head>
 <body>
@@ -47,30 +33,63 @@
 
 <!-- 内容主题 -->
 
-    <div class="form-div">
-        <form>
-            <input type="hidden" name="p" value="1" />
-            商品名称：<input type="text" name="goods_name" value="<?php echo I('get.goods_name');?>"/><br/>
-             价　　格：<input type="text" name="start_price" value="<?php echo I('get.start_price');?>"/>~
-             <input type="text" name="end_price" value="<?php echo I('get.end_price');?>" /><br/>
-            是否上架：<input type="radio" name="is_on_sale" value="-1" <?php if(I('get.is_on_sale', -1) == -1) echo 'checked="checked"'; ?> />全部
-            <input type="radio" name="is_on_sale" value="1" <?php if(I('get.is_on_sale', -1) == 1) echo 'checked="checked"'; ?> />是
-            <input type="radio" name="is_on_sale" value="0" <?php if(I('get.is_on_sale', -1) == 0) echo 'checked="checked"'; ?> />否<br />     
-            是否删除：<input type="radio" name="is_delete" value="-1" <?php if(I('is_delete', -1) == -1 ) echo 'checked="checked"'; ?> />全部
-            <input type="radio" name="is_delete" value="1" <?php if(I('get.is_delete', -1) == 1) echo 'checked="checked"'; ?> />是
-            <input type="radio" name="is_delete" value="0" <?php if(I('get.is_delete', -1) == 0) echo 'checked="checked"'; ?> />否 <br />
-            添加时间：
-            <input type="text" size="10" id="start_addtime" name="start_addtime" value="<?php echo I('get.start_addtime');?>"/>~<input type="text" size="10" id="end_addtime" name="end_addtime" value="<?php echo I('get.end_addtime');?>"/><br/>
-            <input type="submit" class="btn btn-info" value="搜索"/><br /><br />     
-            排序方式：
-            <input onclick="parentNode.submit();" type="radio" name="odby" value="id_asc" <?php if(I('get.odby', 'id_asc') == 'id_asc') echo 'checked="checked"'; ?> />根据添加时间升序
-            <input onclick="parentNode.submit();" type="radio" name="odby" value="id_desc" <?php if(I('get.odby') == 'id_desc') echo 'checked="checked"'; ?> />根据添加时间降序
-            <input onclick="parentNode.submit();" type="radio" name="odby" value="price_asc" <?php if(I('get.odby') == 'price_asc') echo 'checked="checked"'; ?> />根据价格升序
-            <input onclick="parentNode.submit();" type="radio" name="odby" value="price_desc" <?php if(I('get.odby') == 'price_desc') echo 'checked="checked"'; ?> />根据价格降序<br />
+    <!-- 搜索 -->
+    <div class="form-div search_form_div">
+        <form method="GET" name="search_form">
+            <p>
+                商品名称：
+                <input type="text" name="goods_name" size="30" value="<?php echo I('get.goods_name');?>" />
+            </p>
+            <p>
+                主分类的id：
+                <input type="text" name="cat_id" size="30" value="<?php echo I('get.cat_id');?>" />
+            </p>
+            <p>
+                品牌的id：
+                <input type="text" name="brand_id" size="30" value="<?php echo I('get.brand_id');?>" />
+            </p>
+            <p>
+                本店价：
+                从 <input id="shop_pricefrom" type="text" name="shop_pricefrom" size="15" value="<?php echo I('get.shop_pricefrom');?>" />
+                到 <input id="shop_priceto" type="text" name="shop_priceto" size="15" value="<?php echo I('get.shop_priceto');?>" />
+            </p>
+            <p>
+                是否热卖：
+                <input type="radio" value="-1" name="is_hot" <?php if(I('get.is_hot', -1) == -1) echo 'checked="checked"'; ?> />全部
+                <input type="radio" value="1" name="is_hot" <?php if(I('get.is_hot', -1) == 1) echo 'checked="checked"'; ?> />是
+                <input type="radio" value="0" name="is_hot" <?php if(I('get.is_hot', -1) == 0) echo 'checked="checked"'; ?> />否
+            </p>
+            <p>
+                是否新品：
+                <input type="radio" value="-1" name="is_new" <?php if(I('get.is_new', -1) == -1) echo 'checked="checked"'; ?> />全部
+                <input type="radio" value="1" name="is_new" <?php if(I('get.is_new', -1) == 1) echo 'checked="checked"'; ?> />是
+                <input type="radio" value="0" name="is_new" <?php if(I('get.is_new', -1) == 0) echo 'checked="checked"'; ?> />否
+            </p>
+            <p>
+                是否精品：
+                <input type="radio" value="-1" name="is_best" <?php if(I('get.is_best', -1) == -1) echo 'checked="checked"'; ?> />全部
+                <input type="radio" value="1" name="is_best" <?php if(I('get.is_best', -1) == 1) echo 'checked="checked"'; ?> />是
+                <input type="radio" value="0" name="is_best" <?php if(I('get.is_best', -1) == 0) echo 'checked="checked"'; ?> />否
+            </p>
+            <p>
+                是否上架：1：上架，0：下架：
+                <input type="radio" value="-1" name="is_on_sale" <?php if(I('get.is_on_sale', -1) == -1) echo 'checked="checked"'; ?> />全部
+                <input type="radio" value="1" name="is_on_sale" <?php if(I('get.is_on_sale', -1) == 1) echo 'checked="checked"'; ?> />上架
+                <input type="radio" value="0" name="is_on_sale" <?php if(I('get.is_on_sale', -1) == 0) echo 'checked="checked"'; ?> />下架
+            </p>
+            <p>
+                商品类型id：
+                <input type="text" name="type_id" size="30" value="<?php echo I('get.type_id');?>" />
+            </p>
+            <p>
+                添加时间：
+                从 <input id="startTime" type="text" name="startTime" size="15" value="<?php echo I('get.startTime');?>" />
+                到 <input id="endTime" type="text" name="endTime" size="15" value="<?php echo I('get.endTime');?>" />
+            </p>
+            <p><input type="submit" value="搜索" class="button" /></p>
         </form>
     </div>
-
-    <!-- 商品列表 -->
+    <!-- 列表 -->
     <div class="list-div" id="listDiv">
         <table cellpadding="3" cellspacing="1">
             <tr>

@@ -30,7 +30,7 @@ class GoodsController extends BaseController{
 	 */
 	public function lst(){		
 		$model=D('Goods');
-		$data=$goods->search();
+		$data=$model->search();
 		$this->assign(array(
 			'data'=>$data['data'],
 			'page'=>$data['page']
