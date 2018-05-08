@@ -142,3 +142,17 @@ CREATE TABLE IF NOT EXISTS ecshop_category (
 ) engine=Myisam default charset=utf8 comment='商品分类表';
 
 -- --------------------------------------------------------
+
+-- --------------------------------------------------------
+--
+-- 品牌表 `ecshop_brand`
+--
+CREATE TABLE IF NOT EXISTS ecshop_brand (
+  id smallint(6) unsigned not null auto_increment,
+  brand_name varchar(45) not null comment '品牌名称',
+  site_url varchar(150) not null comment '品牌网站地址',
+  logo varchar(150) not null default '' comment '品牌logo',
+  primary key (id)
+) engine=Myisam default charset=utf8 comment='品牌表';
+
+-- --------------------------------------------------------
