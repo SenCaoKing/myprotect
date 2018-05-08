@@ -93,31 +93,61 @@
     <div class="list-div" id="listDiv">
         <table cellpadding="3" cellspacing="1">
             <tr>
-                <th>id</th>
-                <th>添加时间</th>
                 <th>商品名称</th>
-                <th>LOGO</th>
-                <th>价格</th>
-                <th>描述</th>
-                <th>是否上架</th>
-                <th>是否删除</th>
-                <th>操作</th>
+                <th>主分类的id</th>
+                <th>品牌的id</th>
+                <th>市场价</th>
+                <th>本店价</th>
+                <th>赠送积分</th>
+                <th>赠送经验值</th>
+                <th>如果要用积分兑换，需要的积分数</th>
+                <th>是否促销</th>
+                <th>促销价</th>
+                <th>促销开始时间</th>
+                <th>促销结束时间</th>
+                <th>logo原图</th>
+                <th>是否热卖</th>
+                <th>是否新品</th>
+                <th>是否精品</th>
+                <th>是否上架：1：上架，0：下架</th>
+                <th>seo优化[搜索引擎【百度、谷歌等】优化]_关键字</th>
+                <th>seo优化[搜索引擎【百度、谷歌等】优化]_描述</th>
+                <th>商品类型id</th>
+                <th>排序数字</th>
+                <th>商品描述</th>
+                <th width="60">操作</th>
             </tr>
             <?php if(is_array($data)): foreach($data as $key=>$v): ?><tr>
-                    <td><?php echo ($v["id"]); ?></td>
-                    <td><?php echo (date("Y-m-d H:i:s",$v["addtime"])); ?></td>
-                    <td><?php echo ($v["goods_name"]); ?></td>
-                    <td><img src="/PUBLIC/Uploads<?php echo substr($v['sm_logo'],16); ?>" /></td>
-                    <td><?php echo ($v["shop_price"]); ?></td>
-                    <td><?php echo ($v["goods_desc"]); ?></td>
-                    <td><?php if($v["is_on_sale"] == 1): ?>上架<?php else: ?>下架<?php endif; ?></td>
-                    <td><?php if($v["is_delete"] == 1): ?>是<?php else: ?>否<?php endif; ?></td>
+                    <td><?php echo ($v['goods_name']); ?></td>
+                    <td><?php echo ($v['cat_id']); ?></td>
+                    <td><?php echo ($v['brand_id']); ?></td>
+                    <td><?php echo ($v['market_price']); ?></td>
+                    <td><?php echo ($v['shop_price']); ?></td>
+                    <td><?php echo ($v['jifen']); ?></td>
+                    <td><?php echo ($v['jyz']); ?></td>
+                    <td><?php echo ($v['jifen_price']); ?></td>
+                    <td><?php echo ($v['is_promote']); ?></td>
+                    <td><?php echo ($v['promote_price']); ?></td>
+                    <td><?php echo ($v['promote_start_time']); ?></td>
+                    <td><?php echo ($v['promote_end_time']); ?></td>
+                    <td><?php echo ($v['logo']); ?></td>
+                    <td><?php echo ($v['is_hot']); ?></td>
+                    <td><?php echo ($v['is_new']); ?></td>
+                    <td><?php echo ($v['is_best']); ?></td>
+                    <td><?php echo ($v['is_on_sale']); ?></td>
+                    <td><?php echo ($v['seo_keyword']); ?></td>
+                    <td><?php echo ($v['seo_description']); ?></td>
+                    <td><?php echo ($v['type_id']); ?></td>
+                    <td><?php echo ($v['sort_num']); ?></td>
+                    <td><?php echo ($v['goods_desc']); ?></td>
                     <td>
-                    <a href="<?php echo U('edit',array('id'=>$v['id'],'p'=>I('get.p',1)));?>" class="action">修改</a>
-                    <a onclick="return confirm('确定要删除吗?')" href="<?php echo U('delete',array('id'=>$v['id'],'p'=>I('get.p',1)));?>" class="action">删除</a>
+                        <a href="<?php echo U('edit',array('id'=>$v['id'],'p'=>I('get.p',1)));?>" title="编辑">编辑</a>
+                        <a onclick="return confirm('确定要删除吗?')" href="<?php echo U('delete',array('id'=>$v['id'],'p'=>I('get.p',1)));?>" title="移除">移除</a>
                     </td>
                 </tr><?php endforeach; endif; ?>
-            <tr><td colspan="9"><?php echo ($page); ?></td></tr>
+            <?php if(preg_match('/\d', $page)): ?>
+                <tr><td align="right" nowrap="true" colspan="99" height="30"><?php echo $page; ?></td></tr>
+            <?php endif; ?>
         </table>
     </div>
 

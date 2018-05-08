@@ -1,16 +1,13 @@
 <?php
 namespace Admin\Controller;
-/**
- * 商品控制器
- */
 class GoodsController extends BaseController{
 	/**
-	 * 发布商品信息
+	 * 添加商品
 	 */
 	public function add(){
 		if(IS_POST){
 			$model=D('Goods');
-			if($goods->create(I('post.'), 1)){
+			if($model->create(I('post.'), 1)){
 				if($id = $model->add()){
 					$this->success('添加成功！', U('lst?p='.I('get.p')));
 					exit;
@@ -18,15 +15,21 @@ class GoodsController extends BaseController{
 			}
 			$this->error($model->getError());
 		}
+		// 取出商品的类型
 		$typeModel=M('Type');
 		$typeData=$typeModel->select();
 		$this->assign('typeData',$typeData);
+		// 取出所有的商品分类
+		$categoryData=D('Category')->getTree();
+		$this->assign('categoryData',$categoryData);
+		// 取出所有的品牌
+		$brandData=M('Brand')->field('id,brand_name')->select();
+		$this->assign('brandData',$brandData);
 		$this->display();
 	}
 
 	/**
-	 * 显示商品列表
-	 * @return  void
+	 * 商品列表
 	 */
 	public function lst(){		
 		$model=D('Goods');
@@ -53,7 +56,6 @@ class GoodsController extends BaseController{
 
 	/**
 	 * 修改商品
-	 * @return [type] [description]
 	 */
 	public function edit(){
 		$id = I('get.id');
@@ -76,7 +78,7 @@ class GoodsController extends BaseController{
 
 	/**
 	 * AJAX获取商品属性
-	 * @return [type] [description]
+	 * @return string
 	 */
 	public function ajaxGetAttr(){
 		$type_id=I('get.type_id');
