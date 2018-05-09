@@ -156,3 +156,19 @@ CREATE TABLE IF NOT EXISTS ecshop_brand (
 ) engine=Myisam default charset=utf8 comment='品牌表';
 
 -- --------------------------------------------------------
+
+-- --------------------------------------------------------
+--
+-- 会员级别表 `ecshop_member_level`
+--
+CREATE TABLE IF NOT EXISTS ecshop_member_level (
+  id mediumint(9) unsigned not null auto_increment,
+  level_name varchar(30) not null comment '级别名称',
+  bottom_num int(10) unsigned not null comment '积分下限',
+  top_num int(10) unsigned not null comment '积分上限',
+  rate tinyint(4) not null default '100' comment '折扣率，90为9折',
+  primary key (id)
+) engine=Myisam default charset=utf8 comment='会员级别表';
+
+-- --------------------------------------------------------
+
