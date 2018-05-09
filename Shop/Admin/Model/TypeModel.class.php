@@ -9,7 +9,7 @@ class TypeModel extends Model{
 	// 在修改时调用create方法时允许接收的字段
 	protected $updateFields = array('id','type_name');
 	// 自动验证
-	protected $_validate = array( //未完
+	protected $_validate = array(
 		array('type_name', 'require', '商品类型不能为空！', 1, 'regex', 3),
 		array('type_name', '1,30', '商品类型的值最长不能超过 30 个字符！', 1, 'length', 3),
 	);

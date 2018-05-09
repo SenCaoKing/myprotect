@@ -1,23 +1,21 @@
 <?php
 namespace Admin\Model;
 use Think\Model;
-
 class MemberLevelModel extends Model{
-
-	// 在添加时调用create方法时允许接收的字段
-	protected $insertFields = array('type_name');
-	// 在修改时调用create方法时允许接收的字段
-	protected $updateFields = array('id','type_name');
-	// 自动验证
-	protected $_validate = array( //未完
-		array('type_name', 'require', '商品类型不能为空！', 1, 'regex', 3),
-		array('type_name', '1,30', '商品类型的值最长不能超过 30 个字符！', 1, 'length', 3),
+	protected $insertFields = array('level_name','bottom_num','top_num','rate');
+	protected $updateFields = array('id','level_name','bottom_num','top_num','rate');
+	protected $_validate = array(
+		array('level_name', 'require', '级别名称不能为空！', 1, 'regex', 3),
+		array('level_name', '1,30', '级别名称的值最长不能超过 30 个字符！', 1, 'length', 3),
+        array('bottom_num', 'require', '积分下限不能为空！', 1, 'regex', 3),
+        array('bottom_num', 'number', '积分下限必须是一个整数！', 1, 'regex', 3),
+        array('top_num', 'require', '积分上限不能为空！', 1, 'regex', 3),
+        array('top_num', 'number', '积分上限必须是一个整数！', 1, 'regex', 3),
+        array('rate', 'number', '折扣率，90为9折必须是一个整数！', 2, 'regex', 3),
 	);
     public function search($pageSize = 10){
         /************ 搜索 ****************/
         $where = array();
-        if($type_name = I('get.type_name'))
-            $where['type_name'] = array('like', "%$type_name%");
         /************ 分页 ****************/
         $count = $this->alias('a')->where($where)->count();
         $page = new \Think\Page($count, $pageSize);
