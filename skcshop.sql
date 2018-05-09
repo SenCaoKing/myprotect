@@ -172,3 +172,51 @@ CREATE TABLE IF NOT EXISTS ecshop_member_level (
 
 -- --------------------------------------------------------
 
+-- --------------------------------------------------------
+--
+-- 商品扩展分类表 `ecshop_goods_cat`
+--
+CREATE TABLE IF NOT EXISTS ecshop_goods_cat (
+  id mediumint(8) unsigned not null auto_increment,
+  goods_id mediumint(8) unsigned not null comment '商品id',
+  cat_id smallint(5) unsigned not null comment '分类id',
+  primary key (id),
+  key (goods_id),
+  key (cat_id)
+) engine=Myisam default charset=utf8 comment='商品扩展分类表';
+
+-- --------------------------------------------------------
+
+-- --------------------------------------------------------
+--
+-- 会员价格表 `ecshop_member_price`
+--
+CREATE TABLE IF NOT EXISTS ecshop_member_price (
+  id mediumint(8) unsigned not null auto_increment,
+  goods_id mediumint(9) unsigned not null comment '商品id',
+  level_id mediumint(9) unsigned not null comment '级别id',
+  price decimal(10,0) not null comment '这个级别的价格',
+  primary key (id),
+  key (goods_id),
+  key (level_id)
+) engine=Myisam default charset=utf8 comment='会员价格表';
+
+-- --------------------------------------------------------
+
+-- --------------------------------------------------------
+--
+-- 商品属性表 `ecshop_goods_attr`
+--
+CREATE TABLE IF NOT EXISTS ecshop_goods_attr (
+  id mediumint(8) unsigned not null auto_increment,
+  goods_id mediumint(8) unsigned not null comment '商品id',
+  attr_id mediumint(8) unsigned not null comment '属性id',
+  attr_value varchar(150) not null default '' comment '属性的值',
+  attr_price decimal(10,2) not null default '0.00' comment '属性的价格',
+  primary key (id),
+  key (goods_id),
+  key (attr_id)
+) engine=Myisam default charset=utf8 comment='商品属性表';
+
+-- --------------------------------------------------------
+
