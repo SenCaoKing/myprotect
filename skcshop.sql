@@ -220,3 +220,20 @@ CREATE TABLE IF NOT EXISTS ecshop_goods_attr (
 
 -- --------------------------------------------------------
 
+-- --------------------------------------------------------
+--
+-- 商品相册表 `ecshop_goods_pics`
+--
+CREATE TABLE IF NOT EXISTS ecshop_goods_pics (
+  id mediumint(8) unsigned not null auto_increment,
+  goods_id mediumint(8) unsigned not null comment '商品id',
+  pic varchar(150) not null comment '图片',
+  sm_pic varchar(150) not null comment '缩略图',
+  primary key (id),
+  key (goods_id)
+) engine=InnoDB default charset=utf8 comment='商品相册表';
+
+-- --------------------------------------------------------
+
+
+

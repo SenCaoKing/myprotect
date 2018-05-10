@@ -31,11 +31,6 @@ class GoodsModel extends Model{
         array('sort_num', 'number', '排序数字必须是一个整数！', 2, 'regex', 3),
         array('is_delete', 'number', '是否放到回收站：1：是，0：否必须是一个整数！', 2, 'regex', 3),
 	);
-
-    /**
-     * 搜索商品(取数据，翻页，排序，搜索)
-     * @return [type] [description]
-     */
     public function search($pageSize = 10){
     	/************ 搜索 ****************/
     	$where = array();
@@ -86,9 +81,12 @@ class GoodsModel extends Model{
     	$data['data'] = $this->alias('a')->where($where)->group('a.id')->limit($page->firstRow.','.$page->listRows)->select();
     	return $data;
     }
+
     // 添加前
     protected function _before_insert(&$data, $option){
         $data['addtime']=time();
+        $data['promote_start_time']=strtotime($data['promote_start_time']);
+        $data['promote_end_time']=strtotime($data['promote_end_time']);
         if(isset($_FILES['logo']) && $_FILES['logo']['error'] == 0){
             $ret = uploadOne('logo', 'Goods', array(
                 array(150, 150, 2)
@@ -149,6 +147,40 @@ class GoodsModel extends Model{
                 }
             }
         }
+
+        /****** 处理商品相册 *******/
+        if(hasImage('pics')){
+            // 批量上传之后的图片数组，改造成多个一维数组
+            $pics=array();
+            foreach ($_FILES['pics']['name'] as $k => $v) {
+                if($_FILES['pics']['size'][$k]==0) continue;
+                $pics[]=array(
+                    'name'     => $v,
+                    'type'     => $_FILES['pics']['type'][$k],
+                    'tmp_name' => $_FILES['pics']['tmp_name'][$k],
+                    'error'    => $_FILES['pics']['error'][$k],
+                    'size'     => $_FILES['pics']['size'][$k]
+                );
+            }
+            // 在调用uploadOne上传时会使用$_FILES数组上传图片
+            $_FILES=$pics;
+            // 循环所有的图片一张一张上传
+            $goodsPicModel=M('GoodsPics');
+            foreach ($pics as $k => $v) {
+                $ret=uploadOne($k,'Goods',array(
+                    array('150','150')
+                ));
+                // 如果上传成功，则插入到数据库里
+                if($ret['ok']==1){
+                    $goodsPicModel->add(array(
+                        'goods_id' => $data['id'],
+                        'pic'      => $ret['images'][0],
+                        'sm_pic'   => $ret['images'][1]
+                    ));
+                }
+            }
+        }
+        
     }
 
     /**
@@ -161,7 +193,7 @@ class GoodsModel extends Model{
         if(!I('post.is_promote')) $data['is_promote']=0;
         if(isset($_FILES['logo']) && $_FILES['logo']['error'] == 0){
             $ret = uploadOne('logo', 'Admin', array(
-                array(150, 150, 2),
+                array(150, 150, 2)
             ));
             if($ret['ok'] == 1){
                 $data['logo'] = $ret['images'][0];
