@@ -123,7 +123,7 @@ class GoodsModel extends Model{
             foreach ($mp as $k => $v) {
                 if(empty($v)) continue;
                 $model1->add(array(
-                    'goods_id' => $data['id'];
+                    'goods_id' => $data['id'],
                     'level_id' => $k,
                     'price'    => $v
                 ));
@@ -139,10 +139,10 @@ class GoodsModel extends Model{
                 foreach ($v as $k1 => $v1) {
                     if(empty($v1)) continue;
                         $model2->add(array(
-                        'goods_id'   => $data['id'];
+                        'goods_id'   => $data['id'],
                         'attr_id'    => $k,
                         'attr_value' => $v1,
-                        'attr_price' => $attr_price[$k][$k1];
+                        'attr_price' => $attr_price[$k][$k1]
                     ));
                 }
             }
@@ -180,7 +180,7 @@ class GoodsModel extends Model{
                 }
             }
         }
-        
+
     }
 
     /**

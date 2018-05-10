@@ -78,7 +78,7 @@ function uploadOne($imgName, $dirName, $thumb = array())
  * @return [type]         [description]
  */
 function showImage($url, $width='', $height=''){
-	$url = '/myprotect/Public/Uploads/'.$url;
+	$url = '/Public/Uploads/'.$url;
 	if($width)
 		$width = "width='$width'";
 	if($height)

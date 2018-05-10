@@ -76,6 +76,7 @@ class GoodsController extends BaseController{
 		$model = M('Goods');
 		$data = $model->find($id);
 		$this->assign('data',$data);
+		dump($data);
 		$this->display();
 	}
 
