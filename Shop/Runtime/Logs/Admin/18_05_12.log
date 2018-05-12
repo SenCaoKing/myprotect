@@ -1,0 +1,235 @@
+[ 2018-05-12T09:43:22+08:00 ] 127.0.0.1 /Admin/Goods/add.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000039s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011610s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.008000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.008154s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0139s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0037s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0044s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ecshop_type` [ RunTime:0.0042s ]
+SQL: SELECT * FROM `ecshop_type`  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ecshop_category` [ RunTime:0.0038s ]
+SQL: SELECT * FROM `ecshop_category`  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ecshop_brand` [ RunTime:0.0071s ]
+SQL: SELECT `id`,`brand_name` FROM `ecshop_brand`  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `ecshop_member_level` [ RunTime:0.0083s ]
+SQL: SELECT * FROM `ecshop_member_level`  [ RunTime:0.0007s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.015253s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.015305s ]
+NOTIC: [8] Undefined variable: type_id E:\WWW\myprotect\Shop\Runtime\Cache\Admin\bcf61832b5520a5ca7370143cfc75300.php 第 210 行.
+NOTIC: [8] Undefined variable: type_id E:\WWW\myprotect\Shop\Runtime\Cache\Admin\bcf61832b5520a5ca7370143cfc75300.php 第 210 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.128644s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.128776s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.014563s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.014696s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002386s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002534s ]
+
+[ 2018-05-12T09:44:26+08:00 ] 127.0.0.1 /Admin/Goods/edit.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000319s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000485s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000529s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0102s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0034s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0038s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ecshop_goods` [ RunTime:0.0043s ]
+SQL: SELECT * FROM `ecshop_goods` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000523s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000647s ]
+NOTIC: [8] Undefined variable: catData E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 144 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 144 行.
+NOTIC: [8] Undefined variable: extCatId E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 151 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 151 行.
+NOTIC: [8] Undefined variable: brandData E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 163 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 163 行.
+NOTIC: [8] Undefined variable: mlData E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 213 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 213 行.
+NOTIC: [8] Undefined variable: typeData E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 224 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 224 行.
+NOTIC: [8] Undefined variable: gaData E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 231 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 231 行.
+NOTIC: [8] Undefined variable: gpData E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 251 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 251 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.033976s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.034065s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000519s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000575s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000715s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000776s ]
+
+[ 2018-05-12T09:44:49+08:00 ] 127.0.0.1 /Admin/Goods/edit.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000334s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000528s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000578s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0090s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0034s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0041s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ecshop_goods` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `ecshop_goods` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000365s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000534s ]
+NOTIC: [8] Undefined variable: catData E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 144 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 144 行.
+NOTIC: [8] Undefined variable: extCatId E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 151 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 151 行.
+NOTIC: [8] Undefined variable: brandData E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 163 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 163 行.
+NOTIC: [8] Undefined variable: mlData E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 213 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 213 行.
+NOTIC: [8] Undefined variable: typeData E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 224 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 224 行.
+NOTIC: [8] Undefined variable: gaData E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 231 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 231 行.
+NOTIC: [8] Undefined variable: gpData E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 251 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 251 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021738s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021828s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000769s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000839s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001158s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001241s ]
+
+[ 2018-05-12T09:54:00+08:00 ] 127.0.0.1 /Admin/Goods/lst.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000614s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000398s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000434s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0208s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0016s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0078s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0066s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0003s ]
+NOTIC: [2048] Declaration of Admin\Model\GoodsModel::_after_insert() should be compatible with Think\Model::_after_insert($data, $options) E:\WWW\myprotect\Shop\Admin\Model\GoodsModel.class.php 第 227 行.
+SQL: SHOW COLUMNS FROM `ecshop_goods` [ RunTime:0.0042s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ecshop_goods a LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM ecshop_goods a GROUP BY a.id LIMIT 0,10   [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000071s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000104s ]
+NOTIC: [2] preg_match(): No ending delimiter '/' found E:\WWW\myprotect\Shop\Runtime\Cache\Admin\67f1dcabc3e6067f8bb395be64aeedd4.php 第 148 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020065s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020118s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000326s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000370s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000892s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000933s ]
+
+[ 2018-05-12T09:54:14+08:00 ] 127.0.0.1 /Admin/Goods/edit/id/6/p/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000275s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000754s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000839s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0159s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0065s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0083s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ecshop_goods` [ RunTime:0.0137s ]
+SQL: SELECT * FROM `ecshop_goods` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0009s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000260s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000327s ]
+NOTIC: [8] Undefined variable: catData E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 144 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 144 行.
+NOTIC: [8] Undefined variable: extCatId E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 151 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 151 行.
+NOTIC: [8] Undefined variable: brandData E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 163 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 163 行.
+NOTIC: [8] Undefined variable: mlData E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 213 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 213 行.
+NOTIC: [8] Undefined variable: typeData E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 224 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 224 行.
+NOTIC: [8] Undefined variable: gaData E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 231 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 231 行.
+NOTIC: [8] Undefined variable: gpData E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 251 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 251 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022812s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022899s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000638s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000690s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000936s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001006s ]
+
+[ 2018-05-12T10:02:13+08:00 ] 127.0.0.1 /Admin/Goods/edit/id/6/p/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000298s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000391s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000428s ]
+SQL: SHOW COLUMNS FROM `ecshop_admin` [ RunTime:0.0165s ]
+SQL: SELECT `role_id` FROM `ecshop_admin` LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `ecshop_role` [ RunTime:0.0102s ]
+SQL: SELECT `auth_id` FROM `ecshop_role` WHERE ( id in (1,2) )  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `ecshop_auth` [ RunTime:0.0106s ]
+SQL: SELECT * FROM `ecshop_auth` WHERE ( id in(1,2) )  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ecshop_goods` [ RunTime:0.0093s ]
+SQL: SELECT * FROM `ecshop_goods` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000177s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000210s ]
+NOTIC: [8] Undefined variable: catData E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 145 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 145 行.
+NOTIC: [8] Undefined variable: extCatId E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 152 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 152 行.
+NOTIC: [8] Undefined variable: brandData E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 164 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 164 行.
+NOTIC: [8] Undefined variable: mlData E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 214 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 214 行.
+NOTIC: [8] Undefined variable: typeData E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 225 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 225 行.
+NOTIC: [8] Undefined variable: gaData E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 232 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 232 行.
+NOTIC: [8] Undefined variable: gpData E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 252 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\WWW\myprotect\Shop\Runtime\Cache\Admin\ec780326c3ca7c316905c353f51ce5be.php 第 252 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009343s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009466s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000752s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000807s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000566s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000617s ]
+

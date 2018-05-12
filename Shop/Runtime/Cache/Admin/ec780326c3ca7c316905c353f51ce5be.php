@@ -19,6 +19,7 @@
 <script type="text/javascript" charset="utf-8" src="/Public/datepicker/jquery-ui-1.9.2.custom.min.js"></script>
 <style type="text/css">
     .content{display:none;}
+    ul li{list-style-type: none;display: inline;margin-left: 20px;}
 </style>
 <script type="text/javascript">
     UE.getEditor('goods_desc',{
@@ -228,14 +229,34 @@
                     </p>
                     <div id="attr_container">
                         <?php
- $attrId = array(); ?>
+ $attrId = array(); foreach ($gaData as $k => $v): ?>
+                            <p>
+                                <?php echo $v['attr_name']; ?> :
+                                <?php if($v['attr_type'] == 1): if(in_array($v['attr_id'], $attrId)) $opt = '[-]'; else { $opt = '[+]'; $attrId[] = $v['attr_id']; } ?>
+                                <a gaid="<?php echo ($v["id"]); ?>" onclick="addNew(this);" href="javascript:void(0);"><?php echo ($opt); ?></a>
+                            <?php endif; ?>
+                            <?php
+ if(empty($v['attr_value'])) $old_= ''; else $old_= 'old_'; if($v['attr_option_values']) { $_arr = explode(',', $v['attr_option_values']); echo '<select name="'.$old_.'ga['.$v['attr_id'].']['.$v['id'].']"><option value="">请选择</option>'; foreach ($_arr as $k1 => $v1) { if($v1 == $v['attr_value']) $select = 'selected="selected"'; else $select = ''; echo '<option '.$select.' value="'.$v1.'">'.$v1.'</option>'; } echo '</select>'; } else echo '<input name="'.$old_.'ga['.$v['attr_id'].']['.$v['id'].']" type="text" value="'.$v['attr_value'].'">'; ?>
+                            <!-- 输出属性价格 -->
+                            <?php if($v['attr_type'] == 1): ?>
+                                ￥ <input name="old_attr_price[<?php echo ($v["attr_id"]); ?>][<?php echo ($v["id"]); ?>]" type="text" size="10" value="<?php echo ($v["attr_price"]); ?>"> 元
+                            <?php endif; ?>
+                            </p>
+                        <?php endforeach; ?>
                     </div>
                 </div>
                 <!-- 商品相册 -->
                 <div class="content">
                     <p><input type="button" class="btn btn-info" id="addImg" value="添加商品图片"></p>
+                    <ul id="pics_ul">
+                        <?php foreach ($gpData as $k => $v): ?>
+                        <li>
+                            <input pic_id="<?php echo ($v["id"]); ?>" class="delimage" type="button" value="删除" />
+                            <?php showImage($v['sm_pic']); ?>
+                        </li>
+                        <?php endforeach; ?>    
+                    </ul>
                 </div>
-
                 <p><input type="submit" class="btn btn-primary" value="确定" /></p>
             </form>
         </div>
