@@ -20,4 +20,6 @@ return array(
 	'IMG_rootPath' => './Public/Uploads/',
 	/* 修改I函数底层过滤时使用的函数 */
 	'DEFAULT_FILTER' => 'trim,removeXSS',
+
+	'SHOW_PAGE_TRACE' => 'true',
 );

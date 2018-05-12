@@ -45,7 +45,6 @@
             var type_id=$(this).val();
             $.get("<?php echo U('ajaxGetAttr');?>",{'type_id':type_id},function(res){
                 var json=JSON.parse(res);
-                console.log(json);
                 if(json==null){
                     $('#attr_container').html('');
                     return;
@@ -86,8 +85,13 @@
 
         // 添加商品图片
         $('#addImg').click(function(){
-            $(this).parent().parent().append('<input type="file" name="pics[]">');
+            $(this).parent().parent().append('<input type="file" name="pics[]" />');
         });
+
+        // 判断如果现在没有属性就直接触发AJAX事件获取属性的数据
+        <?php if(empty($gaData)): ?>
+            $("select[name=type_id]").trigger("change");
+        <?php endif; ?>
     });
     function addNew(a){
         var p=$(a).parent();
@@ -99,6 +103,7 @@
             p.remove();
         }
     }
+    // 添加分类
     function addCat(btn){
         var sel=$(btn).next();
         var newSel=sel.clone();
