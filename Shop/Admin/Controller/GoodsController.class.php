@@ -84,8 +84,8 @@ class GoodsController extends BaseController{
 		$this->assign('mpData', $mpData);
 		// 取出当前商品的属性数据
 		$gaModel = M('GoodsAttr');
-		// SELECT a.*,b.* FROM ecshop_goods_attr a LEFT JOIN ecshop_attr b On a.attr_id=b.id
-		$gaData = $gaModel->field('a.*,b.*')->alias('a')->join('LEFT JOIN ecshop_attr b On a.attr_id=b.id')->where(array('a.goods_id'=>array('eq', $id)))->order('a.attr_id ASC')->select();
+		// SELECT a.*,b.attr_name,b.attr_type,b.attr_option_values FROM ecshop_goods_attr a LEFT JOIN ecshop_attr b On a.attr_id=b.id
+		$gaData = $gaModel->field('a.*,b.attr_name,b.attr_type,b.attr_option_values')->alias('a')->join('LEFT JOIN ecshop_attr b On a.attr_id=b.id')->where(array('a.goods_id'=>array('eq', $id)))->order('a.attr_id ASC')->select();
 		/***** 取出当前商品属性不存在的后添加的新的属性 *****/
 		// 循环属性数组取出当前商品已经拥有的属性ID
 		$attr_id = array();
@@ -157,6 +157,18 @@ class GoodsController extends BaseController{
 		$picData=$model->field('pic,sm_pic')->where(array('id'=>I('get.id')))->find();
 		deleteImage($picData);
 		echo $model->delete(I('get.id'))?1:0;
+	}
+
+	/**
+	 * ajax删除商品属性
+	 */
+	public function ajaxDeleteAttr(){
+		// 删除商品属性
+		$model=M('GoodsAttr');
+		$AttrData=$model->field('id')->where(array('id'=>I('get.id')))->find();
+		if($AttrData){
+			echo $model->delete(I('get.id'))?1:0;
+		}
 	}
 
 
