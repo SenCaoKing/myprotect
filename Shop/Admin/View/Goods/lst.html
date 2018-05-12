@@ -80,13 +80,11 @@
         <table cellpadding="3" cellspacing="1">
             <tr>
                 <th>商品名称</th>
-                <th>主分类的id</th>
-                <th>品牌的id</th>
                 <th>市场价</th>
                 <th>本店价</th>
                 <th>赠送积分</th>
                 <th>赠送经验值</th>
-                <th>如果要用积分兑换，需要的积分数</th>
+                <th>用积分兑换<br/>需要的积分数</th>
                 <th>是否促销</th>
                 <th>促销价</th>
                 <th>促销开始时间</th>
@@ -98,16 +96,13 @@
                 <th>是否上架</th>
                 <th>seo关键字</th>
                 <th>seo描述</th>
-                <th>商品类型id</th>
                 <th>排序数字</th>
                 <th>商品描述</th>
-                <th width="60">操作</th>
+                <th width="150">操作</th>
             </tr>
             <foreach name="data" item="v">
                 <tr>
                     <td>{$v['goods_name']}</td>
-                    <td>{$v['cat_id']}</td>
-                    <td>{$v['brand_id']}</td>
                     <td>{$v['market_price']}</td>
                     <td>{$v['shop_price']}</td>
                     <td>{$v['jifen']}</td>
@@ -117,14 +112,13 @@
                     <td>{$v['promote_price']}</td>
                     <td><?php echo date('Y-m-d',$v['promote_start_time']); ?></td>
                     <td><?php echo date('Y-m-d',$v['promote_end_time']); ?></td>
-                    <td>{$v['logo']}</td>
+                    <td>{:showImage($v['logo'])}</td>
                     <td>{$v['is_hot']?'是':'否'}</td>
                     <td>{$v['is_new']?'是':'否'}</td>
                     <td>{$v['is_best']?'是':'否'}</td>
                     <td>{$v['is_on_sale']?'是':'否'}</td>
                     <td>{$v['seo_keyword']}</td>
                     <td>{$v['seo_description']}</td>
-                    <td>{$v['type_id']}</td>
                     <td>{$v['sort_num']}</td>
                     <td>{$v['goods_desc']}</td>
                     <td>

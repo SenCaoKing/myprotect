@@ -94,13 +94,11 @@
         <table cellpadding="3" cellspacing="1">
             <tr>
                 <th>商品名称</th>
-                <th>主分类的id</th>
-                <th>品牌的id</th>
                 <th>市场价</th>
                 <th>本店价</th>
                 <th>赠送积分</th>
                 <th>赠送经验值</th>
-                <th>如果要用积分兑换，需要的积分数</th>
+                <th>用积分兑换<br/>需要的积分数</th>
                 <th>是否促销</th>
                 <th>促销价</th>
                 <th>促销开始时间</th>
@@ -112,15 +110,12 @@
                 <th>是否上架</th>
                 <th>seo关键字</th>
                 <th>seo描述</th>
-                <th>商品类型id</th>
                 <th>排序数字</th>
                 <th>商品描述</th>
-                <th width="60">操作</th>
+                <th width="150">操作</th>
             </tr>
             <?php if(is_array($data)): foreach($data as $key=>$v): ?><tr>
                     <td><?php echo ($v['goods_name']); ?></td>
-                    <td><?php echo ($v['cat_id']); ?></td>
-                    <td><?php echo ($v['brand_id']); ?></td>
                     <td><?php echo ($v['market_price']); ?></td>
                     <td><?php echo ($v['shop_price']); ?></td>
                     <td><?php echo ($v['jifen']); ?></td>
@@ -130,14 +125,13 @@
                     <td><?php echo ($v['promote_price']); ?></td>
                     <td><?php echo date('Y-m-d',$v['promote_start_time']); ?></td>
                     <td><?php echo date('Y-m-d',$v['promote_end_time']); ?></td>
-                    <td><?php echo ($v['logo']); ?></td>
+                    <td><?php echo showImage($v['logo']);?></td>
                     <td><?php echo ($v['is_hot']?'是':'否'); ?></td>
                     <td><?php echo ($v['is_new']?'是':'否'); ?></td>
                     <td><?php echo ($v['is_best']?'是':'否'); ?></td>
                     <td><?php echo ($v['is_on_sale']?'是':'否'); ?></td>
                     <td><?php echo ($v['seo_keyword']); ?></td>
                     <td><?php echo ($v['seo_description']); ?></td>
-                    <td><?php echo ($v['type_id']); ?></td>
                     <td><?php echo ($v['sort_num']); ?></td>
                     <td><?php echo ($v['goods_desc']); ?></td>
                     <td>

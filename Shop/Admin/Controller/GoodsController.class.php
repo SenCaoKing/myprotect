@@ -40,15 +40,15 @@ class GoodsController extends BaseController{
 			$model = D('Goods');
 			if($model->create(I('post.'), 2)){
 				if($model->save() !== FALSE){
-					$this->success('修改成功！',U('lst', array('p' => I('get.p', 1))));
+					$this->success('修改成功！', U('lst', array('p' => I('get.p', 1))));
 					exit;
 				}
 			}
 			$this->error($model->getError());
 		}
 		// 取出所有的商品类型
-		$typeMoel = M('Type');
-		$typeData = $typeMoel->select();
+		$typeModel = M('Type');
+		$typeData = $typeModel->select();
 		$this->assign('typeData', $typeData);
 		// 取出所有商品分类
 		$catModel = D('Category');
@@ -66,10 +66,11 @@ class GoodsController extends BaseController{
 		// 取出要修改的商品的基本信息
 		$model = M('Goods');
 		$data = $model->find($id);
+		var_dump($data);
 		$this->assign('data', $data);
 		// 取出当前商品扩展分类的数据
-		$gcModle = M('GoodsCat');
-		$extCatId = $gcModle->field('cat_id')->where(array('goods_id'=>array('eq', $id)))->select();
+		$gcModel = M('GoodsCat');
+		$extCatId = $gcModel->field('cat_id')->where(array('goods_id'=>array('eq', $id)))->select();
 		$this->assign('extCatId', $extCatId);
 		// 取出当前商品会员价格的数据
 		$mpModel = M('MemberPrice');
@@ -84,7 +85,7 @@ class GoodsController extends BaseController{
 		// 取出当前商品的属性数据
 		$gaModel = M('GoodsAttr');
 		// SELECT a.*,b.* FROM ecshop_goods_attr a LEFT JOIN ecshop_attr b On a.attr_id=b.id
-		$gaData = $gaModel->field('a.*,b.*')->alias('a')->join('LEFT JOIN ecshop_attr b On a.attr_id=b.id')->where(array('goods_id'=>array('eq', $id)))->order('a.attr_id ASC')->select();
+		$gaData = $gaModel->field('a.*,b.*')->alias('a')->join('LEFT JOIN ecshop_attr b On a.attr_id=b.id')->where(array('a.goods_id'=>array('eq', $id)))->order('a.attr_id ASC')->select();
 		/***** 取出当前商品属性不存在的后添加的新的属性 *****/
 		// 循环属性数组取出当前商品已经拥有的属性ID
 		$attr_id = array();
@@ -110,6 +111,20 @@ class GoodsController extends BaseController{
 	}
 
 	/**
+	 * 删除商品
+	 */
+	public function delete(){
+		$model=D('Goods');
+		if($model->delete(I('get.id', 0)) !== FALSE){
+			$this->success('删除成功！', U('lst', array('p' => I('get.p', 1))));
+			exit;
+		}
+		else{
+			$this->error($model->getError());
+		}
+	}
+
+	/**
 	 * 商品列表
 	 */
 	public function lst(){		
@@ -123,19 +138,6 @@ class GoodsController extends BaseController{
 	}
 
 	/**
-	 * 删除商品
-	 */
-	public function delete(){
-		$model=D('Goods');
-		if($model->delete(I('get.id', 0)) !== FALSE){
-			$this->success('删除成功！', U('lst', array('p' => I('get.p', 1))));
-			exit;
-		}else{
-			$this->error($model->getError());
-		}
-	}
-
-	/**
 	 * AJAX获取商品属性
 	 * @return string
 	 */
@@ -146,6 +148,16 @@ class GoodsController extends BaseController{
 		echo json_encode($attrData);
 	}
 
+	/**
+	 * ajax删除商品图片
+	 */
+	public function ajaxDeletePic(){
+		// 删除图片及缩略图
+		$model=M('GoodsPics');
+		$picData=$model->field('pic,sm_pic')->where(array('id'=>I('get.id')))->find();
+		deleteImage($picData);
+		echo $model->delete(I('get.id'))?1:0;
+	}
 
 
 	

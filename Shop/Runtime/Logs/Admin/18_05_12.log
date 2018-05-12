@@ -1352,3 +1352,27 @@ ERR: 1064:You have an error in your SQL syntax; check the manual that correspond
 ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
  [ SQL语句 ] : SELECT * FROM `ecshop_attr` WHERE `type_id` = '1' AND `id` NOT IN () 
 
+[ 2018-05-12T16:54:08+08:00 ] 127.0.0.1 /Admin/Goods/edit/id/3/p/1.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT * FROM `ecshop_attr` WHERE `type_id` = '0' AND `id` NOT IN () 
+
+[ 2018-05-12T16:56:35+08:00 ] 127.0.0.1 /Admin/Goods/edit/id/3/p/1.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT * FROM `ecshop_attr` WHERE `type_id` = '0' AND `id` NOT IN () 
+
+[ 2018-05-12T16:59:54+08:00 ] 127.0.0.1 /Admin/Goods/edit/id/7/p/1.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT * FROM `ecshop_attr` WHERE `type_id` = '1' AND `id` NOT IN () 
+
+[ 2018-05-12T17:42:59+08:00 ] 127.0.0.1 /Admin/Goods/edit/id/7/p/1.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT * FROM `ecshop_attr` WHERE `type_id` = '1' AND `id` NOT IN () 
+
+[ 2018-05-12T17:44:52+08:00 ] 127.0.0.1 /Admin/Goods/edit/id/7/p/1.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT * FROM `ecshop_attr` WHERE `type_id` = '1' AND `id` NOT IN () 
+
+[ 2018-05-12T20:36:52+08:00 ] 127.0.0.1 /Admin/Goods/edit/id/7/p/1.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT * FROM `ecshop_attr` WHERE `type_id` = '1' AND `id` NOT IN () 
+
