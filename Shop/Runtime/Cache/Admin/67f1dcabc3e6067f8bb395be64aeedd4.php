@@ -109,9 +109,9 @@
                 <th>是否热卖</th>
                 <th>是否新品</th>
                 <th>是否精品</th>
-                <th>是否上架：1：上架，0：下架</th>
-                <th>seo优化[搜索引擎【百度、谷歌等】优化]_关键字</th>
-                <th>seo优化[搜索引擎【百度、谷歌等】优化]_描述</th>
+                <th>是否上架</th>
+                <th>seo关键字</th>
+                <th>seo描述</th>
                 <th>商品类型id</th>
                 <th>排序数字</th>
                 <th>商品描述</th>
@@ -126,15 +126,15 @@
                     <td><?php echo ($v['jifen']); ?></td>
                     <td><?php echo ($v['jyz']); ?></td>
                     <td><?php echo ($v['jifen_price']); ?></td>
-                    <td><?php echo ($v['is_promote']); ?></td>
+                    <td><?php echo ($v['is_promote']?'是':'否'); ?></td>
                     <td><?php echo ($v['promote_price']); ?></td>
-                    <td><?php echo ($v['promote_start_time']); ?></td>
-                    <td><?php echo ($v['promote_end_time']); ?></td>
+                    <td><?php echo date('Y-m-d',$v['promote_start_time']); ?></td>
+                    <td><?php echo date('Y-m-d',$v['promote_end_time']); ?></td>
                     <td><?php echo ($v['logo']); ?></td>
-                    <td><?php echo ($v['is_hot']); ?></td>
-                    <td><?php echo ($v['is_new']); ?></td>
-                    <td><?php echo ($v['is_best']); ?></td>
-                    <td><?php echo ($v['is_on_sale']); ?></td>
+                    <td><?php echo ($v['is_hot']?'是':'否'); ?></td>
+                    <td><?php echo ($v['is_new']?'是':'否'); ?></td>
+                    <td><?php echo ($v['is_best']?'是':'否'); ?></td>
+                    <td><?php echo ($v['is_on_sale']?'是':'否'); ?></td>
                     <td><?php echo ($v['seo_keyword']); ?></td>
                     <td><?php echo ($v['seo_description']); ?></td>
                     <td><?php echo ($v['type_id']); ?></td>
