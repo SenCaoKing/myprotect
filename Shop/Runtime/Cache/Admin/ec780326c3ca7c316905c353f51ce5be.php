@@ -92,17 +92,45 @@
         <?php if(empty($gaData)): ?>
             $("select[name=type_id]").trigger("change");
         <?php endif; ?>
+
+        // 删除图片
+        $('.delimage').click(function(){
+            if(confirm('确定要删除吗？')){
+                var _this=this;
+                var id=$(this).attr('pic_id');
+                $.get("<?php echo U('ajaxDeletePic');?>",{'id':id},function(res){
+                    if(res==1){
+                        $(_this).parent().remove();
+                    }
+                });
+            }
+        });
     });
     function addNew(a){
         var p=$(a).parent();
-        if($(a).html()=='[+]'){
+        if($(a).html()=='[+]'){ // 点击了加号
             var newP=p.clone();
+            // 把新克隆出来的old_去掉
+            var old_name=newP.find('select').attr('name');
+            var new_name=old_name.replace('old_','');
+            newP.find('select').attr('name',new_name);
+
+            var old_price=newP.find('input').attr('name');
+            var new_price=old_price.replace('old_','');
+            newP.find('input').attr('name',new_price);
             newP.find('a').html('[-]');
             p.after(newP);
-        }else{
-            p.remove();
+        }
+        else{ // 点击了减号，则ajax删除属性
+            if(confirm('确定要删除吗？')){
+                var attrId=$(a).attr('gaid');
+                $.get("<?php echo U('ajaxDeleteAttr');?>",{'id':attrId},function(res){
+                    if(res==1) p.remove();
+                });
+            }
         }
     }
+
     // 添加分类
     function addCat(btn){
         var sel=$(btn).next();
@@ -138,9 +166,11 @@
             </p>
         </div>
         <div id="tabbody-div">
-            <form method="POST" action="/Admin/Goods/edit/id/6/p/1.html" style="margin:5px;" enctype="multipart/form-data">
-                <input type="hidden" name="id" value="<?php echo ($data["id"]); ?>">
-                <input type="hidden" name="old_type_id" value="<?php echo ($data["type_id"]); ?>">
+            <form method="POST" action="/Admin/Goods/edit/id/7/p/1.html" style="margin:5px;" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<?php echo ($data["id"]); ?>" />
+                <input type="hidden" name="old_type_id" value="<?php echo ($data["type_id"]); ?>" />
+                <input type="hidden" name="old_logo" value="<?php echo ($data["logo"]); ?>" />
+                <input type="hidden" name="old_sm_logo" value="<?php echo ($data["sm_logo"]); ?>" />
                 <!-- 基本信息 -->
                 <div class="content" style="display:block;">
                     <p>商品名称:<input type="text" name="goods_name" value="<?php echo ($data["goods_name"]); ?>" /></p>
@@ -155,7 +185,7 @@
                     <p>其他分类：
                         <input type="button" value="添加" class="btn btn-info" onclick="addCat(this)">
                         <?php  foreach ($extCatId as $k1 => $v1): ?>
-                                <select name="ext_cat_id[]">
+                                <select name="ext_cat_id[]" style="margin-top:8px;">
                                     <option value="">选择分类</option>
                                     <?php foreach ($catData as $k => $v): if($v['id'] == $v1['cat_id']) $select = 'selected="selected"'; else $select = ''; ?>
                                         <option <?php echo ($select); ?> value="<?php echo ($v["id"]); ?>"><?php echo str_repeat('-',8*$v['level']).$v['cat_name'];?></option> 
@@ -180,8 +210,8 @@
                     </p>
                     <p><input type="checkbox" <?php if($data['is_promote']==1) echo 'checked="checked"'; ?> value="1" name="is_promote" id="is_promote">
                         促销价：<input type="text" <?php if($data['is_promote']==0) echo 'disabled="disabled"'; ?> name="promote_price" class="promote_price" value="<?php echo ($data["promote_price"]); ?>" /></p>
-                    <p>促销开始时间：<input <?php if($data['is_promote']==0) echo 'disabled="disabled"'; ?> id="promote_start_time" type="text" name="promote_start_time" class="promote_price" value="<?php if($data['promote_start_time']) echo date('Y-m-d H:i', $data['promote_start_time']); ?>" /></p>
-                    <p>促销结束时间：<input <?php if($data['is_promote']==0) echo 'disabled="disabled"'; ?> id="promote_end_time" type="text" name="promote_end_time" class="promote_price" value="<?php if($data['promote_end_time']) echo date('Y-m-d H:i', $data['promote_end_time']); ?>" /></p>
+                    <p>促销开始时间：<input <?php if($data['is_promote']==0) echo 'disabled="disabled"'; ?> id="promote_start_time" type="text" name="promote_start_time" class="promote_price" value="<?php if($data['promote_start_time']) echo date('Y-m-d', $data['promote_start_time']); ?>"/></p>
+                    <p>促销结束时间：<input <?php if($data['is_promote']==0) echo 'disabled="disabled"'; ?> id="promote_end_time" type="text" name="promote_end_time" class="promote_price" value="<?php if($data['promote_end_time']) echo date('Y-m-d', $data['promote_end_time']);?>" /></p>
                     <p>logo原图：<?php showImage($data['sm_logo']); ?><br/>
                         <input type="file" name="logo" /></p>
                     <p>是否热卖：
