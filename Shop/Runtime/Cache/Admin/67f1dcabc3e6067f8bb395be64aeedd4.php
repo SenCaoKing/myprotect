@@ -108,15 +108,16 @@
                     <td><?php echo ($v['goods_name']); ?></td>
                     <td><?php echo ($v['market_price']); ?></td>
                     <td><?php echo ($v['shop_price']); ?></td>
-                    <td><?php echo showImage($v['logo']);?></td>
+                    <td width="50" height="50"><?php echo showImage($v['logo']);?></td>
                     <td><?php echo ($v['is_hot']?'是':'否'); ?></td>
                     <td><?php echo ($v['is_new']?'是':'否'); ?></td>
                     <td><?php echo ($v['is_best']?'是':'否'); ?></td>
                     <td><?php echo ($v['is_on_sale']?'是':'否'); ?></td>
                     <td><?php echo ($v['goods_desc']); ?></td>
                     <td>
-                        <a href="<?php echo U('edit',array('id'=>$v['id'],'p'=>I('get.p',1)));?>" title="编辑">编辑</a>
-                        <a href="<?php echo U('recycle',array('id'=>$v['id'],'p'=>I('get.p',1)));?>" onclick="return confirm('确定要放入回收站吗?')" title="放入回收站">放入回收站</a>
+                        <a href="<?php echo U('number',array('id'=>$v['id'],'p'=>I('get.p')));?>" title="库存量">库存量</a> 
+                        <a href="<?php echo U('edit',array('id'=>$v['id'],'p'=>I('get.p')));?>" title="编辑">编辑</a> | 
+                        <a href="<?php echo U('recycle',array('id'=>$v['id']));?>" onclick="return confirm('确定要放入回收站吗?')" title="放入回收站">放入回收站</a>
                     </td>
                 </tr><?php endforeach; endif; ?>
             <?php if(preg_match('/\d', $page)): ?>

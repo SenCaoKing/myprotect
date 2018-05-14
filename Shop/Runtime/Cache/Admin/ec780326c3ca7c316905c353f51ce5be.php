@@ -88,7 +88,7 @@
             $(this).parent().parent().append('<input type="file" name="pics[]" />');
         });
 
-        // 判断如果现在没有属性就直接触发AJAX事件获取属性的数据
+        // 判断如果现在没有属性，就直接触发AJAX事件获取属性的数据
         <?php if(empty($gaData)): ?>
             $("select[name=type_id]").trigger("change");
         <?php endif; ?>
@@ -166,7 +166,7 @@
             </p>
         </div>
         <div id="tabbody-div">
-            <form method="POST" action="/Admin/Goods/edit/id/7/p/1.html" style="margin:5px;" enctype="multipart/form-data">
+            <form method="POST" action="/Admin/Goods/edit/id/7.html" style="margin:5px;" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?php echo ($data["id"]); ?>" />
                 <input type="hidden" name="old_type_id" value="<?php echo ($data["type_id"]); ?>" />
                 <input type="hidden" name="old_logo" value="<?php echo ($data["logo"]); ?>" />

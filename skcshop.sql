@@ -235,5 +235,19 @@ CREATE TABLE IF NOT EXISTS ecshop_goods_pics (
 
 -- --------------------------------------------------------
 
+-- --------------------------------------------------------
+--
+-- 商品库存量表 `ecshop_goods_number`
+--
+CREATE TABLE IF NOT EXISTS ecshop_goods_number (
+  id mediumint(8) unsigned not null auto_increment,
+  goods_id mediumint(8) unsigned not null comment '商品id',
+  goods_number int(10) unsigned not null comment '库存量',
+  goods_attr_id varchar(150) not null comment 'goods_attr表里的id，并且要满足该goods_attr表的attr_id是可选的属性id，即属性表里的attr_type为1',
+  primary key (id),
+  key (goods_id)
+) engine=InnoDB default charset=utf8 comment='商品库存量表';
+
+-- --------------------------------------------------------
 
 
