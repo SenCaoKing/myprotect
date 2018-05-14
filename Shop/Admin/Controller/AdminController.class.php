@@ -57,7 +57,6 @@ class AdminController extends BaseController{
         }
         $model = M('Admin');
         $data = $model->find($id); // 查找当前管理员的信息
-        dump($data);
         $role=M('Role');
         $roleData=$role->field('id,role_name')->select(); // 查找所有角色信息
         dump($roleData);

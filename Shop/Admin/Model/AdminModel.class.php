@@ -19,7 +19,6 @@ class AdminModel extends Model
         array('is_use', 'number', '是否启用 1：启用 0：禁用必须是一个整数！', 2, 'regex', 3),
     );
 
-    // 登录验证
     // 登录验证，必须是public
     public $rules = array(
         array('username', 'require', '账号不能为空！', 1),
@@ -39,7 +38,7 @@ class AdminModel extends Model
         }else{
             $arr=array(
                 'username' => $data['username'],
-                'password' => $data['password'],
+                'password' => md5($data['password'].C('md5_key')),
                 'role_id'  => implode(',', $data['role_id']),
                 'is_use'   => $data['is_use']
             );
