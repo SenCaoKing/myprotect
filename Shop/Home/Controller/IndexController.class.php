@@ -1,8 +1,9 @@
 <?php
 namespace Home\Controller;
-use Think\Controller;
-class IndexController extends Controller {
-    public function index(){
-        $this->show('前台模板还未完成');
+
+class IndexController extends BaseController {
+    public function index($value=''){
+        $this->setPageInfo(1,'京西商城-首页','首页','首页',array('index'),array('index'));
+        $this->display();
     }
 }

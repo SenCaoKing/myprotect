@@ -76,17 +76,4 @@ class BaseController extends Controller {
         $this->assign('btn',$btn);
     }
 
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
