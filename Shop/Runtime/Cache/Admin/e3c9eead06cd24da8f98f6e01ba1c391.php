@@ -29,7 +29,7 @@
 <!-- 内容主题 -->
 
     <div class="main-div">
-        <form method="POST" style="margin:5px;" action="/Admin/Category/add.html">
+        <form method="POST" style="margin:5px;" action="/Admin/Category/add">
             <p>上级分类：
                 <select name="pid">
                     <option value="0">顶级分类</option>
