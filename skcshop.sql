@@ -250,4 +250,20 @@ CREATE TABLE IF NOT EXISTS ecshop_goods_number (
 
 -- --------------------------------------------------------
 
+-- --------------------------------------------------------
+--
+-- 会员表 `ecshop_member`
+--
+CREATE TABLE IF NOT EXISTS ecshop_member (
+  id mediumint(8) unsigned not null auto_increment,
+  email varchar(60) not null comment '会员账号',
+  password char(32) not null comment '密码',
+  face varchar(150) not null default '' comment '头像',
+  addtime int(10) unsigned not null comment '注册时间',
+  email_code char(32) not null default '' comment '邮件验证的验证码，当会员验证通过之后，会把这个字段清空，所以如果这个字段为空就说明会员已经通过email验证了',
+  jifen int(10) unsigned not null default '0' comment '积分',
+  jyz int(10) unsigned not null default '0' comment '经验值',
+  primary key (id)
+) engine=Myisam default charset=utf8 comment='会员表';
 
+-- --------------------------------------------------------
