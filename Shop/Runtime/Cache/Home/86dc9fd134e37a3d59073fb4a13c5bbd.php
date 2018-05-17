@@ -17,8 +17,8 @@
     <!-- 单独的css和js -->
     <?php if(is_array($page_css)): $i = 0; $__LIST__ = $page_css;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><link rel="stylesheet" href="/Public/Home/style/<?php echo ($v); ?>.css" type="text/css" /><?php endforeach; endif; else: echo "" ;endif; ?>
 
-    <?php if(is_array($page_js)): $i = 0; $__LIST__ = $page_js;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v1): $mod = ($i % 2 );++$i;?><script type="text/javascript" src="/Public/Home/js/<?php echo ($v1); ?>.js"></script><?php endforeach; endif; else: echo "" ;endif; ?>  
-    
+    <?php if(is_array($page_js)): $i = 0; $__LIST__ = $page_js;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v1): $mod = ($i % 2 );++$i;?><script type="text/javascript" src="/Public/Home/js/<?php echo ($v1); ?>.js"></script><?php endforeach; endif; else: echo "" ;endif; ?>
+
 </head>
 <body>
     <!-- 顶部导航 start -->
@@ -28,12 +28,10 @@
             </div>
             <div class="topnav_right fr">
                 <ul>
-                    <li>您好，欢迎来到京西！[<a href="<?php echo U('Member/login');?>">登录</a>] [<a href="<?php echo U('Member/regist');?>">免费注册</a>] </li>
-                    <li class="line">|</li>
+                    <li id="logInfo">|</li>
                     <li>我的订单</li>
                     <li class="line">|</li>
                     <li>客户服务</li>
-
                 </ul>
             </div>
         </div>
@@ -68,7 +66,7 @@
 						</li>
 						<li>
 							<label for="">验证码：</label>
-							<input type="text"  name="chkcode" /><br />
+							<input type="txt"  name="chkcode" /><br />
 						</li>
 						<li>
 							<label for="">&nbsp;</label>
@@ -132,6 +130,15 @@
         </p>
     </div>
     <!-- 底部版权 end -->
-
 </body>
+<script type="text/javascript">
+    $.get('<?php echo U("Member/ajaxChkLogin");?>','',function(res){
+        var data=JSON.parse(res);
+        if(data.ok==1)
+            var html = "您好，"+data.email+" <a href='<?php echo U('Home/Member/logout'); ?>'>[退出]</a>";
+        else
+            var html = "您好，欢迎来到京西！[<a href='<?php echo U('Home/Member/login'); ?>'>登录</a>] [<a href='<?php echo U('Home/Member/regist'); ?>'>免费注册</a>]";
+        $("#logInfo").html(html);
+    });
+</script>
 </html>
