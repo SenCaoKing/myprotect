@@ -98,10 +98,7 @@
                         <div style="clear:both;"></div>
                         <div class="viewlist mt10">
                             <h3>最近浏览的商品：</h3>
-                            <ul>
-                                <li><a href=""><img src="/Public/Home/images/view_list1.jpg" alt="" /></a></li>
-                                <li><a href=""><img src="/Public/Home/images/view_list2.jpg" alt="" /></a></li>
-                                <li><a href=""><img src="/Public/Home/images/view_list3.jpg" alt="" /></a></li>
+                            <ul id="recentView">
                             </ul>
                         </div>
                     </dd>
@@ -179,7 +176,22 @@
         <!-- 导航条部分 end -->
     </div>
     <!-- 头部 end-->
-    <div style="clear:both;"></div> 
+    <div style="clear:both;"></div>
+
+
+    <!--ajax获取最近浏览量-->
+    <script type="text/javascript">
+        var imgURL="<?php echo C('IMG_URL');?>";
+        $.get('<?php echo U("Index/ajaxGetRecent");?>','',function(data){
+            var json=JSON.parse(data);
+            console.log(json);
+            var html='';
+            for(var i=0;i<json.length;i++){
+                html+='<li><a href="<?php echo U('goods','',false);?>/id/'+json[i].id+'"><img src="'+imgURL+json[i].sm_logo+'" alt="" /></a></li>';
+            }
+            $('#recentView').html(html);
+        });
+    </script>
 
 <!-- 内容主体start -->
 	<div style="clear:both;"></div>

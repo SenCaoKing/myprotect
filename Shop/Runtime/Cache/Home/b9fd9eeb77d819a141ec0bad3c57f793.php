@@ -98,10 +98,7 @@
                         <div style="clear:both;"></div>
                         <div class="viewlist mt10">
                             <h3>最近浏览的商品：</h3>
-                            <ul>
-                                <li><a href=""><img src="/Public/Home/images/view_list1.jpg" alt="" /></a></li>
-                                <li><a href=""><img src="/Public/Home/images/view_list2.jpg" alt="" /></a></li>
-                                <li><a href=""><img src="/Public/Home/images/view_list3.jpg" alt="" /></a></li>
+                            <ul id="recentView">
                             </ul>
                         </div>
                     </dd>
@@ -179,7 +176,22 @@
         <!-- 导航条部分 end -->
     </div>
     <!-- 头部 end-->
-    <div style="clear:both;"></div> 
+    <div style="clear:both;"></div>
+
+
+    <!--ajax获取最近浏览量-->
+    <script type="text/javascript">
+        var imgURL="<?php echo C('IMG_URL');?>";
+        $.get('<?php echo U("Index/ajaxGetRecent");?>','',function(data){
+            var json=JSON.parse(data);
+            console.log(json);
+            var html='';
+            for(var i=0;i<json.length;i++){
+                html+='<li><a href="<?php echo U('goods','',false);?>/id/'+json[i].id+'"><img src="'+imgURL+json[i].sm_logo+'" alt="" /></a></li>';
+            }
+            $('#recentView').html(html);
+        });
+    </script>
 	<script type="text/javascript">
 		$(function(){
 			$('.jqzoom').jqzoom({
@@ -298,17 +310,7 @@
 			<!-- 最近浏览 start -->
 			<div class="viewd leftbar mt10">
 				<h2><a href="">清空</a><strong>最近浏览过的商品</strong></h2>
-				<div class="leftbar_wrap">
-					<dl>
-						<dt><a href=""><img src="/Public/Home/images//hpG4.jpg" alt="" /></a></dt>
-						<dd><a href="">惠普G4-1332TX 14英寸笔记...</a></dd>
-					</dl>
-
-					<dl class="last">
-						<dt><a href=""><img src="/Public/Home/images//crazy4.jpg" alt="" /></a></dt>
-						<dd><a href="">直降200元！TCL正1.5匹空调</a></dd>
-					</dl>
-				</div>
+				<div class="leftbar_wrap" id="recentView1"></div>
 			</div>
 			<!-- 最近浏览 end -->
 
@@ -715,10 +717,17 @@
     <!-- 底部导航 end -->
 <script type="text/javascript">
 	var goodsId = <?php echo $info['id']; ?>;
-	// 计算会员价格-最近浏览的功能
+	// 计算会员价格-最近浏览的功能-生成xcookie
 	$.get("<?php echo U('ajaxGetPrice');?>",{'goodsId':goodsId},function(data){
 		$("#memberprice").html('￥ '+data+' 元');
 	});
+
+	// ajax获取最新浏览量
+	var imgURL="<?php echo C('IMG_URL'); ?>";
+	$.get('<?php echo U("Index/ajaxGetRecent");?>','',function(data){
+		data
+	}))
+
 </script>
     <!-- 底部版权 start -->
     <div class="footer w1210 bc mt10">

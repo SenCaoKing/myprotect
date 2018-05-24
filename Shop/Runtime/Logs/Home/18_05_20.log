@@ -1,0 +1,78 @@
+[ 2018-05-20T22:41:57+08:00 ] 127.0.0.1 /Index/ajaxGetPrice.html?goodsId=3
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001802s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002126s ]
+SQL: SHOW COLUMNS FROM `ecshop_goods` [ RunTime:0.0142s ]
+SQL: SELECT `shop_price`,`is_promote`,`promote_price`,`promote_start_time`,`promote_end_time` FROM `ecshop_goods` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001061s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001137s ]
+
+[ 2018-05-20T22:41:57+08:00 ] 127.0.0.1 /Member/ajaxChkLogin.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001002s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001973s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000551s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000626s ]
+
+[ 2018-05-20T22:42:15+08:00 ] 127.0.0.1 /Index/ajaxGetPrice.html?goodsId=3
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000318s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000602s ]
+SQL: SHOW COLUMNS FROM `ecshop_goods` [ RunTime:0.0152s ]
+SQL: SELECT `shop_price`,`is_promote`,`promote_price`,`promote_start_time`,`promote_end_time` FROM `ecshop_goods` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0009s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000365s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000393s ]
+
+[ 2018-05-20T22:42:15+08:00 ] 127.0.0.1 /Member/ajaxChkLogin.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000440s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000728s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000960s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-20T22:42:17+08:00 ] 127.0.0.1 /Member/ajaxChkLogin.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000540s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001167s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000526s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000587s ]
+
+[ 2018-05-20T22:45:43+08:00 ] 127.0.0.1 /Index/ajaxGetPrice.html?goodsId=3
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000377s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000683s ]
+SQL: SHOW COLUMNS FROM `ecshop_goods` [ RunTime:0.0096s ]
+SQL: SELECT `shop_price`,`is_promote`,`promote_price`,`promote_start_time`,`promote_end_time` FROM `ecshop_goods` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000362s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000391s ]
+
+[ 2018-05-20T22:45:43+08:00 ] 127.0.0.1 /Member/ajaxChkLogin.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000464s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000809s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000556s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000657s ]
+
+[ 2018-05-20T22:45:46+08:00 ] 127.0.0.1 /Member/ajaxChkLogin.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001922s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000422s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000465s ]
+
+[ 2018-05-20T22:46:09+08:00 ] 127.0.0.1 /Member/ajaxChkLogin.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000590s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000908s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000303s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000338s ]
+
