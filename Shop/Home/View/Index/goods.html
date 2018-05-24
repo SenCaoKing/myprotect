@@ -14,7 +14,7 @@
 		})
 	</script>
 
-	<!-- 商品页面主体 start -->
+<!-- 商品页面主体 start -->
 	<div class="main w1210 mt10 bc">
 		<!-- 面包屑导航 start -->
 		<div class="breadcrumb">
@@ -73,7 +73,7 @@
 					<ul>
 						<li>
 							<dl>
-								<dt><a href=""><img src="__PUBLIC__/Home/images//relate_view1.jpg" alt="" /></a></dt>
+								<dt><a href=""><img src="__PUBLIC__/Home/images/relate_view1.jpg" alt="" /></a></dt>
 								<dd><a href="">ThinkPad E431(62771A7) 14英寸笔记本电脑 (i5-3230 4G 1TB 2G独显 蓝牙 win8)</a></dd>
 								<dd><strong>￥5199.00</strong></dd>
 							</dl>
@@ -81,7 +81,7 @@
 
 						<li>
 							<dl>
-								<dt><a href=""><img src="__PUBLIC__/Home/images//relate_view2.jpg" alt="" /></a></dt>
+								<dt><a href=""><img src="__PUBLIC__/Home/images/relate_view2.jpg" alt="" /></a></dt>
 								<dd><a href="">ThinkPad X230i(2306-3V9） 12.5英寸笔记本电脑 （i3-3120M 4GB 500GB 7200转 蓝牙 摄像头 Win8）</a></dd>
 								<dd><strong>￥5199.00</strong></dd>
 							</dl>
@@ -89,7 +89,7 @@
 
 						<li>
 							<dl>
-								<dt><a href=""><img src="__PUBLIC__/Home/images//relate_view3.jpg" alt="" /></a></dt>
+								<dt><a href=""><img src="__PUBLIC__/Home/images/relate_view3.jpg" alt="" /></a></dt>
 								<dd><a href="">T联想（Lenovo） Yoga13 II-Pro 13.3英寸超极本 （i5-4200U 4G 128G固态硬盘 摄像头 蓝牙 Win8）晧月银</a></dd>
 								<dd><strong>￥7999.00</strong></dd>
 							</dl>
@@ -97,7 +97,7 @@
 
 						<li>
 							<dl>
-								<dt><a href=""><img src="__PUBLIC__/Home/images//relate_view4.jpg" alt="" /></a></dt>
+								<dt><a href=""><img src="__PUBLIC__/Home/images/relate_view4.jpg" alt="" /></a></dt>
 								<dd><a href="">联想（Lenovo） Y510p 15.6英寸笔记本电脑（i5-4200M 4G 1T 2G独显 摄像头 DVD刻录 Win8）黑色</a></dd>
 								<dd><strong>￥6199.00</strong></dd>
 							</dl>
@@ -105,7 +105,7 @@
 
 						<li class="last">
 							<dl>
-								<dt><a href=""><img src="__PUBLIC__/Home/images//relate_view5.jpg" alt="" /></a></dt>
+								<dt><a href=""><img src="__PUBLIC__/Home/images/relate_view5.jpg" alt="" /></a></dt>
 								<dd><a href="">ThinkPad E530c(33662D0) 15.6英寸笔记本电脑 （i5-3210M 4G 500G NV610M 1G独显 摄像头 Win8）</a></dd>
 								<dd><strong>￥4399.00</strong></dd>
 							</dl>
@@ -118,7 +118,8 @@
 			<!-- 最近浏览 start -->
 			<div class="viewd leftbar mt10">
 				<h2><a href="">清空</a><strong>最近浏览过的商品</strong></h2>
-				<div class="leftbar_wrap" id="recentView1"></div>
+				<div class="leftbar_wrap" id="recentView1">
+				</div>
 			</div>
 			<!-- 最近浏览 end -->
 
@@ -130,14 +131,14 @@
 			<!-- 商品概要信息 start -->
 			<div class="summary">
 				<h3><strong>{$info.goods_name}</strong></h3>
-				<?php
+				<?php 
 				// 读配置文件中的图片路径
 				$imgUrl = C('IMG_URL'); ?>
 				<!-- 图片预览区域 start -->
 				<div class="preview fl">
 					<div class="midpic">
 						<a href="<?php echo $imgUrl.$info['logo']; ?>" class="jqzoom" rel="gal1">   <!-- 第一幅图片的大图 class 和 rel属性不能更改 -->
-							<?php echo showImage($info['logo'], 250); ?> <!-- 第一幅图片的中图 -->
+							<?php echo showImage($info['logo'], 350); ?>    <!-- 第一幅图片的中图 -->
 						</a>
 					</div>
 	
@@ -151,11 +152,11 @@
 								<li class="cur">
 									<a class="zoomThumbActive" href="javascript:void(0);" rel="{gallery: 'gal1', smallimage: '<?php echo $imgUrl.$info['logo']; ?>',largeimage: '<?php echo $imgUrl.$info['logo']; ?>'}"><?php showImage($info['sm_logo']); ?></a>
 								</li>
-								<foreach name="gpData" item="v">
+								<?php foreach ($gpData as $k => $v): ?>
 								<li>
 									<a href="javascript:void(0);" rel="{gallery: 'gal1', smallimage: '<?php echo $imgUrl.$v['pic']; ?>',largeimage: '<?php echo $imgUrl.$v['pic']; ?>'}"><?php showImage($v['sm_pic']); ?></a>
-								</li>	
-								</foreach>
+								</li>
+								<?php endforeach; ?>
 							</ul>
 						</div>
 						
@@ -167,27 +168,29 @@
 				<div class="goodsinfo fl ml10">
 					<ul>
 						<li><span>商品编号： </span>{$info.id}</li>
-						<li class="market_price"><span>定价：</span><em>￥{$info.market_price}</em></li>
-						<li class="shop_price"><span>本店价：</span> <strong>￥{$info.shop_price}</strong> <a href="">(降价通知)</a></li>
+						<li class="market_price"><span>定价：</span><em>￥{$info.market_price}元</em></li>
+						<li class="shop_price"><span>本店价：</span> <strong>￥{$info.shop_price}元</strong> <a href="">(降价通知)</a></li>
 						<li><span>上架时间：</span><?php echo date('Y-m-d', $info['addtime']); ?></li>
-						<li><span>会员价格：</span><font style="font-size: 14px;font-weight: bold;" id="memberprice"></font></li>
+						<li><span>会员价格：</span> <font style="font-size:14px;font-weight:bold;" id="memberprice"></font></li>
 						<li class="star"><span>商品评分：</span> <strong></strong><a href="">(已有21人评价)</a></li> <!-- 此处的星级切换css即可 默认为5星 star4 表示4星 star3 表示3星 star2表示2星 star1表示1星 -->
 					</ul>
-					<form action="" method="post" class="choose">
+					<form action="{:U('Cart/add')}" method="post" class="choose">
+					    <input type="hidden" name="goods_id" value="{$info.id}">
 						<ul>
 							<?php foreach ($gaData1 as $k => $v): ?>
-								<li class="product">
-									<dl>
-										<dt>{$k}：</dt>
-										<dd>
-											<?php foreach ($v as $k1 => $v1): ?>
-												<a <?php if($k1==0) echo 'class="selected"'; ?>  href="javascript:;">{$v1.attr_value} 
-												<input type="radio" name="color" value="{$v1.attr_value}" <?php if($k1==0) echo 'checked="checked"'; ?>  />
-												</a>
-											<?php endforeach; ?>
-										</dd>
-									</dl>
-								</li>
+							<li class="product">
+								<dl>
+									<dt>{$k}：</dt>
+									<dd>
+									<?php foreach ($v as $k1 => $v1): ?>
+										<a <?php if($k1==0) echo 'class="selected"'; ?> href="javascript:;">{$v1.attr_value} 
+										<input type="radio" name="goods_attr_id[{$v1['attr_id']}]" value="{$v1.id}" 
+										<?php if($k1==0) echo 'checked="checked"'; ?> />
+										</a>
+									<?php endforeach; ?>
+									</dd>
+								</dl>
+							</li>
 							<?php endforeach; ?>
 							<li>
 								<dl>
@@ -233,30 +236,30 @@
 						<div class="attr mt15">
 							<ul>
 								<?php foreach ($gaData2 as $k => $v): ?>
-									<li><span>{$v.attr_name}：</span>{$v.attr_value}</li>
+								<li><span>{$v.attr_name}：</span>{$v.attr_value}</li>
 								<?php endforeach; ?>
 							</ul>
 						</div>
 
 						<div class="desc mt10">
 							<!-- 此处的内容 一般是通过在线编辑器添加保存到数据库，然后直接从数据库中读出 -->
-							<img src="__PUBLIC__/Home/images//desc1.jpg" alt="" />
+							<img src="__PUBLIC__/Home/images/desc1.jpg" alt="" />
 							<p style="height:10px;"></p>
-							<img src="__PUBLIC__/Home/images//desc2.jpg" alt="" />
+							<img src="__PUBLIC__/Home/images/desc2.jpg" alt="" />
 							<p style="height:10px;"></p>
-							<img src="__PUBLIC__/Home/images//desc3.jpg" alt="" />
+							<img src="__PUBLIC__/Home/images/desc3.jpg" alt="" />
 							<p style="height:10px;"></p>
-							<img src="__PUBLIC__/Home/images//desc4.jpg" alt="" />
+							<img src="__PUBLIC__/Home/images/desc4.jpg" alt="" />
 							<p style="height:10px;"></p>
-							<img src="__PUBLIC__/Home/images//desc5.jpg" alt="" />
+							<img src="__PUBLIC__/Home/images/desc5.jpg" alt="" />
 							<p style="height:10px;"></p>
-							<img src="__PUBLIC__/Home/images//desc6.jpg" alt="" />
+							<img src="__PUBLIC__/Home/images/desc6.jpg" alt="" />
 							<p style="height:10px;"></p>
-							<img src="__PUBLIC__/Home/images//desc7.jpg" alt="" />
+							<img src="__PUBLIC__/Home/images/desc7.jpg" alt="" />
 							<p style="height:10px;"></p>
-							<img src="__PUBLIC__/Home/images//desc8.jpg" alt="" />
+							<img src="__PUBLIC__/Home/images/desc8.jpg" alt="" />
 							<p style="height:10px;"></p>
-							<img src="__PUBLIC__/Home/images//desc9.jpg" alt="" />
+							<img src="__PUBLIC__/Home/images/desc9.jpg" alt="" />
 						</div>
 					</div>
 					<!-- 商品介绍 end -->
@@ -294,135 +297,16 @@
 								</dl>
 							</div>
 						</div>
-
-						<div class="comment_items mt10">
-							<div class="user_pic">
-								<dl>
-									<dt><a href=""><img src="__PUBLIC__/Home/images//user1.gif" alt="" /></a></dt>
-									<dd><a href="">乖乖</a></dd>
-								</dl>
-							</div>
-							<div class="item">
-								<div class="title">
-									<span>2013-03-11 22:18</span>
-									<strong class="star star5"></strong> <!-- star5表示5星级 start4表示4星级，以此类推 -->
-								</div>
-								<div class="comment_content">
-									<dl>
-										<dt>心得：</dt>
-										<dd>东西挺好，挺满意的！</dd>
-									</dl>
-									<dl>
-										<dt>优点：</dt>
-										<dd>反应速度开，散热性能好</dd>
-									</dl>
-									<dl>
-										<dt>不足：</dt>
-										<dd>暂时还没发现缺点哦！</dd>
-									</dl>
-									<dl>
-										<dt>购买日期：</dt>
-										<dd>2013-11-24</dd>
-									</dl>
-								</div>
-								<div class="btns">
-									<a href="" class="reply">回复(0)</a>
-									<a href="" class="useful">有用(0)</a>
-								</div>
-							</div>
-							<div class="cornor"></div>
-						</div>
-
-						<div class="comment_items mt10">
-							<div class="user_pic">
-								<dl>
-									<dt><a href=""><img src="__PUBLIC__/Home/images//user2.jpg" alt="" /></a></dt>
-									<dd><a href="">小宝贝</a></dd>
-								</dl>
-							</div>
-							<div class="item">
-								<div class="title">
-									<span>2013-10-01 14:10</span>
-									<strong class="star star4"></strong> <!-- star5表示5星级 start4表示4星级，以此类推 -->
-								</div>
-								<div class="comment_content">
-									<dl>
-										<dt>心得：</dt>
-										<dd>外观漂亮同，还在使用过程中。</dd>
-									</dl>
-									<dl>
-										<dt>型号：</dt>
-										<dd>i5 8G内存版</dd>
-									</dl>
-									<dl>
-										<dt>购买日期：</dt>
-										<dd>2013-11-20</dd>
-									</dl>
-								</div>
-								<div class="btns">
-									<a href="" class="reply">回复(0)</a>
-									<a href="" class="useful">有用(0)</a>
-								</div>
-							</div>
-							<div class="cornor"></div>
-						</div>
-
-						<div class="comment_items mt10">
-							<div class="user_pic">
-								<dl>
-									<dt><a href=""><img src="__PUBLIC__/Home/images//user3.jpg" alt="" /></a></dt>
-									<dd><a href="">天使</a></dd>
-								</dl>
-							</div>
-							<div class="item">
-								<div class="title">
-									<span>2013-03-11 22:18</span>
-									<strong class="star star5"></strong> <!-- star5表示5星级 start4表示4星级，以此类推 -->
-								</div>
-								<div class="comment_content">
-									<dl>
-										<dt>心得：</dt>
-										<dd>挺好的，物超所值，速度挺好，WIN8用起来也不错。</dd>
-									</dl>
-									<dl>
-										<dt>优点：</dt>
-										<dd>散热很好，配置不错</dd>
-									</dl>
-									<dl>
-										<dt>不足：</dt>
-										<dd>暂时还没发现缺点哦！</dd>
-									</dl>
-									<dl>
-										<dt>购买日期：</dt>
-										<dd>2013-11-24</dd>
-									</dl>
-								</div>
-								<div class="btns">
-									<a href="" class="reply">回复(0)</a>
-									<a href="" class="useful">有用(0)</a>
-								</div>
-							</div>
-							<div class="cornor"></div>
-						</div>
-
 						<!-- 分页信息 start -->
-						<div class="page mt20">
-							<a href="">首页</a>
-							<a href="">上一页</a>
-							<a href="">1</a>
-							<a href="">2</a>
-							<a href="" class="cur">3</a>
-							<a href="">4</a>
-							<a href="">5</a>
-							<a href="">下一页</a>
-							<a href="">尾页</a>
+						<div id="comment_page" class="page mt20">
+							<a style="width:100px;margin:0 auto;" id="a_load_more" onclick="ajaxGetCommentByPageNum();" href="javascript:void(0);">加载更多...</a>
 						</div>
 						<!-- 分页信息 end -->
 
 						<!--  评论表单 start-->
-						<div class="comment_form mt20" id="comment_form"><a id="login_a">登录</a>之后就可以评论！</div>
+						<div class="comment_form mt20" id="comment_form"><a id="login_a"
+						style="color:#9cf">登录</a>之后就可以评论！</div>
 						<!--  评论表单 end-->
-						
 					</div>
 					<!-- 商品评论 end -->
 
@@ -458,47 +342,129 @@
 			
 		</div>
 		<!-- 商品信息内容 end -->
-
+		
 
 	</div>
 	<!-- 商品页面主体 end -->
-
 <include file="Layout/footer" />
 <script type="text/javascript">
-	var goodsId = <?php echo $info['id']; ?>;
-	// 计算会员价格-最近浏览的功能-生成xcookie
-	$.get("{:U('ajaxGetPrice')}",{'goodsId':goodsId},function(data){
-		$("#memberprice").html('￥ '+data+' 元');
-	});
-
-	// ajax获取商品的评论
-	$.get("{:U('ajaxGetComment')}",{'goodsId':goodsId},function(data){
-		if(data.login == 1){
-            $("#comment_form").html('<form action=""><ul><li><label for=""> 评分：</label><input type="radio" name="grade"/> <strong class="star star5"></strong><input type="radio" name="grade"/> <strong class="star star4"></strong><input type="radio" name="grade"/> <strong class="star star3"></strong><input type="radio" name="grade"/> <strong class="star star2"></strong><input type="radio" name="grade"/> <strong class="star star1"></strong></li><li><label for="">评价内容：</label><textarea name="" id="" cols="" rows=""></textarea></li><li><label for="">&nbsp;</label><input type="submit" value="提交评论"  class="comment_btn"/></li></ul></form>');
-		}
-	});
-
-	// 点击登录时，先执行AJAX把当前地址存到SESSION
-	$("#login_a").click(function(){
-		$.ajax({
-			type:"GET",
-			url:"<?php echo U('Home/Member/saveAndLogin'); ?>",
-			success : function(data)
-			{
-				location.href='<?php echo U('Home/Member/login'); ?>';
-			}
-		});
-	});
-
-	// ajax获取最新浏览量
-	var imgURL="<?php echo C('IMG_URL'); ?>";
-	$.get('{:U("Index/ajaxGetRecent")}','',function(data){
+var goodsId = <?php echo $info['id']; ?>;
+// 计算会员价格-最近浏览的功能-生成xcookie
+$.get("{:U('ajaxGetPrice')}",{'goodsId':goodsId},function(data){
+	$("#memberprice").html('￥ '+data+' 元');
+})
+//ajax获取最近浏览量
+var imgURL="<?php echo C('IMG_URL');?>";
+$.get('{:U("ajaxGetRecent")}','',function(data){
 		var json=JSON.parse(data);
 		var html='';
 		for(var i=0;i<json.length;i++){
 			html+='<dl><dt><a href="{:U(\'goods\','',false)}/id/'+json[i].id+'"><img src="'+imgURL+json[i].sm_logo+'" alt="" /></a></dt><dd><a href="{:U(\'goods\','',false)}/id/'+json[i].id+'">'+json[i].goods_name+'</a></dd></dl>';
 		}
 		$('#recentView1').html(html);
-	})
-
+});
+// ajax获取商品的评论及发表评论
+$.get("{:U('ajaxGetComment')}",{'goodsId':goodsId},function(res){
+	var data=JSON.parse(res);
+	if(data.login == 1){
+			$("#comment_form").html('<form id="comment_real_form"><input type="hidden" name="goods_id" value="<?php echo $info['id']; ?>" /><ul><li><label for=""> 评分：</label><input type="radio" name="star" value="5" /> <strong class="star star5"></strong><input type="radio" name="star" value="4" /> <strong class="star star4"></strong><input type="radio" name="star" value="3" checked="checked"/> <strong class="star star3"></strong><input type="radio" name="star" value="2" /> <strong class="star star2"></strong><input type="radio" name="star" value="1" /> <strong class="star star1"></strong></li><li><label for="">评价内容：</label><textarea name="content" id="" cols="" rows=""></textarea></li><li><label for="">印象：</label><input name="yx" /> 多个印象用，隔开</li><li><label for="">&nbsp;</label><input type="button" value="提交评论" class="comment_btn"/></li></ul></form>');
+			$(".comment_btn").click(function(){
+				// 收集表单中的所有的数据
+				var formData = $("#comment_real_form").serialize();
+				// AJAX的提交表单
+				$.ajax({
+					type : "POST",
+					url : "<?php echo U('Comment/add'); ?>",
+					data : formData,  // 表单中的数据
+					success : function(res){
+						var data=JSON.parse(res);
+						if(data.ok == 1){
+							// 先拼出评论的字符串
+							var html = '<div class="comment_items mt10"><div class="user_pic"><dl><dt><a href=""><img src="'+data.face+'" alt="" /></a></dt><dd><a href="">'+data.email+'</a></dd></dl></div><div class="item"><div class="title"><span>'+data.addtime+'</span><strong class="star star'+data.star+'"></strong></div><div class="comment_content">'+data.content+'</div><div class="btns"><a href="" class="reply">回复(0)</a><a href="" class="useful">有用(0)</a></div></div><div class="cornor"></div></div>';
+							// 把评论的内容直接放到页面上
+							$(".comment_summary").after(html);
+							
+							// 清空表单
+							document.getElementById("comment_real_form").reset();
+							// 先滚动到710这个位置然后再显示出评论的内容
+							$("body").animate({scrollTop:"710px"},300,'linear',function(){html.fadeIn('slow');});	
+						}				
+					}
+				});
+			});
+	}
+})
+// 点击评论里的登录时，执行AJAX把当前地址存到SESSION，以便登陆后跳回到这里
+$("#login_a").click(function(){
+	$.get("{:U('saveAndLogin')}","",function(){
+		location.href="{:U('Home/Member/login')}";
+	});
+});
+// 发请求的开头
+var pending = 0;  // 当前是否正在发请求
+// 先获取加载更多按钮的指针
+var a_load_more = $("#a_load_more");
+// ajax获取评论的数据，每页显示5条，当滚动条拖动到最后一条评论时，再自动加载5条评论
+var current_comment_page = 1; // 应该加载第几页的评论
+// AJAX获取某一页的评论
+function ajaxGetCommentByPageNum(){
+	$.ajax({
+		type : "GET",
+		url : "<?php echo U('Comment/ajaxGetComment', '', FALSE); ?>/p/"+current_comment_page+"/goods_id/"+<?php echo $info['id']; ?>,
+		dataType : "json",
+		success : function(data){
+			// 循环服务器端返回的数据拼出HTML字符串
+			var html = '<div>';
+			$(data).each(function(k,v){
+				html += '<div class="comment_items mt10"><div class="user_pic"><dl><dt><a href=""><img src="'+v.face+'" alt="" /></a></dt><dd><a href="">'+v.email+'</a></dd></dl></div><div class="item"><div class="title"><span>'+v.addtime+'</span><strong class="star star'+data.star+'"></strong></div><div class="comment_content">'+v.content+'</div><div class="btns"><a href="" class="reply">回复('+v.reply_count+')</a><a href="" class="useful">有用('+v.used+')</a></div></div><div class="cornor"></div></div>';
+			});
+			html += "</div>";
+			html = $(html);
+			// 把数据放到页面上
+			$("#comment_page").before(html);
+			// 效果显示出来评论的内容
+			html.fadeIn("slow");
+			current_comment_page++;  // 下一次取下一页
+			if(data == null){
+				// 如果没有评论的数据
+				$(window).unbind("scroll");
+				a_load_more.remove();
+			}
+			pending = 0; // 可以发下一个AJAX请求了
+		}
+	});
+}
+// 先获取窗口的高度
+var wp = $(window).height();
+// 为滚动条绑定一个滚动事件
+$(window).scroll(function(){
+	// 如果当前正在发请求中就不再响应事件
+	if(pending == 1)
+		return ;
+	// 获取加载更多按钮所在的位置
+	var p = a_load_more.offset();
+	if(p == 0)  //如果那个加载更多按钮是隐藏，则直接返回
+		return ;
+	// 获取滚动了多高
+	var sh = $(window).scrollTop();
+	// 如果窗口的高度加上滚动的高度大于按钮距离上面的距离就说明按钮出现在了屏幕上
+	if((sh + wp - 400) >  p.top){
+		pending = 1;  // 标记为当前正在发AJAX请求
+		a_load_more.trigger("click");
+	}
+});
 </script>
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+

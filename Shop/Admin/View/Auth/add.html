@@ -1,19 +1,19 @@
-<extend name="Common:common" />
-<!-- 标题 -->
+<extend name="Common:common"/>
+<!--标题-->
 <block name="title">
-    <title>管理中心 - 新增权限</title>
+        <title>管理中心 - 新增权限 </title>
 </block>
-<!-- 具体操作 -->
+<!--具体操作-->
 <block name="action">
-    <span class="action-span"><a href="{:U('lst')}">返回</a></span>
-    <span id="search_id"> - 新增权限</span>
+        <span class="action-span"><a href="{:U('lst')}">返回</a></span>
+        <span id="search_id"> - 新增权限</span>
 </block>
 <block name="asset">
     <script type="text/javascript">
         $(function(){
             $("input[type=submit]").click(function(){
-                var p_level=$("#s1").find("option:selected").attr("level");
-                var pid=$('#s1').val();
+                var p_level=$("#sl").find("option:selected").attr("level");
+                var pid=$('#sl').val();
                 var auth_level=(parseInt(p_level)==0&&parseInt(pid)==0)?0:parseInt(p_level)+1;
                 var data={
                     'auth_name':$('#auth_name').val(),
@@ -29,12 +29,11 @@
                     }else{
                         $("#info").text('新增失败').parent().show();
                     }
-
                     setTimeout(function(){
-                        $("#info").parent().hide();
+                       $("#info").parent().hide();
                     },3000);
                 });
-                return false;
+                return false;     
             });
         });
     </script>
@@ -42,26 +41,31 @@
 <block name="main">
     <div class="main-div">
         <div class="alert alert-warning alert-dismissible hide" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <span id="info"></span>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+          </button>
+             <span id="info"></span>
         </div>
-        <form style="margin:5px;">
-            <p>上级权限：<select name="pid" id="s1">
-                    <option value="0" level="0">顶级权限</option>
-                    <volist name="parentData" id="v">
-                        <option value="{$v['id']}" level="{$v['auth_level']}">
-                        {:str_repeat('-', 8*$v['auth_level']).$v['auth_name']}
-                        </option>
-                    </volist>
-                </select>
-            </p>
-            <p class="label">权限名称：<input type="text" id="auth_name" placeholder="如果没有则填null" /></p>
-            <p class="label">模块名称：<input type="text" id="module_name" placeholder="如果没有则填null" /></p>
-            <p class="label">控制器名称：<input type="text" id="controller_name" placeholder="如果没有则填null" /></p>
-            <p class="label">方法名称：<input type="text" id="action_name" placeholder="如果无方法则填null" /></p>
-            <input type="submit" class="btn btn-primary" value="确定" />
+        <form style="margin:5px">
+        <p>上级权限：
+            <select name="pid" id="sl">
+    			<option value="0" level="0">顶级权限</option>
+    			<volist name="parentData" id="v">			
+                    <option value="{$v['id']}" level="{$v['auth_level']}">
+                     {:str_repeat('-', 8*$v['auth_level']).$v['auth_name']}
+                     </option>
+    			</volist>			
+            </select>
+        </p>
+    	<p>权限名称：<input  type="text" id="auth_name" 
+        placeholder="如果没有则填null"/></p>
+        <p>模块名称：<input  type="text" id="module_name" 
+        placeholder="如果没有则填null"/></p>
+        <p>控制器名称：<input  type="text" id="controller_name"
+        placeholder="如果没有则填null"/></p>
+        <p>方法名称：<input  type="text" id="action_name"
+        placeholder="如果无方法则填null"/></p>
+        <input type="submit" class="btn btn-primary" value="确定" />   
         </form>
     </div>
 </block>

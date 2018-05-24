@@ -3,7 +3,7 @@
 <head>
 <title>管理中心</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="text/javascript"> 
+<script type="Text/Javascript" language="JavaScript">
 if (window.top != window) {
     window.top.location.href = document.location.href;
 }
@@ -11,10 +11,11 @@ if (window.top != window) {
 <frameset rows="76,*" framespacing="0" border="0">
     <frame src="{:U('top')}" id="header-frame" name="header-frame" frameborder="no" scrolling="no">
     <frameset cols="180,*" framespacing="0" border="0" id="frame-body">
-        <frame src="{:U('menu')}" id="menu-frame" name="menu-frame" frameborder="no">
-        <frame src="{:U('main')}" id="main-frame" name="main-frame" frameborder="no">
+        <frame src="<?php echo U('menu')?>" id="menu-frame" name="menu-frame" frameborder="no">
+        <frame src="<?php echo U('main')?>" id="main-frame" name="main-frame" frameborder="no">
     </frameset>
 </frameset>
 </head>
-    <body></body>
+<body>
+</body>
 </html>

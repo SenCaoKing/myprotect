@@ -1,65 +1,66 @@
-<extend name="Common:common" />
-<!-- 标题 -->
+<extend name="Common:common"/>
+<!--标题-->
 <block name="title">
-    <title>管理中心 - 管理员列表</title>
+	<title>管理中心 - 管理员列表 </title>
 </block>
-<!-- 其他样式 -->
+<!--其它样式-->
 <block name="asset">
     <style type="text/css">
-        td{text-align: center;}
-        a{color: #9cf !important;}
+      td{text-align: center;}
+      a{color: #9cf !important}
     </style>
     <script type="text/javascript">
-        $(function(){
-            $('.is_use').click(function(){
-                var _this=this;
-                var adminID=$(_this).attr('adminID');
-                if(adminID==1){
-                    alert('root用户不能禁用');
-                    return;
-                }
-                $.get("{:U('Admin/Admin/setUnuse/id/"+adminID+"')}",function(res){
-                    if(res==0) $(_this).html('已禁用');
-                    else $(_this).html('已启用');
-                })
-            })
-        });
+    $(function(){
+    	$('.is_use').click(function(){
+    		var _this=this;
+    		var adminID=$(_this).attr('adminID');
+    		if(adminID==1){
+    			alert('root用户不能禁用');
+    			return;
+    		}
+    		$.get("{:U('Admin/Admin/setUnuse/id/"+adminID+"')}",function(res){
+    			if(res==0) $(_this).html('已禁用');
+    			else $(_this).html('已启用');
+    		})
+    	})
+    });
     </script>
 </block>
 
-<!-- 具体操作 -->
+<!--具体操作-->
 <block name="action">
-    <span class="action-span"><a href="{:U('Admin/Admin/add')}">添加管理员</a></span>
-    <span id="search_id"> - 管理员列表</span>
+		<span class="action-span"><a href="{:U('Admin/Admin/add')}">添加管理员</a></span>
+		<span id="search_id"> - 管理员列表 </span>
 </block>
 
 <!-- 列表 -->
 <block name="main">
-    <div class="list-div" id="listDiv">
-        <table cellspacing="1" cellpadding="3">
-            <tr>
-                <th>ID</th>
-                <th>账号</th>
-                <th>密码</th>
-                <th>所属角色</th>
-                <th>状态</th>
-                <th width="120">操作</th>
-            </tr>
-            <volist name="data" id="v">
-                <tr class="tron">
-                    <td>{$v['id']}</td>
-                    <td>{$v['username']}</td>
-                    <td>{$v['password']}</td>
-                    <td>{$v['role_names']}</td>
-                    <td adminID="{$v['id']}" class="is_use" style="color:#9cf;cursor:pointer;">{$v['is_use']==1?'已启用':'已禁用'}</td>
-                    <td align="center">
-                        <a href="<?php echo U('Admin/Admin/edit?id='.$v['id'].'&p='.I('get.p')); ?>" title="编辑">编辑</a>
-                        <?php if($v['id']>1) {?>|
-                            <a href="<?php echo U('Admin/Admin/delete?id='.$v['id'].'&p='.I('get.p')); ?>" onclick="return confirm('确定要删除吗？');" title="移除">移除</a>
-                        <?php }?>
-                    </td>
-                </tr>
-            </volist>
-        </table>
-    </div>
+<!-- 列表 -->
+<div class="list-div" id="listDiv">
+	<table cellpadding="3" cellspacing="1">
+    	<tr>
+    	    <th>ID</th>
+            <th>账号</th>
+            <th>密码</th>
+            <th>所属角色</th>
+            <th>状态</th>
+			<th width="120">操作</th>
+        </tr>
+		  <volist name="data" id="v">      
+			<tr class="tron">
+			    <td>{$v['id']}</td>
+				<td>{$v['username']}</td>
+				<td>{$v['password']}</td>
+				<td>{$v['role_names']}</td>
+				<td adminID="{$v['id']}" class="is_use" style="color:#9cf;cursor:pointer">{$v['is_use']==1?'已启用':'已禁用'}</td>
+		        <td align="center">
+		        	<a href="<?php echo U('Admin/Admin/edit?id='.$v['id'].'&p='.I('get.p')); ?>" title="编辑">编辑</a> 
+		        <?php if($v['id']>1) {?>|
+	                <a href="<?php echo U('Admin/Admin/delete?id='.$v['id'].'&p='.I('get.p')); ?>" onclick="return confirm('确定要删除吗？');" title="移除">移除</a> 
+	             <?php }?>
+		        </td>
+	        </tr>
+           </volist>  
+	</table>
+</div>
 </block>

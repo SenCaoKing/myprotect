@@ -3,8 +3,8 @@
 <head>
 <title>Menu</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
 <link href="__PUBLIC__/Admin/Styles/general.css" rel="stylesheet" type="text/css" />
+
 <style type="text/css">
 body {
   background: #80BDCB;
@@ -121,33 +121,28 @@ body {
     </p>
 </div>
 <div id="main-div">
-	<div id="menu-list">
-	    <ul id="menu-ul">
-        <?php foreach($btn as $k => $v) {?>
-          <li class="explode" key="02_cat_and_goods" name="menu">
-            <?= $v['auth_name']?>
-            <ul>
-              <?php foreach($v['children'] as $k1 => $v1) {?>
-                  <li class="menu-item"><a href="<?php echo U($v1['module_name'].'/'.$v1['controller_name'].''.$v1['action_name']); ?>" target="main-frame" ><?= $v1['auth_name']?></a></li>
-              <?php }?>
-              
-            </ul>
-          </li>
-        <?php }?>
-	        
-
-         
-	    </ul>
-	</div>
-  <div id="help-div" style="display:none">
-    <h1 id="help-title"></h1>
-	  <div id="help-content"></div>
-  </div>
+    <div id="menu-list">
+        <ul id="menu-ul">
+            <?php foreach($btn as $k => $v) {?>
+            <li class="explode" key="02_cat_and_goods" name="menu">
+              <?= $v['auth_name']?>
+                <ul>
+                <?php foreach($v['children'] as $k1 => $v1) {?>
+                     <li class="menu-item"><a href="<?php echo U($v1['module_name'].'/'.$v1['controller_name'].'/'.$v1['action_name']); ?>" target="main-frame"><?= $v1['auth_name']?></a></li>
+                <?php }?>
+                </ul>
+            </li>
+           <?php }?>
+        </ul>
+    </div>
+    <div id="help-div" style="display:none">
+        <h1 id="help-title"></h1>
+        <div id="help-content"></div>
+    </div>
 </div>
 <script type="text/javascript" src="__PUBLIC__/Admin/Js/global.js"></script>
 <script type="text/javascript" src="__PUBLIC__/Admin/Js/utils.js"></script>
 <script type="text/javascript" src="__PUBLIC__/Admin/Js/transport.js"></script>
-
 <script language="JavaScript">
     var collapse_all = "闭合";
     var expand_all = "展开";
